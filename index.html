@@ -124,7 +124,7 @@ button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
 .mpanel{position:relative;width:min(760px,100%);max-height:100%;overflow:auto;background:var(--paper);color:var(--ink);border-radius:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);animation:pop .45s cubic-bezier(.22,1,.36,1) both;overscroll-behavior:contain}
 @keyframes fade{from{opacity:0}}
 @keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}}
-.mclose{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--forest-deep);color:var(--cream);font-size:22px;cursor:pointer}
+.mclose{position:sticky;top:12px;float:right;margin:12px 12px 0 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--forest-deep);color:var(--cream);font-size:22px;cursor:pointer}
 .rhero{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center;padding:28px 28px 22px;background:linear-gradient(160deg,#efe5d0,var(--paper))}
 .rhero h2{font-size:clamp(28px,4vw,40px);color:var(--forest);margin-top:8px}
 .rmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
@@ -157,8 +157,6 @@ button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
 .photo svg{display:none}
 .photo.nofoto{background:none;overflow:visible}.photo.nofoto img{display:none}.photo.nofoto svg{display:block}
 .card .photo{aspect-ratio:4/3;align-self:start}
-.timeline .card{grid-template-columns:minmax(0,260px) minmax(0,1fr)}
-.timeline .card.small,.timeline .card.coffee{grid-template-columns:minmax(0,170px) minmax(0,1fr)}
 .rphoto+.rhero{grid-template-columns:minmax(0,1fr)}.rphoto+.rhero .art{display:none}
 .rphoto{height:clamp(200px,34vh,320px);overflow:hidden;border-radius:28px 28px 0 0}
 .rphoto img{width:100%;height:100%;object-fit:cover;display:block}
@@ -336,8 +334,7 @@ footer p{max-width:54ch;font-size:14px}
   .slot{grid-template-columns:minmax(0,1fr);gap:6px;padding-left:24px}
   .time{text-align:left;padding-top:0}
   .time::after{left:-20px;right:auto;top:6px}
-  .timeline .card,.timeline .card.small,.timeline .card.coffee{grid-template-columns:minmax(0,1fr)}
-  .card .photo,.card.small .photo,.card.coffee .photo{width:100%!important;aspect-ratio:16/10}
+  .card,.card.small,.card.coffee{grid-template-columns:minmax(0,1fr)}
   .card .art{width:110px}
   .card.small .art,.card.coffee .art{width:84px}
   .milk{grid-template-columns:minmax(0,1fr) 46px}
@@ -469,7 +466,7 @@ footer p{max-width:54ch;font-size:14px}
 <footer>
   <div class="wrap">
     <div><div class="brand">Plant <em>Protein</em> 30</div><p style="margin-top:6px">Thirty days of high-protein vegan and vegetarian eating.</p></div>
-    <p>Food photography from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>, matched by dish type. Protein and caffeine values are approximate and vary by brand, portion and preparation. This is general information, not medical advice; a registered dietitian can tailor it to your needs, including allergies, kidney health, pregnancy or medications.</p>
+    <p>Protein and caffeine values are approximate and vary by brand, portion and preparation. This is general information, not medical advice; a registered dietitian can tailor it to your needs, including allergies, kidney health, pregnancy or medications.</p>
   </div>
 </footer>
 
@@ -858,7 +855,7 @@ fg.innerHTML=FOODS.map(function(f){return '<div class="food"><div class="row"><d
 
 /* snack library sorted */
 function renderLib(){var lib=SNACKS.concat(P_SNACKS).slice().sort(function(a,b){return b[2]-a[2];});
-document.getElementById("libgrid").innerHTML=lib.map(function(s){var m=meal(s,"Snack");return '<button type="button" class="snk" data-recipe="'+reg(m)+'" style="text-align:left;font:inherit;cursor:pointer;color:inherit"><span class="snkph"><img src="'+photoURL(s[0],480)+'" alt="" loading="lazy" onerror="this.parentNode.remove()"></span><span class="r"><span class="pill">'+s[2]+'g</span>'+badge(s[1])+'</span><h4>'+esc(s[0])+'</h4><p>'+esc(s[4])+'</p><span class="d">OPEN RECIPE →</span></button>';}).join("");}
+document.getElementById("libgrid").innerHTML=lib.map(function(s){var m=meal(s,"Snack");return '<button type="button" class="snk" data-recipe="'+reg(m)+'" style="text-align:left;font:inherit;cursor:pointer;color:inherit"><span class="r"><span class="pill">'+s[2]+'g</span>'+badge(s[1])+'</span><h4>'+esc(s[0])+'</h4><p>'+esc(s[4])+'</p><span class="d">OPEN RECIPE →</span></button>';}).join("");}
 
 document.getElementById("tiplist").innerHTML=TIPS.map(function(t,k){return '<div class="tip"><i>'+String(k+1).padStart(2,"0")+'</i><div><h3>'+esc(t[0])+'</h3><p>'+esc(t[1])+'</p></div></div>';}).join("");
 
@@ -886,7 +883,7 @@ function cardHTML(it,idx){
   var art=it.type==="coffee"?cupSVG(m.n.toLowerCase()):bowlSVG(m,it.type==="snack");
   var label=it.type==="coffee"?"Why this cup works":it.type==="snack"?"Why it's a good snack":"Why it's good for you";
   return '<div class="slot"><div class="time">'+it.t+'</div><article class="'+cls+' tilt" style="animation-delay:'+(idx*60)+'ms">'+
-    photoBox(m,art,it.type==="meal"?720:420)+'<div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
+    '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
     '<h3>'+esc(m.n)+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
     '<p class="why"><b>'+label+':</b> '+esc(m.h)+'</p>'+
     '<button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button></div></article></div>';
@@ -1121,7 +1118,7 @@ var REG=[];
 function reg(m){REG.push(m);return REG.length-1;}
 function openRecipe(m){
   var r=recipeFor(m), coffee=/cappuccino/i.test(m.n);
-  openModal('<div class="rphoto"><img src="'+photoURL(m.n,1200)+'" alt="'+esc(m.n)+'" onerror="this.parentNode.remove()"></div><div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+(r.batch?"Sunday prep · ":(coffee||/snack/i.test(m.kind||"")?"":"Easy prep · "))+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
+  openModal('<div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+(r.batch?"Sunday prep · ":(coffee||/snack/i.test(m.kind||"")?"":"Easy prep · "))+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
   '<div class="rgrid"><div><h3>Ingredients</h3><ul class="ing">'+r.ings.map(function(g,ix){var am=g.amt,w=am.split(" "),last=w[w.length-1].replace(/s$/,"").toLowerCase();if(w.length>1&&last.length>2&&g.raw.toLowerCase().indexOf(last)>-1)am=w.slice(0,-1).join(" ");return '<li><label><input type="checkbox" id="ing'+ix+'"><span><b>'+esc(am)+'</b> '+esc(g.raw)+'</span></label></li>';}).join("")+'<li><label><input type="checkbox" id="ingx"><span>Salt, pepper and oil</span></label></li></ul></div>'+
   '<div>'+(r.batch?'<h3>On Sunday</h3><ol class="steps">'+r.batch.sun.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>On the day · about '+r.batch.time+' min</h3><ol class="steps">'+r.batch.day.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>Full method (if cooking from scratch)</h3>':'<h3>Method</h3>')+'<ol class="steps">'+r.steps.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol></div></div>'+
   '<p class="rwhy"><b>Why it’s good for you:</b> '+esc(m.h)+'</p>'+
