@@ -111,6 +111,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .shopbtn{margin-left:auto;font:700 14px var(--body);background:var(--terra);color:var(--cream);border:0;border-radius:999px;padding:11px 20px;cursor:pointer;transition:transform .25s}
 .shopbtn:hover{transform:translateY(-2px)}
 .daybtn i{font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.1em;opacity:.8}
+.ttag{font-family:var(--mono);font-size:11px;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:3px 9px;white-space:nowrap}
+.week{display:grid;gap:8px;margin-top:6px}
+.week li{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--paper);font-size:14px;color:var(--muted)}
+.week li b{color:var(--forest)}
 .daytitle{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);color:var(--cream);margin:0 0 18px 84px}
 .daytitle em{color:var(--gold)}
 button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
@@ -370,6 +374,10 @@ footer p{max-width:54ch;font-size:14px}
     </div>
     <p class="modehint" id="modehint"></p>
     <div class="custom" id="custom" hidden></div>
+    <div class="cuisinebar">
+      <span class="clabel">Cooking style</span>
+      <div class="cchips" id="pstyle" role="group" aria-label="Cooking style"><button data-p="easy">Easy prep · cook nightly, 15–20 min</button><button data-p="batch">Sunday batch prep · cook once for the week</button></div>
+    </div>
     <div class="cuisinebar">
       <span class="clabel">Cuisine days</span>
       <div class="cchips" id="cchips" role="group" aria-label="Cuisine days"></div>
@@ -740,8 +748,8 @@ var NOTES=[
 
 /* build 30 days */
 function meal(arr,kind){return {kind:kind,n:arr[0],d:arr[1],p:arr[2],i:arr[3].split(", "),h:arr[4]};}
-var DAYS=[], MODE="mixed", CUSTOM={b:"p",l:"v",d:"p",s:"v"};
-try{var sv=JSON.parse(localStorage.getItem("pp30")||"null");if(sv&&sv.mode){MODE=sv.mode;if(sv.custom)CUSTOM=sv.custom;}}catch(e){}
+var DAYS=[], MODE="mixed", CUSTOM={b:"p",l:"v",d:"p",s:"v"}, PREP="batch";
+try{var sv=JSON.parse(localStorage.getItem("pp30")||"null");if(sv&&sv.mode){MODE=sv.mode;if(sv.custom)CUSTOM=sv.custom;if(sv.prep)PREP=sv.prep;}}catch(e){}
 function pick(mode,i,slot){
   if(mode==="pesc")return "p"; if(mode==="veg")return "v"; if(mode==="custom")return CUSTOM[slot];
   return {b:i%3===0,l:i%2===0,d:i%2===1,s:i%2===0}[slot]?"p":"v";
@@ -856,7 +864,7 @@ function cardHTML(it,idx){
   var art=it.type==="coffee"?cupSVG(m.n.toLowerCase()):bowlSVG(m,it.type==="snack");
   var label=it.type==="coffee"?"Why this cup works":it.type==="snack"?"Why it's a good snack":"Why it's good for you";
   return '<div class="slot"><div class="time">'+it.t+'</div><article class="'+cls+' tilt" style="animation-delay:'+(idx*60)+'ms">'+
-    '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'</div>'+
+    '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
     '<h3>'+esc(m.n)+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
     '<p class="why"><b>'+label+':</b> '+esc(m.h)+'</p>'+
     '<button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button></div></article></div>';
@@ -895,7 +903,7 @@ var HINTS={mixed:"Mixed: every day has at least one seafood meal or snack, along
 var SLOTS=[["b","Breakfast"],["l","Lunch"],["d","Dinner"],["s","Snacks"]];
 var customEl=document.getElementById("custom");
 customEl.innerHTML=SLOTS.map(function(s){return '<div class="crow"><span>'+s[1]+'</span><div class="seg" data-slot="'+s[0]+'"><button data-v="p">Seafood</button><button data-v="v">Veg</button></div></div>';}).join("");
-function save(){try{localStorage.setItem("pp30",JSON.stringify({mode:MODE,custom:CUSTOM}));}catch(e){}}
+function save(){try{localStorage.setItem("pp30",JSON.stringify({mode:MODE,custom:CUSTOM,prep:PREP}));}catch(e){}}
 function syncUI(){
   [].forEach.call(document.querySelectorAll("#modes button"),function(b){b.setAttribute("aria-pressed",String(b.dataset.mode===MODE));});
   customEl.hidden=MODE!=="custom";
@@ -1044,7 +1052,32 @@ var TMPL={
   bake:{t:30,s:["Heat the oven to 200°C (400°F) or warm a heavy pan over medium-high heat.","Season the main protein with salt, pepper and the spices or glaze.","Roast or sear until done: fish 8–12 minutes until it flakes, tofu 20–25 minutes until crisp, stuffed vegetables 25–30 minutes.","Meanwhile, cook the sides: lentils, beans, grain or greens.","Plate the protein over the sides and finish with lemon, herbs or sauce."]},
   snack:{t:5,s:["Gather the ingredients and portion them into a small bowl or container.","Combine or assemble: spread, dip, top or toss as needed.","Season to taste and eat right away, or pack it for later."]}
 };
-function recipeFor(m){var k=tmpl(m.n),T=TMPL[k],t=T.t;if(m.kind&&/snack/i.test(m.kind)&&k!=="blend")t=Math.min(t,10);return {steps:(m.kind&&/snack/i.test(m.kind)&&["blend","oats"].indexOf(k)<0?TMPL.snack.s:T.s),time:/snack/i.test(m.kind||"")&&k!=="blend"?Math.min(t,10):t,ings:m.i.map(norm)};}
+var SHORT={"Rice":"microwavable rice pouch","Brown rice":"microwavable brown rice (frozen or pouch)","Quinoa":"ready-cooked quinoa (frozen or pouch)","Farro":"10-minute farro","Lentils":"steamed ready-to-eat lentils","Extra-firm tofu":"pre-baked or marinated tofu","Tempeh":"pre-sliced tempeh","Salmon fillet":"frozen salmon portions (cook from frozen)","Shrimp":"frozen cooked shrimp","Cod":"frozen cod portions (cook from frozen)","White fish (cod or snapper)":"frozen white fish portions","Bell peppers":"pre-cut peppers or stir-fry mix","Onions":"pre-diced onion","Cabbage":"bagged slaw mix","Broccoli":"frozen broccoli florets","Spinach":"pre-washed baby spinach","Shelled edamame":"frozen shelled edamame","Eggs":"pre-boiled eggs where hard-boiled works","Potatoes":"microwave-steam potatoes","Sweet potatoes":"pre-cubed sweet potato","Chickpeas":"canned chickpeas","Black beans":"canned black beans","Garlic":"jarred minced garlic","Ginger":"ginger paste","Mixed greens":"bagged salad greens","Plantains":"frozen plantain (tostones or maduros)"};
+function prepSteps(m,k){
+  var ings=m.i.map(norm),names=ings.map(function(g){return g.name;});
+  var sun=[],day=[];
+  var grains=names.filter(function(n){return /Rice|Quinoa|Farro|Lentils$|Beans|Chickpeas/.test(n);});
+  if(grains.length)sun.push("Cook or open the "+grains.map(function(n){return n.toLowerCase();}).join(", ")+" with the rest of the week's batch; portion into containers.");
+  if(names.indexOf("Extra-firm tofu")>-1||names.indexOf("Tempeh")>-1)sun.push("Bake the tofu or steam the tempeh with the Sunday tray; refrigerate in this meal's container.");
+  var veg=names.filter(function(n){return /peppers|Onions|Cucumber|Broccoli|Carrots|Celery|Cabbage|Mushrooms|Kale|Romaine|potatoes/i.test(n);});
+  if(veg.length)sun.push("Chop the "+veg.map(function(n){return n.toLowerCase();}).join(", ")+" with the Sunday vegetables.");
+  if(/curry|dal|stew|soup|chili|bolognese|lasagna|enchilada|tagine|shepherd|masala|makhani|fanesca|menestra|locro|pozole|chowder/i.test(m.n))sun.push("Cook the whole dish on Sunday and refrigerate it in portions; freeze any portion for day 5 or later.");
+  if(names.indexOf("Eggs")>-1&&/salad|bowl|wrap|toast|snack/i.test(m.n+" "+(m.kind||"")))sun.push("Use eggs hard-boiled in the Sunday batch.");
+  var fish=ings.some(function(g){return g.cat==="Seafood"&&!/Canned|Smoked|Sardines|Anchov|Kipper|pouch|Crab/.test(g.name);});
+  if(fish)day.push("Cook the seafood fresh tonight: move it from freezer to fridge the night before, then sear, bake or simmer for 8–12 minutes.");
+  if(/curry|dal|stew|soup|chili|bolognese|lasagna|enchilada|tagine|shepherd|masala|makhani|fanesca|menestra|locro|pozole|chowder/i.test(m.n))day.push("Reheat a portion until steaming, about 3–4 minutes in the microwave or 8 on the stove.");
+  else if(k==="eggs")day.push("Cook the eggs fresh (5 minutes); everything else is already prepped.");
+  else day.push("Take this meal's container from the fridge and assemble: warm the grain and protein for 90 seconds, then add the fresh parts and sauce.");
+  day.push("Finish with lemon, herbs or the Sunday sauce.");
+  if(!sun.length)sun.push("Nothing to cook ahead; this one is quick to make fresh.");
+  return {sun:sun,day:day,time:fish?12:5};
+}
+function recipeFor(m){var k=tmpl(m.n),T=TMPL[k],t=T.t;if(m.kind&&/snack/i.test(m.kind)&&k!=="blend")t=Math.min(t,10);var snack=/snack/i.test(m.kind||""),steps=(snack&&["blend","oats"].indexOf(k)<0?TMPL.snack.s:T.s).slice(),time=snack&&k!=="blend"?Math.min(t,10):t,ings=m.i.map(norm),extra=null;
+  if(k!=="coffee"&&!snack){
+    if(PREP==="easy"){var sc=ings.map(function(g){return SHORT[g.name];}).filter(Boolean);if(sc.length)steps.unshift("Shortcuts: use "+sc.join(", ")+". Skip any cooking step a shortcut already covers.");time=Math.min(time,20);}
+    else{extra=prepSteps(m,k);time=extra.time;}
+  }
+  return {steps:steps,time:time,ings:ings,batch:extra};}
 
 var modal=document.getElementById("modal"),mbody=document.getElementById("mbody"),lastFocus=null;
 function openModal(html){lastFocus=document.activeElement;mbody.innerHTML=html;modal.hidden=false;document.body.style.overflow="hidden";var c=modal.querySelector(".mclose");c&&c.focus();}
@@ -1056,9 +1089,9 @@ var REG=[];
 function reg(m){REG.push(m);return REG.length-1;}
 function openRecipe(m){
   var r=recipeFor(m), coffee=/cappuccino/i.test(m.n);
-  openModal('<div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
+  openModal('<div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+(r.batch?"Sunday prep · ":(coffee||/snack/i.test(m.kind||"")?"":"Easy prep · "))+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
   '<div class="rgrid"><div><h3>Ingredients</h3><ul class="ing">'+r.ings.map(function(g,ix){var am=g.amt,w=am.split(" "),last=w[w.length-1].replace(/s$/,"").toLowerCase();if(w.length>1&&last.length>2&&g.raw.toLowerCase().indexOf(last)>-1)am=w.slice(0,-1).join(" ");return '<li><label><input type="checkbox" id="ing'+ix+'"><span><b>'+esc(am)+'</b> '+esc(g.raw)+'</span></label></li>';}).join("")+'<li><label><input type="checkbox" id="ingx"><span>Salt, pepper and oil</span></label></li></ul></div>'+
-  '<div><h3>Method</h3><ol class="steps">'+r.steps.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol></div></div>'+
+  '<div>'+(r.batch?'<h3>On Sunday</h3><ol class="steps">'+r.batch.sun.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>On the day · about '+r.batch.time+' min</h3><ol class="steps">'+r.batch.day.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>Full method (if cooking from scratch)</h3>':'<h3>Method</h3>')+'<ol class="steps">'+r.steps.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol></div></div>'+
   '<p class="rwhy"><b>Why it’s good for you:</b> '+esc(m.h)+'</p>'+
   '<div class="rfoot"><span>Amounts are a single-serving guide; adjust to taste.</span><span style="display:flex;gap:14px;align-items:center"><button class="rshare" type="button" data-share="recipe">Share recipe</button><a href="'+recipeUrl(m.n)+'" target="_blank" rel="noopener noreferrer">More versions online →</a></span></div>');
   CURRENT_RECIPE=m; setHash("recipe-"+slug(m.n));
@@ -1127,6 +1160,11 @@ mbody.addEventListener("click",function(e){
   if(e.target.id==="copylist"){var btn=e.target;try{navigator.clipboard.writeText(window.__shopText).then(function(){btn.textContent="Copied";},function(){btn.textContent="Select and copy manually";});}catch(err){btn.textContent="Select and copy manually";}}
 });
 
+/* cooking style */
+var pst=document.getElementById("pstyle");
+function syncP(){[].forEach.call(pst.children,function(b){b.setAttribute("aria-pressed",String(b.dataset.p===PREP));});}
+pst.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;PREP=b.dataset.p;syncP();save();show(cur,false);setHash(stateHash());renderPlanner();toast(PREP==="easy"?"Easy prep: quick nightly cooking with shortcuts":"Sunday batch prep: cook once for the week");});
+syncP();
 /* cuisine chips */
 var cchips=document.getElementById("cchips");
 cchips.innerHTML='<button data-c="">All cuisines</button>'+Object.keys(CUISINES).map(function(k){return '<button data-c="'+k+'">'+CUISINES[k].name+'</button>';}).join("");
@@ -1138,7 +1176,7 @@ syncC();
 /* ---------------- share links ---------------- */
 var CURRENT_RECIPE=null, AB={japanese:"jp",italian:"it",indian:"in",mexican:"mx",ecuadorian:"ec"}, BA={jp:"japanese",it:"italian","in":"indian",mx:"mexican",ec:"ecuadorian"};
 function slug(n){return n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
-function stateHash(){return "plan-"+MODE+(MODE==="custom"?"-"+["b","l","d","s"].map(function(k){return CUSTOM[k];}).join(""):"")+CUIS.map(function(c){return "-"+AB[c];}).join("")+"-d"+cur;}
+function stateHash(){return "plan-"+MODE+(MODE==="custom"?"-"+["b","l","d","s"].map(function(k){return CUSTOM[k];}).join(""):"")+CUIS.map(function(c){return "-"+AB[c];}).join("")+"-"+(PREP==="easy"?"e":"b")+"-d"+cur;}
 function setHash(h){try{if(location.hash!=="#"+h)history.replaceState(null,"","#"+h);}catch(e){}}
 function shareURL(h){return location.href.split("#")[0]+"#"+h;}
 var toastEl=document.getElementById("toast"),tt;
@@ -1168,10 +1206,10 @@ function applyHash(){
   var h=location.hash.slice(1),m;
   if((m=/^recipe-(.+)$/.exec(h))){var r=findRecipe(m[1]);if(r)openRecipe(r);return true;}
   if((m=/^day-(\d+)$/.exec(h))){show(+m[1]);document.getElementById("plan").scrollIntoView();return true;}
-  if((m=/^plan-(mixed|pesc|veg|custom)(?:-([pv]{4}))?((?:-(?:jp|it|in|mx|ec))*)-d(\d+)$/.exec(h))){
+  if((m=/^plan-(mixed|pesc|veg|custom)(?:-([pv]{4}))?((?:-(?:jp|it|in|mx|ec))*)(?:-([eb]))?-d(\d+)$/.exec(h))){
     MODE=m[1];if(m[2]){CUSTOM={b:m[2][0],l:m[2][1],d:m[2][2],s:m[2][3]};}
-    CUIS=m[3]?m[3].slice(1).split("-").map(function(a){return BA[a];}):[];
-    build(MODE);syncUI();syncC();cur=+m[4];show(cur,false);renderPlanner();
+    CUIS=m[3]?m[3].slice(1).split("-").map(function(a){return BA[a];}):[];if(m[4])PREP=m[4]==="e"?"easy":"batch";
+    build(MODE);syncUI();syncC();syncP();cur=+m[5];show(cur,false);renderPlanner();
     var g=stats();document.getElementById("statTotal").textContent=g.toLocaleString();document.getElementById("statAvg").textContent=Math.round(g/30);
     if(cur>1||MODE!=="mixed"||CUIS.length)document.getElementById("plan").scrollIntoView();return true;}
   return false;
@@ -1206,18 +1244,32 @@ function renderPlanner(){
   if(sn.length)add(15,"Batch the make-ahead snacks",sn.join("; ")+".");
   var fish=["Salmon fillet","Shrimp","Cod","White fish (cod or snapper)","Trout","Halibut","Black cod","Mackerel","Scallops","Sushi-grade ahi tuna"].filter(has);
   if(fish.length)add(5,"Plan the seafood",fish.map(function(f){return f.toLowerCase()+" ×"+has(f);}).join(", ")+". Keep it frozen and move each portion to the fridge the night before. Cook fish fresh, or eat cooked fish within 3–4 days.");
-  add(10,"Portion and label","Pack 3–4 days of lunches and snacks into containers. Freeze grains and beans for the second half of the week.");
+  var MA=/curry|dal|stew|soup|chili|bolognese|lasagna|enchilada|tagine|shepherd|masala|makhani|fanesca|menestra|locro|pozole|chowder/i, mk=[];
+  DAYS.slice(R[0]-1,R[1]).forEach(function(D,ix){D.items.forEach(function(it){if(it.type==="meal"&&MA.test(it.x.n))mk.push(it.x.n+" (day "+(R[0]+ix)+")");});});
+  if(mk.length)add(30,"Cook the make-ahead mains",mk.join("; ")+". Cool, portion and refrigerate; freeze anything for day 5 or later.");
+  add(10,"Portion and label","Pack lunches, breakfasts and snacks into labeled containers for each day. Freeze grains and beans for the second half of the week.");
+  if(PREP==="easy"){
+    steps=[];t=0;
+    var sc=Object.keys(A).filter(function(k){return SHORT[k];}).map(function(k){return SHORT[k];});
+    add(0,"Shop the shortcuts",sc.length?sc.join(", ")+".":"Pick ready-to-eat grains, steamed lentils and canned beans.");
+    if(has("Eggs")>=3)add(12,"Boil a batch of eggs","6 eggs, 10 minutes, then cool. Quick protein for breakfasts and snacks.");
+    add(5,"Wash the greens and herbs","So they're ready for nightly bowls and salads.");
+    if(sn.length)add(10,"Portion the snacks",sn.join("; ")+".");
+    if(fish.length)add(0,"Seafood plan","Keep "+fish.map(function(f){return f.toLowerCase();}).join(", ")+" frozen; most frozen fillets cook straight from frozen in 15 minutes, or thaw in the fridge overnight.");
+    add(0,"Each night","Open the day's recipe: with these shortcuts most meals take 15–20 minutes, start to finish.");
+  }
   var mid=R[0]+3;
   var html='<div class="ptop"><div><span class="kind">Meal prep planner</span><h3 id="prepTitle">'+{w1:"Week 1",w2:"Week 2",w3:"Week 3",w4:"Week 4"}[prepWeek]+' · days '+R[0]+'–'+R[1]+'</h3></div><div class="pbtns"><button class="primary" type="button" id="printPrep">Print</button><button type="button" data-share="prep">Share</button><button type="button" id="copyPrep">Copy text</button></div></div>'+
     '<div class="stabs" data-g="pweek">'+[["w1","Week 1"],["w2","Week 2"],["w3","Week 3"],["w4","Week 4"]].map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(prepWeek===x[0])+'">'+x[1]+'</button>';}).join("")+'</div>'+
     '<div class="stabs" data-g="pstore">'+[["any","Any store"],["co","Costco"],["wf","Whole Foods"],["tj","Trader Joe's"]].map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(prepStore===x[0])+'">'+x[1]+'</button>';}).join("")+'</div>'+
-    '<div class="pgrid"><div><h4>Sunday prep session · about '+Math.round(t/5)*5+' min</h4><ol class="psteps">'+steps.map(function(s){return '<li><span class="tm">'+(s[0]===0?"start":"+"+s[0]+" min")+'</span><div><b>'+esc(s[1])+'</b><span>'+esc(s[2])+'</span></div></li>';}).join("")+
-    '<li><span class="tm">day '+mid+'</span><div><b>Midweek refresh</b><span>Thaw the frozen grains and beans, cook a fresh batch of tofu or tempeh if needed, and restock snacks for the rest of the week.</span></div></li></ol>'+
+    '<div class="pgrid"><div><h4>'+(PREP==="easy"?"Easy prep · weekly reset about "+Math.max(10,Math.round(t/5)*5)+" min":"Sunday batch prep · about "+Math.round(t/5)*5+" min for the whole week")+'</h4><ol class="psteps">'+steps.map(function(s){return '<li><span class="tm">'+(s[0]===0?"start":"+"+s[0]+" min")+'</span><div><b>'+esc(s[1])+'</b><span>'+esc(s[2])+'</span></div></li>';}).join("")+
+    (PREP==="batch"?'<li><span class="tm">day '+mid+'</span><div><b>Midweek refresh</b><span>Thaw the frozen grains, beans and mains, cook a fresh batch of tofu or tempeh if needed, and restock snacks for the rest of the week.</span></div></li>':'')+'</ol>'+
+    (PREP==="batch"?'<h4 style="margin-top:22px">Your week at a glance</h4><ul class="week" style="list-style:none;padding:0;margin:0">'+DAYS.slice(R[0]-1,R[1]).map(function(D,ix){var ms=D.items.filter(function(i){return i.type==="meal";});return '<li><b>Day '+(R[0]+ix)+(D.cuisine?' · '+esc(D.cuisine):'')+'</b><br>'+ms.map(function(i){var r=recipeFor(i.x);return esc(i.x.kind)+': '+esc(i.x.n)+' <span class="ttag">'+r.time+' min</span>';}).join('<br>')+'</li>';}).join('')+'</ul>':'')+
     '<p class="pstore">Food safety: cooked grains, legumes and tofu keep about 3–4 days in the fridge; freeze anything for later in the week.</p></div><div class="pgl"><h4>Grocery list for this week</h4>';
   var text="MEAL PREP · days "+R[0]+"–"+R[1]+"\n"+steps.map(function(s,i){return (i+1)+". "+s[1]+": "+s[2];}).join("\n")+"\n\nGROCERY LIST\n";
   CATS.forEach(function(c){var items=Object.keys(A).map(function(k){return A[k];}).filter(function(a){return a.cat===c;}).sort(function(a,b){return b.n-a.n;});if(!items.length)return;
     text+="\n"+c.toUpperCase()+"\n";
-    html+='<h5>'+c+'</h5><ul>'+items.map(function(a){var pick=prepStore!=="any"&&PICKS[a.name]&&PICKS[a.name][prepStore];text+="- "+a.name+" ×"+a.n+(pick?" ("+STORES[prepStore]+": "+pick+")":"")+"\n";return '<li><span>'+esc(a.name)+(pick?'<small>'+esc(STORES[prepStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></li>';}).join("")+'</ul>';});
+    html+='<h5>'+c+'</h5><ul>'+items.map(function(a){var pick=prepStore!=="any"&&PICKS[a.name]&&PICKS[a.name][prepStore];text+="- "+a.name+" ×"+a.n+(pick?" ("+STORES[prepStore]+": "+pick+")":"")+"\n";var sc2=PREP==="easy"&&SHORT[a.name];return '<li><span>'+esc(a.name)+(sc2?'<small style="color:var(--moss)">Shortcut: '+esc(sc2)+'</small>':'')+(pick?'<small>'+esc(STORES[prepStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></li>';}).join("")+'</ul>';});
   html+='<h5>Cappuccinos</h5><ul><li><span>Espresso beans and milk for '+DAYS.slice(R[0]-1,R[1]).reduce(function(a,D){return a+D.cups;},0)+' cappuccinos</span><span class="n"></span></li></ul>';
   html+='<p class="pstore">'+(prepStore==="any"?"Pick a store above to see product suggestions. ":"Product names and stock vary by region and season. ")+'Almond and pecan butter show up in snacks; pecan butter is lower in protein, so it’s always paired with yogurt, cottage cheese or hemp.</p></div></div>';
   window.__prepText=text;
