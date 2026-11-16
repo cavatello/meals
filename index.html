@@ -1,0 +1,1241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A 30-day high-protein pescatarian and vegetarian meal plan with cuisine days, recipes, cappuccinos, snacks, meal prep and grocery lists.">
+<meta property="og:title" content="Plant Protein 30">
+<meta property="og:description" content="30 days of high-protein pescatarian and vegetarian eating: Japanese, Italian, Indian, Mexican and Ecuadorian days, recipes, meal prep and grocery lists.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meals.shawnwalters.com/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#11241a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2311241a'/%3E%3Cellipse cx='32' cy='34' rx='16' ry='9' fill='%23d9a845'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Plant Protein 30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a night-garden 3D opener, then a cream "day ledger" where each day reads as a timeline from 7:30 to 7:00 */
+:root{
+  --forest:#1f3a2c; --forest-deep:#11241a; --moss:#5f7d3a; --cream:#f5efe2; --paper:#fbf7ee;
+  --ink:#18261d; --muted:#5d6b5f; --line:#e2d8c3; --terra:#bf5a32; --gold:#d9a845; --gold-soft:#ecd197;
+  --coffee:#6b4129; --foam:#f3e6cf;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--display);font-weight:350;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+section{position:relative}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--forest-deep)}
+.nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(17,36,26,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(245,239,226,.14);max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--cream);text-decoration:none;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;white-space:nowrap;transition:background .25s}
+.nav a:hover{background:rgba(245,239,226,.12)}
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:2px;z-index:61;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),var(--terra))}
+
+/* hero */
+.hero{background:radial-gradient(ellipse 80% 70% at 50% 40%,#25472f 0%,var(--forest-deep) 70%);color:var(--cream);overflow:hidden;min-height:min(92vh,820px);display:flex;align-items:center}
+#scene{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;z-index:2;text-align:center;padding-block:120px 90px;pointer-events:none}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(52px,10vw,132px);font-weight:300;margin-top:18px}
+.hero h1 em{font-style:italic;background:linear-gradient(110deg,var(--gold-soft),var(--gold) 40%,var(--terra));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
+.hero .lede{max-width:560px;margin:22px auto 0;color:rgba(245,239,226,.75);font-size:18px}
+.stats{display:flex;justify-content:center;gap:clamp(18px,5vw,56px);margin-top:36px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--display);font-weight:350;font-size:clamp(34px,5vw,52px);line-height:1}
+.stat span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,239,226,.6)}
+.cta{pointer-events:auto;display:inline-flex;align-items:center;gap:10px;margin-top:38px;background:var(--gold);color:var(--forest-deep);font-weight:700;text-decoration:none;padding:15px 28px;border-radius:999px;box-shadow:0 0 60px -10px rgba(217,168,69,.7);transition:transform .3s}
+.cta:hover{transform:translateY(-2px) scale(1.03)}
+.hero-in{animation:rise 1.1s cubic-bezier(.22,1,.36,1) both}
+.hero-in.d2{animation-delay:.15s}.hero-in.d3{animation-delay:.3s}.hero-in.d4{animation-delay:.45s}
+@keyframes rise{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+
+/* shared section heads */
+.head{display:grid;gap:16px;max-width:760px}
+.head h2{font-size:clamp(42px,7vw,88px);color:var(--forest)}
+.head h2 em{color:var(--terra)}
+.head p{font-size:18px;color:var(--muted);max-width:56ch}
+.reveal{transition:transform 1s cubic-bezier(.22,1,.36,1)}
+.reveal.pre{transform:translateY(28px)}
+
+/* powerhouses */
+.foods{padding-block:120px}
+.foodgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:4px 48px;margin-top:56px}
+.food{padding:18px 0;border-bottom:1px solid var(--line);display:grid;gap:10px}
+.food .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.food h3{font-size:26px;color:var(--forest)}
+.food small{display:block;color:var(--muted);font-size:13px}
+.food .g{font-family:var(--display);font-size:38px;color:var(--forest)}
+.food .g span{font-size:15px;color:var(--muted);margin-left:2px}
+.bar{height:6px;border-radius:9px;background:#e8dfcb;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--gold),var(--terra));transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.badge svg{width:12px;height:12px}
+.badge.vegan{background:#dfe9cf;color:#2c5220}
+.badge.vegetarian{background:#f6e6bd;color:#6b4d0c}
+.badge.pescatarian{background:#d3e5e8;color:#1c4f5c}
+.modes{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:999px;border:1px solid rgba(245,239,226,.2);width:fit-content;max-width:100%;margin-top:40px}
+.modes button{font:600 14px var(--body);color:rgba(245,239,226,.75);background:transparent;border:0;padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.modes button:hover{color:var(--cream)}
+.modes button[aria-pressed="true"]{background:var(--gold);color:var(--forest-deep)}
+.modehint{margin-top:12px;font-size:14px;color:rgba(245,239,226,.62);max-width:62ch}
+.custom{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px;max-width:900px}
+.custom[hidden]{display:none!important}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid rgba(245,239,226,.14);border-radius:16px;padding:10px 12px}
+.crow span{font-size:14px;font-weight:600}
+.seg{display:flex;gap:2px;background:rgba(245,239,226,.08);border-radius:999px;padding:3px}
+.seg button{font:600 12px var(--body);border:0;background:transparent;color:rgba(245,239,226,.7);padding:6px 11px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--cream);color:var(--forest-deep)}
+.cuisinebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:22px}
+.clabel{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.cchips{display:flex;flex-wrap:wrap;gap:6px}
+.cchips button{font:600 13px var(--body);color:rgba(245,239,226,.78);background:transparent;border:1px solid rgba(245,239,226,.22);padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .25s}
+.cchips button:hover{border-color:rgba(245,239,226,.5);color:var(--cream)}
+.cchips button[aria-pressed="true"]{background:var(--cream);color:var(--forest-deep);border-color:var(--cream)}
+.shopbtn{margin-left:auto;font:700 14px var(--body);background:var(--terra);color:var(--cream);border:0;border-radius:999px;padding:11px 20px;cursor:pointer;transition:transform .25s}
+.shopbtn:hover{transform:translateY(-2px)}
+.daybtn i{font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.1em;opacity:.8}
+.daytitle{font-family:var(--display);font-size:clamp(26px,3.4vw,38px);color:var(--cream);margin:0 0 18px 84px}
+.daytitle em{color:var(--gold)}
+button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
+.modal[hidden]{display:none!important}
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 16px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px))}
+.mback{position:absolute;inset:0;background:rgba(11,24,17,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:fade .3s both}
+.mpanel{position:relative;width:min(760px,100%);max-height:100%;overflow:auto;background:var(--paper);color:var(--ink);border-radius:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);animation:pop .45s cubic-bezier(.22,1,.36,1) both;overscroll-behavior:contain}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}}
+.mclose{position:sticky;top:12px;float:right;margin:12px 12px 0 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--forest-deep);color:var(--cream);font-size:22px;cursor:pointer}
+.rhero{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center;padding:28px 28px 22px;background:linear-gradient(160deg,#efe5d0,var(--paper))}
+.rhero h2{font-size:clamp(28px,4vw,40px);color:var(--forest);margin-top:8px}
+.rmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
+.rmeta .m{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.rgrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;padding:8px 28px 28px}
+.rgrid h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin:14px 0 12px}
+.ing{list-style:none;padding:0;margin:0;display:grid;gap:2px}
+.ing label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-bottom:1px dashed var(--line);font-size:15px;cursor:pointer}
+.ing input{accent-color:var(--forest);margin-top:4px;flex:none}
+.ing input:checked+span{text-decoration:line-through;color:var(--muted)}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;font-size:15px}
+.steps li::before{content:counter(s);font-family:var(--display);font-style:italic;font-size:24px;color:var(--gold);line-height:1}
+.rwhy{margin:0 28px 24px;padding:16px 18px;border-radius:18px;background:#e8efdc;color:#2c4220;font-size:15px}
+.rfoot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:0 28px 28px;font-size:13px;color:var(--muted)}
+.rfoot a{color:var(--terra);font-weight:700;text-decoration:none}
+.shead{padding:28px 28px 8px}
+.shead h2{font-size:clamp(30px,4vw,42px);color:var(--forest)}
+.stabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.stabs button{font:600 13px var(--body);border:1px solid var(--line);background:var(--cream);color:var(--forest);padding:8px 13px;border-radius:999px;cursor:pointer}
+.stabs button[aria-pressed="true"]{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.scols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:8px 28px;padding:12px 28px 8px}
+.scols h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin:16px 0 8px}
+.scols .n{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.copybtn{font:700 14px var(--body);background:var(--forest);color:var(--cream);border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+@media (max-width:600px){.rhero,.rgrid{grid-template-columns:minmax(0,1fr)}.rhero .art{width:120px}.daytitle{margin-left:0}.shopbtn{margin-left:0}}
+.pill{font-family:var(--mono);font-size:13px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--forest-deep);color:var(--gold-soft);white-space:nowrap}
+
+/* plan */
+.plan{background:var(--forest-deep);color:var(--cream);padding-block:120px;overflow:hidden}
+.plan .head h2{color:var(--cream)}
+.plan .head h2 em{color:var(--gold)}
+.plan .head p{color:rgba(245,239,226,.7)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.strip-wrap{display:flex;align-items:center;gap:10px;margin-top:48px}
+.arrow{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(245,239,226,.25);background:transparent;color:var(--cream);font-size:18px;cursor:pointer;transition:background .2s}
+.arrow:hover{background:rgba(245,239,226,.1)}
+.strip{display:flex;gap:8px;overflow-x:auto;scroll-behavior:smooth;padding:6px 2px 10px;scrollbar-width:none;flex:1;min-width:0}
+.strip::-webkit-scrollbar{display:none}
+.daybtn{flex:none;width:58px;height:68px;border-radius:16px;border:1px solid rgba(245,239,226,.16);background:transparent;color:rgba(245,239,226,.72);cursor:pointer;display:grid;place-content:center;gap:0;transition:all .3s;font-family:var(--body)}
+.daybtn small{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.daybtn b{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.1}
+.daybtn:hover{border-color:rgba(245,239,226,.45);color:var(--cream)}
+.daybtn[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--forest-deep);box-shadow:0 0 40px -8px rgba(217,168,69,.75)}
+.dayview{display:grid;grid-template-columns:290px minmax(0,1fr);gap:48px;margin-top:44px}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start;display:grid;gap:22px}
+.ringbox{position:relative;width:210px;height:210px;margin:0 auto}
+.ringbox svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ringbox .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ringbox .c b{font-family:var(--display);font-weight:350;font-size:54px;line-height:1}
+.ringbox .c span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,239,226,.6);margin-top:6px}
+#ringArc{transition:stroke-dashoffset 1.1s cubic-bezier(.22,1,.36,1)}
+.ledger{display:grid}
+.ledger div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(245,239,226,.1);font-size:14px}
+.ledger span{color:rgba(245,239,226,.62)}
+.ledger em{font-style:normal;font-family:var(--mono);color:var(--gold-soft)}
+.daynote{border:1px solid rgba(245,239,226,.14);border-radius:18px;padding:16px 18px;font-size:14px;color:rgba(245,239,226,.8)}
+.daynote b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;font-weight:500}
+
+.timeline{position:relative;display:grid;gap:18px}
+.timeline::before{content:"";position:absolute;left:62px;top:12px;bottom:12px;width:1px;background:linear-gradient(rgba(217,168,69,.6),rgba(245,239,226,.12))}
+.slot{display:grid;grid-template-columns:52px minmax(0,1fr);gap:22px;align-items:start}
+.time{font-family:var(--mono);font-size:13px;color:var(--gold-soft);text-align:right;padding-top:22px;position:relative}
+.time::after{content:"";position:absolute;right:-16px;top:28px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px var(--forest-deep)}
+.card{background:var(--paper);color:var(--ink);border-radius:24px;display:grid;grid-template-columns:132px minmax(0,1fr);gap:20px;padding:18px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s;animation:cardIn .7s cubic-bezier(.22,1,.36,1) both}
+.card.small{grid-template-columns:96px minmax(0,1fr);background:#f1e9d7;border-radius:20px}
+.card.coffee{background:#efe0c8;grid-template-columns:96px minmax(0,1fr)}
+@keyframes cardIn{from{transform:translateY(22px)}to{transform:none}}
+.art{width:100%;aspect-ratio:1;max-width:100%}
+.art svg{width:100%;height:100%;display:block;filter:drop-shadow(0 10px 14px rgba(40,30,10,.18))}
+.cbody{display:grid;gap:10px;min-width:0;align-content:start}
+.ctop{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.kind{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+.card h3{font-size:clamp(22px,2.6vw,28px);color:var(--forest)}
+.card.small h3,.card.coffee h3{font-size:clamp(19px,2.2vw,22px)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.chips li{font-size:12px;background:#ebe2cd;color:var(--muted);padding:3px 10px;border-radius:999px}
+.why{font-size:14px;color:#3e4b41;border-left:2px solid var(--gold);padding-left:12px}
+.why b{font-weight:700;color:var(--forest)}
+.recipe{justify-self:start;display:inline-flex;gap:6px;align-items:center;font-size:14px;font-weight:700;color:var(--terra);text-decoration:none;padding:4px 0}
+.recipe:hover{color:var(--forest)}
+.recipe:hover span{transform:translateX(3px)}
+.recipe span{transition:transform .25s}
+
+/* coffee section */
+.cafe{padding-block:120px;background:linear-gradient(180deg,var(--cream),#efe3cc)}
+.cafe-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;margin-top:56px;align-items:center}
+.cupwrap{position:relative;max-width:420px;margin:0 auto;width:100%}
+.cupwrap svg{width:100%;height:auto;display:block}
+.steam path{animation:steam 4s ease-in-out infinite;opacity:.0}
+.steam path:nth-child(2){animation-delay:1.3s}.steam path:nth-child(3){animation-delay:2.6s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}40%{opacity:.55}100%{opacity:0;transform:translateY(-30px)}}
+.milks{display:grid;gap:14px}
+.milk{display:grid;grid-template-columns:150px minmax(0,1fr) 54px;align-items:center;gap:14px}
+.milk b{font-weight:600;font-size:15px}
+.milk .bar{height:10px;background:#e3d6ba}
+.milk .bar i{background:linear-gradient(90deg,var(--coffee),#b0784c)}
+.milk em{font-style:normal;font-family:var(--mono);text-align:right;color:var(--coffee)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin-top:34px}
+.fact{background:var(--paper);border-radius:18px;padding:18px;border:1px solid var(--line)}
+.fact b{display:block;font-family:var(--display);font-weight:400;font-size:30px;color:var(--coffee);line-height:1.1}
+.fact span{font-size:14px;color:var(--muted)}
+
+/* snack library */
+.lib{padding-block:120px;background:var(--paper)}
+.libgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px;margin-top:48px}
+.snk{border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:grid;gap:6px;background:var(--cream);transition:transform .3s,box-shadow .3s;text-decoration:none}
+.snk:hover{transform:translateY(-3px);box-shadow:0 18px 30px -20px rgba(31,58,44,.45)}
+.snk .r{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.snk h4{font-family:var(--body);font-weight:700;font-size:15px;color:var(--forest);letter-spacing:0;line-height:1.3}
+.snk p{font-size:13px;color:var(--muted)}
+.snk .d{font-family:var(--mono);font-size:11px;color:var(--terra);letter-spacing:.08em}
+
+/* tips */
+.tips{padding-block:120px}
+.tipgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:64px;align-items:start}
+.tipgrid .head{position:sticky;top:110px}
+.tiplist{display:grid;gap:14px}
+.tip{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px 26px;transition:transform .4s,box-shadow .4s}
+.tip:hover{transform:translateY(-3px);box-shadow:0 26px 50px -30px rgba(31,58,44,.5)}
+.tip i{font-family:var(--display);font-style:italic;font-size:34px;color:var(--gold);line-height:1}
+.tip h3{font-size:24px;color:var(--forest)}
+.tip p{color:var(--muted);margin-top:6px;font-size:15px}
+
+/* prep */
+.prep{color:var(--cream);padding-block:130px;overflow:hidden;background:var(--forest)}
+.prep-bg{position:absolute;inset:-20% 0;will-change:transform}
+.prep-bg canvas{width:100%;height:100%;display:block}
+.prep::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,36,26,.55),rgba(17,36,26,.85))}
+.prep .wrap{position:relative;z-index:2}
+.prep .head h2{color:var(--cream)}.prep .head h2 em{color:var(--gold)}
+.prepcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:48px}
+.pc{border:1px solid rgba(245,239,226,.18);background:rgba(17,36,26,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:22px}
+.pc small{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.pc p{font-family:var(--display);font-size:21px;margin-top:8px;line-height:1.25}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translate(-50%,20px);opacity:0;z-index:200;background:var(--forest-deep);color:var(--cream);padding:12px 20px;border-radius:999px;font-weight:600;font-size:14px;transition:all .35s;pointer-events:none;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.sharebtn{font:600 13px var(--body);border:1px solid rgba(245,239,226,.3);background:transparent;color:var(--cream);border-radius:999px;padding:7px 14px;cursor:pointer;margin-left:12px;vertical-align:middle}
+.sharebtn:hover{background:rgba(245,239,226,.1)}
+.rshare{font:700 13px var(--body);border:1px solid var(--line);background:var(--cream);color:var(--forest);border-radius:999px;padding:8px 14px;cursor:pointer}
+.planner{margin-top:34px;background:var(--cream);color:var(--ink);border-radius:28px;padding:clamp(20px,4vw,40px)}
+.ptop{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.ptop h3{font-size:clamp(28px,3.6vw,38px);color:var(--forest)}
+.pbtns{display:flex;flex-wrap:wrap;gap:8px}
+.pbtns button{font:700 14px var(--body);border-radius:999px;padding:10px 18px;cursor:pointer;border:1px solid var(--forest);background:transparent;color:var(--forest)}
+.pbtns button.primary{background:var(--forest);color:var(--cream)}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;margin-top:22px}
+.pgrid h4{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500;margin:6px 0 12px}
+.psteps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.psteps li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.psteps .tm{font-family:var(--mono);font-size:12px;color:var(--terra);padding-top:3px}
+.psteps b{display:block;color:var(--forest);font-size:15px}
+.psteps span{font-size:14px;color:var(--muted)}
+.pstore{font-size:13px;color:var(--muted);margin-top:14px}
+.pgl h5{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);font-weight:500;margin:14px 0 6px}
+.pgl ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:14px}
+.pgl li{display:flex;gap:8px;justify-content:space-between;border-bottom:1px dashed var(--line);padding:4px 0}
+.pgl li small{display:block;color:var(--terra);font-size:12px}
+.pgl .n{font-family:var(--mono);color:var(--muted);font-size:12px;white-space:nowrap}
+@media (max-width:800px){.pgrid{grid-template-columns:minmax(0,1fr)}}
+@media print{
+  body.print-prep>*:not(#prep){display:none!important}
+  body.print-prep #prep{background:#fff!important;color:#000;padding:0}
+  body.print-prep .prep-bg,body.print-prep #prep::after,body.print-prep #prep .head,body.print-prep #prep .modehint,body.print-prep .pbtns,body.print-prep .stabs,body.print-prep::before{display:none!important}
+  body.print-prep .planner{border-radius:0;padding:0;background:#fff}
+  body.print-prep .psteps li{break-inside:avoid}
+  .nav,.progress{display:none!important}
+}
+.grocery{margin-top:40px;background:var(--cream);color:var(--forest);border-radius:28px;padding:clamp(22px,4vw,44px)}
+.grocery h3{font-size:34px}
+.gcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:26px;margin-top:26px}
+.gcols h4{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);font-weight:500}
+.gcols ul{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:7px;font-size:15px}
+.gcols li::before{content:"◆";color:var(--gold);font-size:10px;margin-right:9px;vertical-align:2px}
+
+footer{background:var(--forest-deep);color:rgba(245,239,226,.7);padding-block:60px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:end}
+footer .brand{font-family:var(--display);font-size:32px;color:var(--cream)}
+footer .brand em{color:var(--gold)}
+footer p{max-width:54ch;font-size:14px}
+
+@media (max-width:900px){
+  .dayview{grid-template-columns:minmax(0,1fr)}
+  .side{position:static;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:20px}
+  .ringbox{width:170px;height:170px}
+  .ringbox .c b{font-size:44px}
+  .daynote{grid-column:1/-1}
+  .cafe-grid,.tipgrid{grid-template-columns:minmax(0,1fr)}
+  .tipgrid .head{position:static}
+}
+@media (max-width:600px){
+  .side{grid-template-columns:minmax(0,1fr)}
+  .timeline::before{left:8px}
+  .slot{grid-template-columns:minmax(0,1fr);gap:6px;padding-left:24px}
+  .time{text-align:left;padding-top:0}
+  .time::after{left:-20px;right:auto;top:6px}
+  .card,.card.small,.card.coffee{grid-template-columns:minmax(0,1fr)}
+  .card .art{width:110px}
+  .card.small .art,.card.coffee .art{width:84px}
+  .milk{grid-template-columns:minmax(0,1fr) 46px}
+  .milk .bar{grid-column:1/-1;grid-row:2}
+  .arrow{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="nav" aria-label="Sections">
+  <a href="#foods">Foods</a><a href="#plan">30 Days</a><a href="#cappuccino">Cappuccino</a><a href="#snacks">Snacks</a><a href="#tips">Tips</a><a href="#prep">Prep</a>
+</nav>
+
+<section class="hero" id="top">
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow hero-in">30 days · pescatarian &amp; vegetarian · high protein</p>
+    <h1 class="hero-in d2">Eat plants &amp; fish.<br><em>Build strength.</em></h1>
+    <p class="lede hero-in d3">Breakfast, lunch, dinner, two snacks between meals and your cappuccinos, planned for a month. Choose mixed, all pescatarian, all vegetarian, or pick per meal.</p>
+    <div class="stats hero-in d4">
+      <div class="stat"><b class="mono" id="statTotal">0</b><span>grams over 30 days</span></div>
+      <div class="stat"><b class="mono" id="statAvg">0</b><span>average g / day</span></div>
+      <div class="stat"><b class="mono">60</b><span>different snacks</span></div>
+    </div>
+    <a class="cta hero-in d4" href="#plan">Open the 30-day plan →</a>
+  </div>
+</section>
+
+<section class="foods" id="foods">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">The building blocks</p><h2>Protein <em>powerhouses.</em></h2><p>The foods doing the heavy lifting in this plan, with approximate grams of protein per typical serving.</p></div>
+    <div class="foodgrid" id="foodgrid"></div>
+  </div>
+</section>
+
+<section class="plan" id="plan">
+  <div class="grain"></div>
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow" style="color:var(--gold)">The month</p><h2>The 30-day <em>plan.</em></h2><p>Each day runs from breakfast at 7:30 to dinner at 7:00, with a snack between every meal and one or two cappuccinos before 2 pm. Pick how you want to eat and the whole month rebuilds.</p></div>
+    <div class="modes" id="modes" role="group" aria-label="Plan style">
+      <button data-mode="mixed" aria-pressed="true">Mixed</button>
+      <button data-mode="pesc" aria-pressed="false">Pescatarian</button>
+      <button data-mode="veg" aria-pressed="false">Vegetarian</button>
+      <button data-mode="custom" aria-pressed="false">Pick per meal</button>
+    </div>
+    <p class="modehint" id="modehint"></p>
+    <div class="custom" id="custom" hidden></div>
+    <div class="cuisinebar">
+      <span class="clabel">Cuisine days</span>
+      <div class="cchips" id="cchips" role="group" aria-label="Cuisine days"></div>
+      <button class="shopbtn" id="shopbtn" type="button">Shopping list</button>
+    </div>
+    <div class="strip-wrap">
+      <button class="arrow" id="prev" aria-label="Previous day">←</button>
+      <div class="strip" id="strip" role="group" aria-label="Choose a day"></div>
+      <button class="arrow" id="next" aria-label="Next day">→</button>
+    </div>
+    <div class="dayview">
+      <aside class="side">
+        <div class="ringbox">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#ecd197"/><stop offset=".5" stop-color="#d9a845"/><stop offset="1" stop-color="#bf5a32"/></linearGradient></defs>
+            <circle cx="100" cy="100" r="84" fill="none" stroke="#25472f" stroke-width="13"/>
+            <circle id="ringArc" cx="100" cy="100" r="84" fill="none" stroke="url(#rg)" stroke-width="13" stroke-linecap="round"/>
+          </svg>
+          <div class="c"><b class="mono" id="ringVal">0g</b><span id="ringLbl">protein · day 1</span></div>
+        </div>
+        <div class="ledger" id="ledger"></div>
+        <div class="daynote" id="daynote"></div>
+      </aside>
+      <div class="tlwrap"><div class="daytitle" id="daytitle"></div><div class="timeline" id="timeline" aria-live="polite"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cafe" id="cappuccino">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">The daily ritual</p><h2>One or two <em>cappuccinos.</em></h2><p>Coffee stays in the plan. The milk you choose decides how much protein your cup adds, and timing decides whether it costs you sleep.</p></div>
+    <div class="cafe-grid">
+      <div class="cupwrap" id="bigcup"></div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">Protein in a 12-oz cappuccino, by milk</p>
+        <div class="milks" id="milks"></div>
+        <div class="facts">
+          <div class="fact"><b class="mono">~65–130 mg</b><span>caffeine per cappuccino, for one or two espresso shots</span></div>
+          <div class="fact"><b class="mono">≤ 400 mg</b><span>daily caffeine most healthy adults can have; less if pregnant or sensitive</span></div>
+          <div class="fact"><b class="mono">before 2 pm</b><span>caffeine lingers for hours, so the second cup comes right after lunch</span></div>
+          <div class="fact"><b class="mono">1 hr gap</b><span>coffee can reduce plant-iron absorption, so leave space around iron-rich meals</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lib" id="snacks">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Between meals</p><h2>Ninety snacks, <em>never repeated.</em></h2><p>Sixty vegetarian and thirty seafood snacks. Within any month you build, no snack appears twice. Here they all are, highest protein first, so you can borrow ideas any day.</p></div>
+    <div class="libgrid" id="libgrid"></div>
+  </div>
+</section>
+
+<section class="tips" id="tips">
+  <div class="wrap tipgrid">
+    <div class="head reveal"><p class="eyebrow">How it works</p><h2>Nine quiet <em>rules.</em></h2><p>Small habits that make plant protein easy and keep the rest of your health in view.</p></div>
+    <div class="tiplist" id="tiplist"></div>
+  </div>
+</section>
+
+<section class="prep" id="prep">
+  <div class="prep-bg" id="prepbg"><canvas id="prepcanvas" aria-hidden="true"></canvas></div>
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow" style="color:var(--gold)">Sunday, 90 minutes</p><h2>Prep once. <em>Eat well all week.</em></h2></div>
+    <p class="modehint" style="color:rgba(245,239,226,.75);margin-top:14px">Built from the plan you chose above. Pick a week to get the prep session, the grocery list and where to buy it.</p>
+    <div class="planner" id="planner"></div>
+  </div>
+</section>
+
+<div class="modal" id="modal" hidden><div class="mback" data-close></div><div class="mpanel" role="dialog" aria-modal="true" aria-labelledby="mtitle"><button class="mclose" data-close aria-label="Close">×</button><div id="mbody"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer>
+  <div class="wrap">
+    <div><div class="brand">Plant <em>Protein</em> 30</div><p style="margin-top:6px">Thirty days of high-protein vegan and vegetarian eating.</p></div>
+    <p>Protein and caffeine values are approximate and vary by brand, portion and preparation. This is general information, not medical advice; a registered dietitian can tailor it to your needs, including allergies, kidney health, pregnancy or medications.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------------- data ---------------- */
+// [name, diet, protein g, ingredients, why it's good]
+var V="vegan", G="vegetarian";
+var BREAKFAST=[
+["Tofu Scramble Breakfast Burrito",V,30,"extra-firm tofu, black beans, whole-wheat tortilla, salsa, spinach","Tofu and beans together cover every essential amino acid, and turmeric in the scramble adds an anti-inflammatory compound."],
+["Almond Butter Protein Oats",V,32,"rolled oats, pea protein, almond butter, banana","Oat beta-glucan is a soluble fiber shown to help lower LDL cholesterol."],
+["Greek Yogurt Berry Parfait",G,30,"Greek yogurt, hemp hearts, granola, berries","Live cultures support the gut, and berries bring polyphenols and vitamin C."],
+["Spinach Feta Omelette & Toast",G,30,"eggs, spinach, feta, sourdough","Eggs supply choline for brain and liver health, and spinach adds folate and lutein."],
+["Cottage Cheese Pancakes",G,32,"cottage cheese, eggs, oats, berries","Casein in cottage cheese digests slowly, so you stay full well into the morning."],
+["Savory Tempeh Hash",V,29,"tempeh, sweet potato, kale, onion","Fermented tempeh is easier to digest, and sweet potato gives beta-carotene."],
+["Chickpea Flour Omelette",V,24,"chickpea flour, mushrooms, spinach, nutritional yeast","Chickpea flour is high in fiber and folate; nutritional yeast is often fortified with B12."],
+["Hemp Protein Smoothie Bowl",V,34,"pea protein, soy milk, hemp hearts, berries","Hemp hearts add omega-3 ALA and magnesium on top of the protein."],
+["Shakshuka with Chickpeas & Feta",G,27,"eggs, tomato, chickpeas, feta","Cooked tomatoes make lycopene easier to absorb, and chickpeas add fiber."],
+["Seitan Breakfast Sandwich",V,33,"seitan, whole-grain English muffin, avocado, tomato","Seitan is very protein-dense and low in fat; avocado adds potassium."],
+["Egg & Black Bean Breakfast Tacos",G,29,"eggs, black beans, corn tortillas, salsa","Beans add resistant starch that feeds healthy gut bacteria."],
+["Overnight Chia Protein Oats",V,28,"oats, chia seeds, soy milk, pea protein","Chia's soluble fiber slows digestion and keeps blood sugar steady."],
+["Ricotta Protein Waffles",G,26,"ricotta, eggs, oat flour, berries","Ricotta is rich in whey protein, which is high in leucine for muscle repair."],
+["Tofu & Egg Kimchi Rice Bowl",G,28,"tofu, soft egg, brown rice, kimchi","Kimchi is fermented, adding probiotics alongside two complete proteins."],
+["Smoked Tofu Bagel",V,27,"high-protein bagel, smoked tofu, cucumber, capers","A savory, low-sugar start with calcium from calcium-set tofu."]
+];
+var LUNCH=[
+["Lentil Quinoa Power Bowl",V,32,"green lentils, quinoa, roasted vegetables, tahini","Lentils plus quinoa form a complete protein, and lentils are rich in iron and folate."],
+["Chickpea Salad Sandwich",V,28,"chickpeas, vegan mayo, celery, whole-grain bread","Over 10 g of fiber per serving, which supports digestion and fullness."],
+["Edamame Soba Salad with Baked Tofu",V,35,"edamame, soba, baked tofu, sesame dressing","Two soy proteins in one bowl; soba buckwheat brings rutin, an antioxidant."],
+["Black Bean Tempeh Burrito Bowl",V,38,"black beans, tempeh, brown rice, pico de gallo","Black beans are high in anthocyanins and fiber; tempeh adds prebiotics."],
+["Halloumi Quinoa Bowl",G,36,"halloumi, quinoa, chickpeas, roasted peppers","Peppers' vitamin C helps you absorb the iron in chickpeas and quinoa."],
+["Seitan Shawarma Wrap",V,40,"seitan, hummus, cucumber, whole-wheat pita","One of the highest-protein lunches here, with tahini for calcium."],
+["Caprese Chickpea Pasta",G,38,"chickpea pasta, mozzarella, tomato, basil","Chickpea pasta has about twice the protein and fiber of wheat pasta."],
+["Paneer Tikka Wrap",G,34,"paneer, yogurt marinade, onion, whole-wheat naan","Paneer gives calcium and slow-digesting casein."],
+["Greek Lentil Salad with Feta",G,30,"lentils, feta, cucumber, olives","Olive oil and olives add monounsaturated fats linked to heart health."],
+["Lemongrass Tofu Bánh Mì",V,31,"lemongrass tofu, pickled vegetables, baguette, edamame side","Pickled vegetables add crunch and flavor with very few calories."],
+["Red Lentil Dal with Rice & Spinach",V,30,"red lentils, spinach, basmati rice, tomato","Red lentils cook fast and are rich in iron; a squeeze of lemon helps absorb it."],
+["Egg Salad Chickpea Wrap",G,32,"eggs, chickpeas, Greek yogurt, whole-wheat wrap","Swapping mayo for Greek yogurt adds protein and cuts saturated fat."],
+["Tempeh Caesar Salad",V,33,"tempeh, romaine, roasted chickpeas, cashew dressing","Romaine and tempeh give vitamin K and manganese."],
+["Cottage Cheese Power Bowl",G,33,"cottage cheese, quinoa, cucumber, tomatoes","Light but filling, with lots of protein for very few calories."],
+["Edamame Egg Fried Rice",G,30,"eggs, edamame, brown rice, scallions","Brown rice keeps the bran, adding magnesium and B vitamins."]
+];
+var DINNER=[
+["Teriyaki Tempeh Stir-Fry",V,40,"tempeh, edamame, broccoli, brown rice","Broccoli adds sulforaphane and vitamin C; tempeh's fermentation aids digestion."],
+["Crispy Tofu Peanut Curry",V,36,"extra-firm tofu, peanut sauce, bok choy, rice","Bok choy is a well-absorbed plant source of calcium."],
+["Lentil Bolognese",V,42,"lentil pasta, brown lentils, marinara, mushrooms","Double lentils make this the most protein-dense pasta night of the month."],
+["Seitan Fajitas",V,41,"seitan, bell peppers, black beans, tortillas","Peppers' vitamin C helps your body use the iron in the beans."],
+["Chickpea & Tofu Tikka Masala",V,34,"chickpeas, tofu, tomato-cashew sauce, rice","Warm spices such as ginger and turmeric bring their own anti-inflammatory compounds."],
+["Spinach Ricotta Lentil Lasagna",G,42,"lentil pasta sheets, ricotta, spinach, marinara","Ricotta and lentil sheets pack protein into a comfort classic; good for batch cooking."],
+["Palak Paneer with Yellow Dal",G,38,"paneer, spinach, yellow lentils, rice","Spinach gives magnesium and folate; dal adds fiber and iron."],
+["Mapo Tofu",V,35,"silken tofu, textured soy protein, chili bean paste, rice","Textured soy protein adds a meaty bite and plenty of protein with little fat."],
+["Tempeh Pad Thai with Egg",G,40,"tempeh, eggs, rice noodles, peanuts","Peanuts add vitamin E and healthy fats."],
+["Black Bean Enchiladas",G,37,"black beans, cheddar, Greek yogurt crema, tortillas","Greek yogurt crema in place of sour cream doubles up the protein."],
+["Lentil Shepherd's Pie",V,33,"green lentils, edamame, mashed potato, carrots","Potatoes bring potassium and vitamin C; lentils make it hearty without meat."],
+["Halloumi & Black Bean Fajitas",G,36,"halloumi, peppers, black beans, tortillas","A grilled, golden dinner that pairs dairy and legume protein."],
+["Tofu & Egg Ramen",G,35,"tofu, soft-boiled eggs, ramen noodles, bok choy","Miso broth adds fermented flavor; eggs and tofu give complete protein."],
+["Seitan Mushroom Stroganoff",G,41,"seitan, mushrooms, Greek yogurt, egg noodles","Mushrooms provide B vitamins and selenium."],
+["Stuffed Peppers with Lentils",G,32,"lentils, quinoa, mozzarella, bell peppers","One bell pepper has more vitamin C than an orange."]
+];
+// 60 distinct snacks
+var SNACKS=[
+["Roasted chickpeas with smoked paprika",V,12,"chickpeas, olive oil, paprika","Fiber plus protein slows digestion and keeps afternoon energy steady."],
+["Greek yogurt with walnuts & honey",G,20,"Greek yogurt, walnuts, honey","Probiotics support the gut, and walnuts add plant omega-3."],
+["Edamame with flaky salt",V,17,"edamame, sea salt","A complete soy protein with folate and fiber."],
+["Cottage cheese & pineapple",G,25,"cottage cheese, pineapple","Slow-digesting casein keeps you full for hours."],
+["Apple slices with pecan butter & hemp",V,8,"apple, pecan butter, hemp hearts","Pecans are rich in antioxidants and heart-healthy fats; hemp adds the protein."],
+["Hard-boiled eggs with everything seasoning",G,12,"2 eggs, everything seasoning","Eggs give choline and leucine in a portable package."],
+["Chocolate pea protein shake",V,24,"pea protein, soy milk, cocoa, banana","Quick protein after a workout, with potassium from banana."],
+["Skyr with blueberries",G,18,"skyr, blueberries","Strained skyr has roughly twice the protein of regular yogurt."],
+["Baked tofu bites with sriracha",V,15,"baked tofu, sriracha, sesame","Calcium-set tofu is a good source of calcium as well as protein."],
+["String cheese & almonds",G,13,"mozzarella stick, almonds","Calcium from the cheese and vitamin E from the almonds."],
+["Smoky tempeh strips",V,15,"tempeh, smoked paprika, maple, tamari","Fermentation makes tempeh easier to digest and adds prebiotic fiber."],
+["Kefir spinach smoothie",G,14,"kefir, spinach, banana, flax","Kefir contains a wide range of probiotic strains."],
+["Trail mix with pumpkin seeds & soy nuts",V,14,"almonds, pumpkin seeds, soy nuts","Pumpkin seeds are rich in magnesium and zinc."],
+["Ricotta on rye with tomato",G,14,"ricotta, rye crispbread, tomato","Whey-rich ricotta plus fiber-rich rye."],
+["Lupini beans with lemon",V,16,"lupini beans, lemon, chili","One of the highest-protein legumes, with very few carbs."],
+["Egg muffin cups with spinach & feta",G,14,"eggs, spinach, feta","Make a batch on Sunday; spinach adds lutein for eye health."],
+["Hummus, carrots & whole-wheat pita",V,10,"hummus, carrots, pita","Tahini adds calcium; carrots add beta-carotene."],
+["Chocolate whey shake with milk",G,32,"whey protein, milk, cocoa","Whey is rich in leucine, which signals muscle repair."],
+["Chia pudding with soy milk",V,12,"chia seeds, soy milk, vanilla, berries","Soluble fiber and omega-3 ALA in a make-ahead jar."],
+["Cottage cheese with cucumber & dill",G,23,"cottage cheese, cucumber, dill","Very high protein for very few calories, and refreshing."],
+["Seitan jerky bites",V,20,"seitan, tamari, liquid smoke","Very protein-dense and low in fat; easy to carry."],
+["Paneer cubes with chaat masala",G,14,"paneer, chaat masala, lime","Calcium-rich, with tangy spice instead of salt."],
+["Crispy spiced lentils",V,12,"lentils, cumin, olive oil","A crunchy snack with iron and folate."],
+["Greek yogurt ranch with crunchy vegetables",G,15,"Greek yogurt, herbs, peppers, celery","A protein-rich dip that gets more vegetables into your day."],
+["Edamame hummus with snap peas",V,11,"edamame, tahini, snap peas","Snap peas add vitamin C, which helps absorb the edamame's iron."],
+["Quark with cinnamon & apple",G,18,"quark, apple, cinnamon","Quark is a mild, very high-protein fresh cheese."],
+["Smoked tofu & cucumber roll-ups",V,14,"smoked tofu, cucumber, hummus","Savory and crunchy, with calcium from the tofu."],
+["Labneh with za'atar & cucumber",G,10,"labneh, za'atar, olive oil, cucumber","Strained yogurt cheese with live cultures and herbs."],
+["Roasted fava beans",V,13,"fava beans, sea salt","Fava beans are rich in folate and fiber."],
+["Mozzarella, tomato & white bean skewers",G,14,"mozzarella, cherry tomatoes, cannellini beans","Beans boost the fiber in a caprese-style snack."],
+["Chocolate pea protein pudding",V,20,"pea protein, soy yogurt, cocoa","A dessert-like snack that still covers 20 g of protein."],
+["Egg salad on cucumber rounds",G,13,"eggs, Greek yogurt, cucumber, chives","Low-carb and filling, with choline from the eggs."],
+["Pecan butter stuffed dates with cottage cheese",G,12,"dates, pecan butter, cottage cheese","Sweet, rich and balanced: dates for fiber, cottage cheese for protein."],
+["Cheddar, apple & almonds",G,12,"aged cheddar, apple, almonds","Aged cheddar is naturally low in lactose."],
+["Dry-roasted spicy edamame",V,14,"roasted edamame, chili","A crunchy chip swap with complete protein."],
+["Halloumi bites with lemon",G,14,"halloumi, lemon, mint","Grilled halloumi is filling, with calcium and protein."],
+["Miso soup with silken tofu & wakame",V,9,"miso, silken tofu, wakame","Fermented miso, plus iodine from seaweed."],
+["Mini protein overnight oats",G,15,"oats, Greek yogurt, berries","Slow carbs and protein to bridge a long afternoon."],
+["Tofu satay skewers with peanut dip",V,16,"tofu, peanut sauce, lime","Peanuts add healthy fats and vitamin E."],
+["Cottage cheese queso with vegetables",G,16,"blended cottage cheese, salsa, peppers","A warm, cheesy dip with far more protein than regular queso."],
+["Lentil-walnut pâté on crackers",V,10,"lentils, walnuts, whole-grain crackers","Walnuts add omega-3, lentils add iron."],
+["Kefir with flax & berries",G,12,"kefir, ground flax, berries","Flax adds lignans and fiber to probiotic kefir."],
+["Almond butter rice cakes with hemp",V,11,"rice cakes, almond butter, hemp hearts","Almond butter is high in vitamin E and magnesium; hemp adds protein."],
+["Frozen Greek yogurt bark",G,14,"Greek yogurt, berries, dark chocolate","A cold, sweet treat that still counts toward protein."],
+["Soy yogurt with pumpkin seeds",V,13,"soy yogurt, pumpkin seeds, berries","Soy yogurt has far more protein than coconut or almond yogurts."],
+["Soft-boiled egg on half avocado toast",G,11,"egg, avocado, whole-grain toast","Avocado's fats help you absorb the egg's fat-soluble nutrients."],
+["Seaweed snacks with an edamame cup",V,11,"roasted seaweed, edamame","Iodine from seaweed supports thyroid health."],
+["Pecan butter Greek yogurt dip with apple",G,17,"Greek yogurt, pecan butter, cinnamon, apple","Pecan butter brings flavor and healthy fats; the yogurt brings the protein."],
+["Nutritional yeast popcorn",V,9,"popcorn, nutritional yeast, olive oil","A whole grain; fortified nutritional yeast adds B12."],
+["Buffalo cauliflower with yogurt dip",G,11,"cauliflower, hot sauce, Greek yogurt","A cruciferous vegetable with a protein dip."],
+["Chickpea cookie-dough bites",V,9,"chickpeas, peanut butter, oats, dates","A sweet fix built on legumes and fiber."],
+["Skyr dip with apple slices",G,17,"skyr, cinnamon, apple","A high-protein swap for caramel dip."],
+["Celery with almond butter & soy nuts",V,11,"celery, almond butter, soy nuts","Crunchy and filling; soy nuts lift the protein."],
+["Two-egg veggie mug scramble",G,13,"eggs, peppers, spinach","Ready in 90 seconds in the microwave."],
+["Almond butter protein smoothie",V,24,"pea protein, almond butter, soy milk, banana","Almond butter adds vitamin E and makes the shake creamy and filling."],
+["Paneer & mint chutney toast",G,13,"paneer, mint chutney, whole-grain toast","Mint chutney adds fresh flavor without much salt."],
+["Tofu feta & olive plate",V,12,"marinated tofu, olives, cherry tomatoes","A Mediterranean plate with heart-friendly fats."],
+["Whey protein cold-brew shake",G,25,"whey protein, milk, decaf cold brew","Coffee flavor with no extra caffeine; counts toward protein."],
+["Black bean salsa with jicama sticks",V,9,"black beans, corn, salsa, jicama","Jicama is high in prebiotic fiber."],
+["Greek yogurt tzatziki with pita chips",G,14,"Greek yogurt, cucumber, garlic, pita chips","Garlic and live cultures in a savory protein dip."]
+];
+var P="pescatarian";
+var P_BREAKFAST=[
+["Smoked Salmon Bagel with Capers",P,30,"high-protein bagel, smoked salmon, cream cheese, capers, red onion","Salmon supplies EPA and DHA, the omega-3s linked to heart and brain health."],
+["Smoked Salmon & Egg Scramble on Rye",P,34,"smoked salmon, eggs, chives, rye toast","Two complete proteins plus vitamin D, which few foods contain naturally."],
+["Tuna Avocado Toast with Egg",P,32,"canned light tuna, avocado, egg, sourdough","Light tuna is low in mercury and high in protein; avocado adds potassium."],
+["Shrimp & Egg Breakfast Tacos",P,31,"shrimp, eggs, corn tortillas, salsa","Shrimp is very lean protein and a source of selenium."],
+["Sardines on Sourdough with Tomato",P,28,"sardines, sourdough, tomato, lemon","Sardines are very low in mercury and their soft bones add calcium."],
+["Salmon & Spinach Frittata",P,33,"salmon, eggs, spinach, feta","Make it Sunday and slice it all week; spinach adds folate."],
+["Lox Greek Yogurt Bowl with Dill",P,30,"smoked salmon, Greek yogurt, cucumber, dill, rye crisps","A Nordic-style bowl pairing omega-3s with probiotics."],
+["Trout & Potato Hash with Poached Egg",P,31,"trout, potato, peppers, egg","Rainbow trout is a low-mercury, omega-3-rich fish."],
+["Japanese Breakfast with Grilled Salmon",P,32,"salmon, rice, miso soup, pickles","Miso adds fermented flavor; salmon covers vitamin B12."],
+["Crab & Chive Omelette",P,30,"crab, eggs, chives, whole-grain toast","Crab is rich in zinc and B12."],
+["Smoked Haddock Kedgeree",P,34,"smoked haddock, rice, eggs, curry spices","White fish is lean, and turmeric and cumin bring warmth without much salt."],
+["Smoked Trout Cottage Cheese Toast",P,33,"smoked trout, cottage cheese, rye, radish","Cottage cheese doubles the protein of a classic fish toast."],
+["Shrimp Congee with Egg",P,26,"shrimp, rice, egg, ginger, scallion","A gentle, warming porridge that's easy on digestion."],
+["Salmon Breakfast Burrito",P,35,"salmon, eggs, black beans, tortilla","Beans add fiber to a high-omega-3 start."],
+["Smoked Mackerel Pâté on Rye with Egg",P,29,"smoked mackerel, Greek yogurt, rye, egg","Mackerel (Atlantic) is one of the richest omega-3 fish."]
+];
+var P_LUNCH=[
+["Ahi Tuna Poke Bowl",P,38,"ahi tuna, edamame, brown rice, cucumber, seaweed","Tuna plus edamame makes a very high-protein bowl; seaweed adds iodine."],
+["Tuna & White Bean Salad",P,36,"canned light tuna, cannellini beans, arugula, lemon","Beans add fiber that the tuna lacks; olive oil adds healthy fats."],
+["Salmon Niçoise Salad",P,38,"salmon, eggs, green beans, potatoes, olives","Two omega-3 sources with vegetables in every color."],
+["Shrimp Quinoa Burrito Bowl",P,36,"shrimp, quinoa, black beans, corn, salsa","Quinoa and beans add plant protein and fiber to lean shrimp."],
+["Sardine Pasta with Lemon",P,33,"sardines, chickpea pasta, lemon, garlic, parsley","Chickpea pasta and sardines make a high-protein, calcium-rich pasta."],
+["Baja Cod Fish Tacos",P,32,"cod, cabbage slaw, corn tortillas, Greek yogurt crema","Cod is lean and mild; cabbage brings vitamin C and K."],
+["Salmon Soba Noodle Salad",P,35,"salmon, soba, edamame, sesame","Buckwheat soba adds rutin, an antioxidant."],
+["Shrimp Summer Rolls & Edamame",P,28,"shrimp, rice paper, herbs, peanut sauce, edamame","Fresh herbs and vegetables keep this light but satisfying."],
+["Tuna Melt on Whole Grain",P,34,"canned light tuna, cheddar, whole-grain bread, tomato","A comfort lunch with two protein sources."],
+["Crab Cake Salad",P,30,"crab cakes, greens, avocado, lemon","Crab provides zinc and copper for immune health."],
+["Grilled Shrimp Caesar",P,36,"shrimp, romaine, parmesan, Greek yogurt dressing","A Greek yogurt dressing keeps it lighter and adds protein."],
+["Salmon Farro Grain Bowl",P,37,"salmon, farro, roasted vegetables, tahini","Farro is an ancient whole grain with protein and fiber."],
+["Miso Cod Rice Bowl",P,33,"cod, miso, brown rice, bok choy","Bok choy adds well-absorbed calcium."],
+["Smoked Trout & Lentil Salad",P,36,"smoked trout, lentils, radish, dill","Lentils bring iron, and trout brings omega-3s."],
+["Spicy Salmon Sushi Bowl",P,34,"salmon, sushi rice, cucumber, avocado, nori","All the flavor of a sushi roll with more protein."]
+];
+var P_DINNER=[
+["Sheet-Pan Salmon with Lentils & Broccoli",P,44,"salmon, lentils, broccoli, lemon","The highest-protein dinner of the month, with omega-3s and fiber."],
+["Shrimp Scampi with Chickpea Pasta",P,42,"shrimp, chickpea pasta, garlic, lemon, parsley","Chickpea pasta turns scampi into a high-protein meal."],
+["Miso-Glazed Cod with Bok Choy",P,36,"cod, miso, bok choy, rice","Lean white fish with a fermented glaze."],
+["Mussels in White Wine with Bread",P,34,"mussels, white wine, garlic, crusty bread","Mussels are exceptionally rich in B12 and iron."],
+["Blackened Salmon Tacos",P,38,"salmon, cabbage, avocado, corn tortillas","Spices bring big flavor without heavy sauces."],
+["Thai Red Curry with Shrimp & Tofu",P,38,"shrimp, tofu, coconut milk, red curry, vegetables","Seafood and soy together for a complete-protein curry."],
+["Seared Ahi Tuna with Edamame Rice",P,42,"ahi tuna, edamame, brown rice, scallion","Very high protein and lean; edamame adds fiber."],
+["Baked Halibut with White Beans",P,40,"halibut, cannellini beans, tomato, spinach","Halibut is lean and rich in selenium."],
+["Shrimp Paella",P,36,"shrimp, saffron rice, peas, peppers","Peas add plant protein and fiber to a Spanish classic."],
+["Lemon-Herb Trout with Quinoa",P,37,"trout, quinoa, green beans, lemon","A simple 20-minute dinner rich in omega-3s."],
+["Cioppino Seafood Stew",P,40,"cod, shrimp, clams, tomato broth, bread","A tomato broth full of lycopene and several seafoods."],
+["Salmon Teriyaki Stir-Fry",P,39,"salmon, broccoli, snap peas, brown rice","Homemade teriyaki keeps sugar and sodium in check."],
+["Cod & Chickpea Tagine",P,36,"cod, chickpeas, tomato, olives, spices","Chickpeas add fiber and iron to lean cod."],
+["Garlic Shrimp & Black Bean Fajitas",P,38,"shrimp, black beans, peppers, tortillas","Peppers' vitamin C helps absorb iron from the beans."],
+["Seared Scallops with Pea Purée & Farro",P,32,"scallops, peas, farro, lemon","Scallops are lean and rich in B12 and magnesium."]
+];
+var P_SNACKS=[
+["Tuna salad cucumber boats",P,18,"canned light tuna, Greek yogurt, cucumber","Light tuna with yogurt in place of mayo keeps it lean."],
+["Smoked salmon cream-cheese roll-ups",P,14,"smoked salmon, cream cheese, cucumber","Omega-3s in a two-minute snack."],
+["Shrimp cocktail",P,18,"shrimp, cocktail sauce, lemon","Almost pure lean protein for very few calories."],
+["Sardines on whole-grain crackers",P,17,"sardines, whole-grain crackers, lemon","Low-mercury fish with calcium from the bones."],
+["Smoked salmon on rice cakes",P,12,"smoked salmon, rice cakes, dill","Light and crunchy with omega-3s."],
+["Tuna-stuffed avocado half",P,20,"canned light tuna, avocado, lemon","Healthy fats and protein that keep you full."],
+["Salmon & Greek yogurt dip with vegetables",P,16,"canned salmon, Greek yogurt, celery, peppers","Canned salmon is affordable and rich in omega-3s."],
+["Shrimp & edamame salad cup",P,16,"shrimp, edamame, sesame","Seafood and soy protein in one small cup."],
+["Crab-stuffed mini peppers",P,12,"crab, Greek yogurt, mini peppers","Vitamin C from peppers and zinc from crab."],
+["Smoked trout pâté with crudités",P,14,"smoked trout, Greek yogurt, radishes, carrots","A creamy omega-3 dip."],
+["Tuna & white bean dip with pita",P,16,"tuna, cannellini beans, lemon, pita","Beans add fiber the fish doesn't have."],
+["Shrimp ceviche with tortilla chips",P,16,"shrimp, lime, tomato, cilantro","Bright citrus flavor with lean protein."],
+["Salmon hand roll",P,13,"salmon, rice, nori, cucumber","Nori adds iodine; salmon adds omega-3s."],
+["Tuna onigiri",P,12,"tuna, rice, nori","A Japanese grab-and-go snack."],
+["Smoked mackerel on rye",P,15,"smoked mackerel, rye, mustard","One of the most omega-3-rich fish available."],
+["Salmon salad lettuce wraps",P,18,"canned salmon, Greek yogurt, lettuce","Low-carb and high in omega-3s."],
+["Tuna & egg mini plate",P,22,"tuna, hard-boiled egg, cherry tomatoes","Two complete proteins in one small plate."],
+["Tinned mussels on crackers",P,14,"tinned mussels, crackers, lemon","Mussels are packed with B12 and iron."],
+["Kippers with mustard on crispbread",P,18,"kipper fillets, mustard, crispbread","Smoked herring is rich in omega-3s and vitamin D."],
+["Shrimp & avocado lettuce cups",P,14,"shrimp, avocado, lime, lettuce","Fresh, light and protein-forward."],
+["Crab & Greek yogurt dip with crackers",P,13,"crab, Greek yogurt, crackers","A creamy dip that's high in protein."],
+["Tuna pouch with crackers",P,17,"tuna pouch, whole-grain crackers","The simplest desk snack there is."],
+["Smoked salmon deviled eggs",P,14,"eggs, smoked salmon, Greek yogurt, dill","Choline from eggs, omega-3s from salmon."],
+["Sardine & tomato toast half",P,13,"sardines, tomato, whole-grain toast","Calcium, omega-3s and lycopene."],
+["Spicy tuna rice cake",P,15,"tuna, sriracha, rice cake, scallion","Sushi flavor without the rolling."],
+["Anchovy & white bean crostini",P,11,"anchovies, white beans, crostini","Anchovies are tiny, low in mercury and rich in omega-3s."],
+["Salmon jerky",P,10,"salmon jerky","Shelf-stable fish protein for travel days."],
+["Shrimp spring roll",P,10,"shrimp, rice paper, vegetables, herbs","Fresh vegetables wrapped with lean shrimp."],
+["Smoked salmon & cucumber bites",P,11,"smoked salmon, cucumber, cream cheese","Hydrating cucumber with omega-3 salmon."],
+["Clam & corn chowder cup",P,10,"clams, corn, potatoes, milk","Clams are one of the richest food sources of B12."]
+];
+/* cuisine days: each slot has vegetarian (v) and seafood (p) options */
+var CUISINES={
+japanese:{name:"Japanese",
+ b:{v:[["Tamagoyaki & Natto Rice Bowl",G,28,"rolled omelette, natto, rice, miso soup","Natto is fermented soy, rich in vitamin K2 and gut-friendly bacteria."],["Tofu Miso Breakfast Set",V,26,"silken tofu, miso soup, rice, edamame, pickles","A classic balance of soy protein and fermented foods."],["Okonomiyaki with Egg",G,27,"cabbage, eggs, tofu, okonomi sauce","Mostly cabbage, so it's high in fiber and vitamin C."]],
+    p:[["Grilled Salmon Breakfast Set",P,32,"salted salmon, rice, miso soup, tamagoyaki","Salmon in the morning covers omega-3s and vitamin D."],["Shirasu Don with Soft Egg",P,26,"whitebait, rice, soft egg, scallion","Tiny whole fish are eaten bones and all, adding calcium."],["Mackerel Ochazuke",P,27,"grilled mackerel, rice, green tea broth, nori","Mackerel is one of the richest omega-3 fish."]]},
+ l:{v:[["Agedashi Tofu & Edamame Soba",V,33,"tofu, soba, edamame, dashi-style broth","Buckwheat soba adds rutin, an antioxidant."],["Tofu Gyoza with Edamame & Miso Soup",V,28,"tofu gyoza, edamame, miso soup","Steamed or pan-fried gyoza with two soy proteins."],["Tamago & Tofu Donburi",G,30,"eggs, tofu, onion, rice","A gentle, high-protein rice bowl."]],
+    p:[["Salmon Onigiri Bento",P,32,"salmon onigiri, edamame, tamagoyaki, pickles","A balanced bento with omega-3s and soy."],["Chirashi Bowl",P,36,"tuna, salmon, shrimp, sushi rice, cucumber","Several seafoods over rice, very high in protein."],["Shrimp Udon with Edamame",P,30,"shrimp, udon, edamame, scallion","Light broth, lean shrimp, plus soy protein."]]},
+ d:{v:[["Tofu Katsu Curry",V,34,"tofu katsu, Japanese curry, rice, carrots","Baked tofu katsu keeps it lighter than the classic."],["Sukiyaki with Tofu & Egg",G,35,"tofu, egg, shiitake, napa cabbage, noodles","Shiitake add B vitamins and savory depth."],["Teriyaki Tofu & Shiitake Donburi",V,33,"tofu, shiitake, rice, broccoli","Homemade teriyaki keeps sugar in check."]],
+    p:[["Miso Black Cod with Rice",P,38,"black cod, miso, rice, bok choy","Black cod is buttery and very rich in omega-3s."],["Salmon Teriyaki with Edamame Rice",P,40,"salmon, edamame, rice, scallion","Omega-3s and soy protein in one plate."],["Shrimp & Tofu Nabe Hot Pot",P,38,"shrimp, tofu, napa cabbage, mushrooms","A brothy hot pot full of vegetables."]]}},
+italian:{name:"Italian",
+ b:{v:[["Ricotta Lemon Toast with Berries & Hemp",G,26,"ricotta, sourdough, berries, hemp hearts","Ricotta's whey protein is rich in leucine."],["Spinach & Parmesan Frittata",G,30,"eggs, spinach, parmesan","Parmesan adds protein and calcium."],["Polenta with Eggs & Pecorino",G,26,"polenta, eggs, pecorino, greens","Comforting corn polenta with complete protein from eggs."]],
+    p:[["Smoked Salmon & Ricotta Frittata",P,32,"smoked salmon, eggs, ricotta, chives","Two proteins plus omega-3s."],["Tuna & White Bean Bruschetta with Egg",P,30,"tuna, cannellini beans, egg, crusty bread","Beans add fiber the fish lacks."],["Pane e Pomodoro with Anchovies & Egg",P,26,"anchovies, tomato, egg, rustic bread","Anchovies are tiny and very low in mercury."]]},
+ l:{v:[["Pasta e Fagioli",V,30,"borlotti beans, lentil pasta, tomato, rosemary","A Tuscan bean soup with plenty of fiber and protein."],["Caprese Farro Salad with White Beans",G,32,"farro, mozzarella, tomato, cannellini, basil","Farro is an ancient whole grain with protein and fiber."],["Chickpea Pasta al Pesto",G,34,"chickpea pasta, basil pesto, white beans, parmesan","About twice the protein of wheat pasta."]],
+    p:[["Insalata di Tonno e Fagioli",P,36,"tuna, cannellini beans, red onion, parsley","A classic that pairs lean protein with fiber."],["Pasta con le Sarde",P,34,"sardines, chickpea pasta, fennel, pine nuts, raisins","Sicily's sardine pasta, rich in omega-3s and calcium."],["Shrimp & Arugula Farro Salad",P,34,"shrimp, farro, arugula, lemon","Peppery greens with lean shrimp."]]},
+ d:{v:[["Eggplant Parmigiana with White Beans",G,34,"eggplant, mozzarella, parmesan, cannellini","Beans make this classic a full-protein dinner."],["Spinach Ricotta Lentil Lasagna",G,42,"lentil pasta sheets, ricotta, spinach, marinara","Ricotta and lentil sheets pack protein into a comfort classic."],["Tofu Cacciatore with Polenta",V,32,"tofu, peppers, tomato, olives, polenta","Peppers add vitamin C, which helps you absorb iron."]],
+    p:[["Linguine alle Vongole",P,38,"clams, chickpea linguine, garlic, white wine","Clams are one of the richest sources of B12."],["Salmon Piccata with Cannellini",P,40,"salmon, capers, lemon, cannellini beans","Bright lemon sauce and omega-3-rich salmon."],["Shrimp Fra Diavolo",P,42,"shrimp, chickpea pasta, spicy tomato sauce","Spicy, lean and very high in protein."]]}},
+indian:{name:"Indian",
+ b:{v:[["Moong Dal Chilla with Paneer",G,28,"moong dal batter, paneer, mint chutney","Moong dal is easy to digest and high in protein."],["Besan Chilla with Tofu",V,26,"chickpea flour, tofu, onion, tomato","Chickpea flour brings fiber, folate and protein."],["Masala Omelette with Roti & Dahi",G,30,"eggs, onion, chili, whole-wheat roti, yogurt","Dahi adds probiotics to a spiced egg breakfast."]],
+    p:[["Egg & Tuna Bhurji with Roti",P,32,"eggs, tuna, onion, tomato, roti","A spiced scramble with two proteins."],["Smoked Fish Khichdi",P,32,"smoked haddock, rice, moong dal, egg","A gentle one-pot of fish, lentils and rice."],["Prawn Poha with Peanuts",P,26,"prawns, flattened rice, peanuts, curry leaves","Light, quick and full of flavor."]]},
+ l:{v:[["Rajma Chawal with Raita",G,30,"kidney beans, rice, yogurt raita","Beans and rice together form a complete protein."],["Chana Masala with Brown Rice",V,28,"chickpeas, tomato, spices, brown rice","High in fiber and iron; add lemon to absorb more."],["Paneer Tikka Bowl",G,34,"paneer, peppers, rice, mint yogurt","Paneer gives slow-digesting casein and calcium."]],
+    p:[["Goan Prawn Curry with Rice",P,34,"prawns, coconut, kokum, rice","Lean prawns in a tangy coastal curry."],["Tandoori Salmon Salad with Raita",P,38,"salmon, tandoori spices, greens, raita","Omega-3s plus probiotics from the raita."],["Fish Tikka Wrap",P,34,"fish tikka, onion, mint chutney, roti","Grilled, not fried, so it stays light."]]},
+ d:{v:[["Palak Paneer with Yellow Dal",G,38,"paneer, spinach, yellow lentils, rice","Spinach gives magnesium and folate; dal adds fiber and iron."],["Tofu Tikka Masala with Chickpeas",V,34,"tofu, chickpeas, tomato-cashew sauce, rice","Warm spices bring anti-inflammatory compounds."],["Dal Makhani with Paneer & Roti",G,32,"black lentils, kidney beans, paneer, roti","Slow-cooked lentils are rich in fiber and minerals."]],
+    p:[["Kerala Fish Curry with Lentils",P,38,"white fish, coconut, curry leaves, lentils, rice","Curry leaves and turmeric add flavor and antioxidants."],["Tandoori Shrimp with Dal & Rice",P,40,"shrimp, tandoori marinade, dal, rice","Yogurt marinade tenderizes and adds protein."],["Bengali Mustard Salmon with Moong Dal",P,40,"salmon, mustard paste, moong dal, rice","A Bengali classic with plenty of omega-3s."]]}},
+mexican:{name:"Mexican",
+ b:{v:[["Huevos Rancheros with Black Beans",G,28,"eggs, black beans, corn tortillas, salsa","Beans add resistant starch that feeds gut bacteria."],["Tofu Chilaquiles Verdes",V,27,"tofu, tortilla chips, salsa verde, black beans","Tomatillo salsa adds vitamin C."],["Bean & Egg Breakfast Burrito",G,31,"eggs, pinto beans, cheese, whole-wheat tortilla","A portable, high-fiber start."]],
+    p:[["Shrimp & Egg Migas",P,31,"shrimp, eggs, tortilla strips, peppers","Lean shrimp with complete protein from eggs."],["Smoked Fish Tostada with Egg",P,29,"smoked fish, refried beans, egg, tostada","Crunchy, savory and high in protein."],["Salmon Huevos a la Mexicana",P,33,"salmon, eggs, tomato, onion, jalapeño","Omega-3s with a fresh tomato-chili scramble."]]},
+ l:{v:[["Black Bean Tempeh Burrito Bowl",V,38,"black beans, tempeh, brown rice, pico de gallo","Black beans are high in fiber and antioxidants."],["Tofu al Pastor Tacos",V,30,"tofu, pineapple, achiote, corn tortillas","Pineapple adds vitamin C and bromelain."],["Pozole Verde with White Beans & Queso",G,28,"hominy, white beans, salsa verde, queso fresco","A warming soup with beans for extra protein."]],
+    p:[["Baja Cod Fish Tacos",P,32,"cod, cabbage slaw, corn tortillas, yogurt crema","Cod is lean and mild; cabbage adds vitamins C and K."],["Shrimp Ceviche Tostadas with Black Beans",P,32,"shrimp, lime, tomato, black beans, tostadas","Bright citrus flavor with lean protein."],["Shrimp Aguachile Bowl with Rice & Beans",P,34,"shrimp, lime, chili, cucumber, rice, beans","Spicy, fresh and very high in protein."]]},
+ d:{v:[["Black Bean Enchiladas",G,37,"black beans, cheddar, yogurt crema, tortillas","Greek yogurt crema doubles up the protein."],["Seitan Fajitas",V,41,"seitan, peppers, black beans, tortillas","Peppers' vitamin C helps your body use the iron in beans."],["Lentil Picadillo Stuffed Poblanos",G,32,"lentils, poblanos, tomato, queso fresco","Poblanos are rich in vitamin C."]],
+    p:[["Pescado a la Veracruzana",P,38,"white fish, tomato, olives, capers, rice, beans","A Gulf Coast classic with heart-healthy olive oil."],["Garlic Shrimp & Black Bean Fajitas",P,38,"shrimp, black beans, peppers, tortillas","Shrimp plus beans for protein and fiber."],["Salmon Mole Bowl with Black Beans",P,40,"salmon, mole sauce, black beans, rice","Mole's cocoa and chiles bring antioxidants."]]}},
+ecuadorian:{name:"Ecuadorian",
+ b:{v:[["Bolón de Verde with Cheese & Eggs",G,26,"green plantain, queso fresco, eggs","Green plantain is rich in resistant starch and potassium."],["Tigrillo",G,27,"green plantain, eggs, queso fresco, scallion","A hearty coastal breakfast scramble."],["Humitas with Queso Fresco & Yogurt",G,24,"fresh corn humitas, queso fresco, Greek yogurt","Yogurt on the side lifts the protein of this Andean classic."]],
+    p:[["Tigrillo with Shrimp",P,30,"green plantain, shrimp, eggs, queso fresco","Shrimp turns tigrillo into a high-protein breakfast."],["Fish & Plantain Hash with Egg",P,28,"white fish, green plantain, egg, onion","Corviche flavors without the deep frying."],["Encebollado Breakfast Bowl",P,32,"tuna, yuca, pickled onion, lime","Ecuador's famous morning fish soup, light and restorative."]]},
+ l:{v:[["Locro de Papa with Egg & Avocado",G,26,"potato, queso fresco, avocado, egg","Avocado adds healthy fats and potassium."],["Menestra de Lentejas with Rice & Egg",G,30,"lentils, rice, fried egg, plantain","Lentils bring iron; add lime to absorb more."],["Llapingachos with Egg & Bean Salad",G,28,"potato-cheese patties, egg, beans, curtido","Beans and egg round out these classic patties."]],
+    p:[["Ceviche de Camarón with Chifles",P,30,"shrimp, lime, tomato, red onion, plantain chips","Ecuador's tomato-lime shrimp ceviche; very lean."],["Encebollado de Atún",P,34,"tuna, yuca, pickled onion, lime","Tuna and yuca in a citrusy broth."],["Viche de Pescado",P,36,"white fish, peanut broth, plantain, corn","A coastal fish soup thickened with peanuts."]]},
+ d:{v:[["Vegetarian Fanesca",G,30,"beans, lentils, grains, squash, milk, egg","A traditional soup packed with legumes and grains."],["Menestra de Fréjol with Tofu & Maduros",V,30,"beans, tofu, rice, sweet plantain","Beans plus tofu make a high-protein plate."],["Quinoa Chaulafán with Egg & Tofu",G,32,"quinoa, eggs, tofu, vegetables","Ecuador's fried rice made with Andean quinoa."]],
+    p:[["Encocado de Pescado with Lentils",P,38,"white fish, coconut sauce, rice, lentils","A coastal coconut fish stew with lentils on the side."],["Sudado de Pescado with Menestra",P,38,"white fish, tomato broth, beans, rice","Gently steamed fish with a bean side."],["Arroz con Camarón with Menestra",P,36,"shrimp, rice, peppers, beans","Shrimp rice with beans for extra protein."]]}}
+};
+var CUIS=[];
+try{var cs=JSON.parse(localStorage.getItem("pp30c")||"null");if(Array.isArray(cs))CUIS=cs;}catch(e){}
+var MILKS=[
+  {n:"Whole or 2% dairy milk",d:G,g:7,note:"Dairy milk adds whey and casein, the most protein of any cappuccino milk."},
+  {n:"Soy milk",d:V,g:6,note:"Soy is the plant milk closest to dairy for protein and steams well."},
+  {n:"Pea milk",d:V,g:6,note:"Pea milk is high in protein and usually fortified with calcium and B12."},
+  {n:"Oat milk",d:V,g:2,note:"Oat milk foams beautifully but adds only a little protein, so let the snack carry it."},
+  {n:"Skim dairy milk",d:G,g:8,note:"Skim milk makes stiff foam and the most protein per calorie."}
+];
+var COFFEE_FACTS=[
+  "Coffee is one of the biggest sources of polyphenol antioxidants in many diets.",
+  "A one- or two-shot cappuccino has roughly 65 to 130 mg of caffeine, well inside the ~400 mg most healthy adults can have.",
+  "Keep the second cup before 2 pm; caffeine stays in your system for hours and can affect deep sleep.",
+  "Dust with cinnamon or cocoa instead of syrup for flavor without added sugar.",
+  "Coffee can reduce absorption of plant iron, so drink it an hour apart from iron-rich meals like lentils.",
+  "Drink a glass of water alongside; it keeps hydration steady through the morning."
+];
+var FOODS=[
+  ["Tempeh","1 cup",31,V],["Salmon","3 oz cooked",22,P],["Sardines","1 can",22,P],["Shrimp","3 oz cooked",20,P],["Canned light tuna","3 oz",20,P],["Seitan","3.5 oz",25,V],["Cottage cheese","1 cup",25,G],["Pea protein","1 scoop",22,V],
+  ["Extra-firm tofu","½ block",20,V],["Greek yogurt","1 cup",20,G],["Lentils, cooked","1 cup",18,V],["Edamame","1 cup",18,V],
+  ["Lupini beans","½ cup",13,V],["Chickpeas","1 cup",15,V],["Black beans","1 cup",15,V],["Eggs","2 large",12,G],
+  ["Hemp hearts","3 tbsp",10,V],["Peanut butter","2 tbsp",8,V],["Almond butter","2 tbsp",7,V],["Pecan butter","2 tbsp",3,V],["Quinoa, cooked","1 cup",8,V],["Nutritional yeast","2 tbsp",8,V]
+];
+var TIPS=[
+  ["Aim for 25–40 g per meal","A solid dose at each meal supports muscle repair and keeps you full; snacks fill the gaps."],
+  ["Pair legumes with grains","Rice and beans, hummus and pita, lentils and quinoa: pairing covers every essential amino acid across the day."],
+  ["Swap your pasta","Lentil or chickpea pasta carries about twice the protein and fiber of wheat pasta."],
+  ["Eat between meals","A protein snack mid-morning and mid-afternoon keeps blood sugar and energy steadier than two big gaps."],
+  ["Mind the cappuccino timing","Up to two cups, both before 2 pm, an hour away from iron-rich meals. Soy or dairy milk adds protein."],
+  ["Iron loves vitamin C","Lemon on lentils, peppers with beans, berries with oats: vitamin C boosts plant-iron absorption."],
+  ["B12 is not optional for vegans","Plants don't supply reliable B12. Use fortified foods or a supplement, and check levels with your doctor."],
+  ["Pick low-mercury fish","Salmon, sardines, trout, shrimp, cod and canned light tuna are low in mercury. Keep swordfish, king mackerel and bigeye tuna rare."],
+  ["Drink water, add fiber slowly","This plan is high in fiber. If you're new to it, increase gradually and drink plenty of water."]
+];
+var NOTES=[
+  "Fermented foods today (tempeh, kimchi, kefir, miso) feed a diverse gut microbiome.",
+  "A colorful plate means a wider range of antioxidants. Count the colors on your plates today.",
+  "Protein spread across five eating moments supports muscle repair better than one big dinner.",
+  "Legumes at two meals today: great for fiber, which most people under-eat.",
+  "Pair today's lentils or beans with vitamin C foods to absorb more iron.",
+  "Calcium check: tofu, dairy, tahini and leafy greens all count.",
+  "Omega-3 today comes from walnuts, hemp, chia or flax. Aim for one source daily."
+];
+
+/* build 30 days */
+function meal(arr,kind){return {kind:kind,n:arr[0],d:arr[1],p:arr[2],i:arr[3].split(", "),h:arr[4]};}
+var DAYS=[], MODE="mixed", CUSTOM={b:"p",l:"v",d:"p",s:"v"};
+try{var sv=JSON.parse(localStorage.getItem("pp30")||"null");if(sv&&sv.mode){MODE=sv.mode;if(sv.custom)CUSTOM=sv.custom;}}catch(e){}
+function pick(mode,i,slot){
+  if(mode==="pesc")return "p"; if(mode==="veg")return "v"; if(mode==="custom")return CUSTOM[slot];
+  return {b:i%3===0,l:i%2===0,d:i%2===1,s:i%2===0}[slot]?"p":"v";
+}
+function build(mode){
+DAYS=[]; var vs=0, ps=0;
+for(var i=0;i<30;i++){
+  var bp=pick(mode,i,"b"),lp=pick(mode,i,"l"),dp=pick(mode,i,"d"),sp=pick(mode,i,"s");
+  var b=(bp==="p"?P_BREAKFAST:BREAKFAST)[i%15], l=(lp==="p"?P_LUNCH:LUNCH)[(i*7+(i>=15?4:0))%15], dn=(dp==="p"?P_DINNER:DINNER)[(i*4+(i>=15?7:1))%15], cz="";
+  if(CUIS.length){var c=CUISINES[CUIS[i%CUIS.length]],k=Math.floor(i/CUIS.length);b=c.b[bp][k%3];l=c.l[lp][(k+1)%3];dn=c.d[dp][(k+2)%3];cz=c.name;}
+  var s1=sp==="p"?P_SNACKS[ps++]:SNACKS[vs++], s2=SNACKS[vs++];
+  var cups=(i%3===1)?1:2;
+  var m1=MILKS[i%5], m2=MILKS[(i+2)%5];
+  var items=[
+    {t:"7:30",x:meal(b,"Breakfast"),type:"meal"},
+    {t:"8:15",x:{kind:"Cappuccino",n:m1.n.split(" milk")[0].replace("Whole or 2% dairy","Dairy")+" milk cappuccino",d:m1.d,p:m1.g,i:["espresso",m1.n.toLowerCase(),"cocoa or cinnamon dust"],h:m1.note+" "+COFFEE_FACTS[i%6]},type:"coffee"},
+    {t:"10:30",x:meal(s1,"Mid-morning snack"),type:"snack"},
+    {t:"12:30",x:meal(l,"Lunch"),type:"meal"}
+  ];
+  if(cups===2) items.push({t:"1:30",x:{kind:"Cappuccino",n:m2.n.split(" milk")[0].replace("Whole or 2% dairy","Dairy")+" milk cappuccino",d:m2.d,p:m2.g,i:["espresso",m2.n.toLowerCase()],h:m2.note+" "+COFFEE_FACTS[(i+3)%6]},type:"coffee"});
+  items.push({t:"4:00",x:meal(s2,"Afternoon snack"),type:"snack"});
+  items.push({t:"7:00",x:meal(dn,"Dinner"),type:"meal"});
+  var tot=0; items.forEach(function(it){tot+=it.x.p;});
+  DAYS.push({items:items,total:tot,cups:cups,cuisine:cz,note:(sp==="p"||lp==="p"||dp==="p")&&i%2===0?FISH_NOTES[i%FISH_NOTES.length]:NOTES[i%7]});
+}
+}
+var FISH_NOTES=[
+  "Choose low-mercury fish most days: salmon, sardines, trout, shrimp, cod, anchovies and canned light tuna.",
+  "Fish supplies EPA and DHA omega-3s directly, which plant sources (ALA) convert to only in small amounts.",
+  "Limit higher-mercury fish such as swordfish, king mackerel and bigeye tuna; ahi is fine occasionally.",
+  "Oily fish like salmon and sardines are among the few natural food sources of vitamin D."
+];
+build(MODE);
+
+/* ---------------- helpers ---------------- */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function recipeUrl(n){return "https://www.google.com/search?q="+encodeURIComponent(n+" recipe");}
+var LEAF='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 3C10 3 4 8 4 15c0 2 .6 3.8 1.6 5.2L4 22l1.4 1 1.6-1.8C8.4 22.4 10 23 12 23c7 0 9-9 8-20zM8 19c2-4 5-7 9-9-3 3-6 6-9 9z"/></svg>';
+var DROP='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-2 4-6 8-6 12a6 6 0 0 0 12 0c0-4-4-8-6-12z"/></svg>';
+var FISH='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 12c3-4 7-6 11-6 4 0 7 3 8 6-1 3-4 6-8 6-4 0-8-2-11-6zm15-1.2a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM2 12l-1-4 4 4-4 4z"/></svg>';
+function badge(d){var ic=d===V?LEAF:d===P?FISH:DROP,lb=d===V?"Vegan":d===P?"Pescatarian":"Vegetarian";return '<span class="badge '+d+'">'+ic+lb+'</span>';}
+var COL=[["tofu","#efe4c8"],["tempeh","#b98b52"],["seitan","#a8743f"],["red lentil","#d0702e"],["lentil","#9a6a35"],["chickpea","#e0b46a"],["edamame","#7fae3e"],["black bean","#2e2622"],["bean","#b85a3c"],["quinoa","#e8d9a8"],["rice","#f4efe2"],["oat","#dcc79a"],["yogurt","#faf6ec"],["skyr","#faf6ec"],["kefir","#f4f0e6"],["cottage","#f6f1e3"],["ricotta","#fbf7ee"],["egg","#f2c14e"],["spinach","#3f7a3a"],["kale","#2f5f2f"],["berr","#7a2c5e"],["blueberr","#3c3a7a"],["banana","#f0d36b"],["peanut","#b67b3f"],["hemp","#8a8f4a"],["tomato","#c8412e"],["avocado","#8db255"],["feta","#fbf8ef"],["paneer","#f3e9cf"],["halloumi","#e9d5a3"],["mozzarella","#fbf8f0"],["cheddar","#f0b54a"],["pasta","#e2c27a"],["soba","#8a6d4e"],["noodle","#e6cf8e"],["pepper","#d6452e"],["mushroom","#8c7158"],["sweet potato","#d9792f"],["potato","#e7cf93"],["cucumber","#9cc28a"],["kimchi","#c4472f"],["broccoli","#4f8a3c"],["bok choy","#7fb069"],["tortilla","#e8c88f"],["bread","#c99a5b"],["pita","#d8b27a"],["naan","#dcb27a"],["bagel","#c9925a"],["salsa","#c8412e"],["tahini","#d8c39b"],["hummus","#dcc08a"],["chia","#4a4a44"],["flax","#7b5a35"],["apple","#c43c33"],["pineapple","#f2cf4a"],["walnut","#8a5a33"],["almond","#c08a5a"],["pistachio","#9dbb5a"],["pumpkin seed","#6f8f3a"],["carrot","#e2772e"],["celery","#a9c97a"],["olive","#556b2f"],["date","#6b3a22"],["cocoa","#5a3524"],["chocolate","#4a2c1e"],["lemon","#f2dc5d"],["lime","#a8c94a"],["mint","#5aa05a"],["herb","#5f8f4a"],["dill","#6fa35a"],["cauliflower","#f1ead6"],["popcorn","#f5e6b8"],["seaweed","#2b3d2a"],["wakame","#3a5a2e"],["miso","#c9933f"],["fava","#9cb95a"],["lupini","#efd77a"],["jicama","#f2ecd9"],["corn","#efc94c"],["sesame","#e8d8b0"],["paprika","#b8432a"],["milk","#f6efe0"],["espresso","#4a2a18"]];
+function colorFor(s,k){s=s.toLowerCase();for(var j=0;j<COL.length;j++){if(s.indexOf(COL[j][0])>-1)return COL[j][1];}var P=["#d9a845","#bf5a32","#7fae3e","#e0b46a","#9a6a35"];return P[k%P.length];}
+function rnd(seed){return function(){seed=(seed*9301+49297)%233280;return seed/233280;};}
+function hash(s){var h=7;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%100000;return h;}
+
+function bowlSVG(m,small){
+  var r=rnd(hash(m.n)), cols=m.i.map(colorFor), n=cols.length, cx=60, cy=60, R=small?42:44;
+  var s='<svg viewBox="0 0 120 120" aria-hidden="true">';
+  s+='<circle cx="60" cy="62" r="56" fill="'+(small?"#e6dac0":"#ece2cb")+'"/>';
+  s+='<circle cx="60" cy="60" r="54" fill="'+(small?"#fffaf0":"#f7f0e1")+'"/>';
+  s+='<circle cx="60" cy="60" r="'+(R+3)+'" fill="#e9dfc8"/>';
+  var a0=r()*Math.PI*2;
+  for(var k=0;k<n;k++){
+    var a1=a0+(Math.PI*2)/n*(0.8+r()*0.4), rr=R-(r()*4);
+    var x0=cx+rr*Math.cos(a0),y0=cy+rr*Math.sin(a0),x1=cx+rr*Math.cos(a1),y1=cy+rr*Math.sin(a1);
+    var large=(a1-a0)>Math.PI?1:0;
+    s+='<path d="M60 60 L'+x0.toFixed(1)+' '+y0.toFixed(1)+' A'+rr.toFixed(1)+' '+rr.toFixed(1)+' 0 '+large+' 1 '+x1.toFixed(1)+' '+y1.toFixed(1)+' Z" fill="'+cols[k]+'"/>';
+    a0=a1;
+  }
+  for(var d=0;d<(small?10:16);d++){
+    var ang=r()*Math.PI*2, dist=r()*(R-6), c=cols[Math.floor(r()*n)];
+    s+='<circle cx="'+(cx+dist*Math.cos(ang)).toFixed(1)+'" cy="'+(cy+dist*Math.sin(ang)).toFixed(1)+'" r="'+(1.6+r()*2.6).toFixed(1)+'" fill="'+c+'" stroke="rgba(0,0,0,.08)" stroke-width=".6"/>';
+  }
+  s+='<circle cx="60" cy="60" r="'+(R*0.28).toFixed(1)+'" fill="'+cols[0]+'" stroke="rgba(255,255,255,.5)" stroke-width="1.2"/>';
+  s+='<circle cx="44" cy="40" r="10" fill="#fff" opacity=".18"/>';
+  return s+'</svg>';
+}
+function cupSVG(milk){
+  var crema = milk.indexOf("oat")>-1?"#c9935a":milk.indexOf("soy")>-1?"#b27a46":milk.indexOf("pea")>-1?"#a9733f":"#a36a3a";
+  return '<svg viewBox="0 0 120 120" aria-hidden="true">'+
+  '<ellipse cx="60" cy="64" rx="56" ry="54" fill="#e3d4b6"/><circle cx="60" cy="60" r="52" fill="#fbf6ec"/>'+
+  '<path d="M104 52 q14 8 0 18" fill="none" stroke="#f3ebdb" stroke-width="9" stroke-linecap="round"/>'+
+  '<circle cx="60" cy="60" r="40" fill="#f6efe2"/><circle cx="60" cy="60" r="34" fill="'+crema+'"/>'+
+  '<circle cx="60" cy="60" r="27" fill="#f3e6cf"/>'+
+  '<path d="M60 76 C42 64 44 48 53 47 C57 47 60 51 60 54 C60 51 63 47 67 47 C76 48 78 64 60 76Z" fill="'+crema+'" opacity=".85"/>'+
+  '<path d="M60 70 C50 63 51 54 56 54 C58 54 60 57 60 58 C60 57 62 54 64 54 C69 54 70 63 60 70Z" fill="#f3e6cf"/>'+
+  '<circle cx="46" cy="44" r="7" fill="#fff" opacity=".22"/></svg>';
+}
+
+/* ---------------- render: foods ---------------- */
+var fg=document.getElementById("foodgrid"), max=31;
+fg.innerHTML=FOODS.map(function(f){return '<div class="food"><div class="row"><div><h3>'+esc(f[0])+'</h3><small>'+esc(f[1])+' · '+(f[3]===V?"vegan":f[3]===P?"pescatarian":"vegetarian")+'</small></div><div class="g mono">~'+f[2]+'<span>g</span></div></div><div class="bar"><i data-w="'+Math.round(f[2]/max*100)+'" style="width:'+Math.round(f[2]/max*100)+'%"></i></div></div>';}).join("");
+
+/* snack library sorted */
+function renderLib(){var lib=SNACKS.concat(P_SNACKS).slice().sort(function(a,b){return b[2]-a[2];});
+document.getElementById("libgrid").innerHTML=lib.map(function(s){var m=meal(s,"Snack");return '<button type="button" class="snk" data-recipe="'+reg(m)+'" style="text-align:left;font:inherit;cursor:pointer;color:inherit"><span class="r"><span class="pill">'+s[2]+'g</span>'+badge(s[1])+'</span><h4>'+esc(s[0])+'</h4><p>'+esc(s[4])+'</p><span class="d">OPEN RECIPE →</span></button>';}).join("");}
+
+document.getElementById("tiplist").innerHTML=TIPS.map(function(t,k){return '<div class="tip"><i>'+String(k+1).padStart(2,"0")+'</i><div><h3>'+esc(t[0])+'</h3><p>'+esc(t[1])+'</p></div></div>';}).join("");
+
+document.getElementById("milks").innerHTML=MILKS.slice().sort(function(a,b){return b.g-a.g;}).map(function(m){return '<div class="milk"><b>'+esc(m.n)+' '+'</b><div class="bar"><i data-w="'+Math.round(m.g/8*100)+'" style="width:'+Math.round(m.g/8*100)+'%"></i></div><em>~'+m.g+'g</em></div>';}).join("")+'<div class="milk"><b>Almond milk</b><div class="bar"><i data-w="13" style="width:13%"></i></div><em>~1g</em></div>';
+
+document.getElementById("bigcup").innerHTML='<svg viewBox="0 0 400 420" role="img" aria-label="Cappuccino with heart latte art">'+
+ '<g class="steam" fill="none" stroke="#b9a07e" stroke-width="4" stroke-linecap="round"><path d="M170 60 q-14 -20 0 -40"/><path d="M200 66 q-14 -22 0 -46"/><path d="M230 60 q-14 -20 0 -40"/></g>'+
+ '<ellipse cx="200" cy="300" rx="180" ry="110" fill="#e3d2b0"/><ellipse cx="200" cy="292" rx="170" ry="100" fill="#f7efe0"/>'+
+ '<path d="M330 205 q60 10 40 60 q-18 40 -70 30" fill="none" stroke="#efe5d2" stroke-width="22" stroke-linecap="round"/>'+
+ '<circle cx="200" cy="215" r="138" fill="#efe5d2"/><circle cx="200" cy="215" r="122" fill="#fbf6ec"/>'+
+ '<circle cx="200" cy="215" r="104" fill="#a36a3a"/><circle cx="200" cy="215" r="86" fill="#f3e6cf"/>'+
+ '<path d="M200 285 C140 245 146 178 178 176 C192 176 200 190 200 200 C200 190 208 176 222 176 C254 178 260 245 200 285Z" fill="#a36a3a" opacity=".9"/>'+
+ '<path d="M200 262 C166 238 170 202 186 202 C193 202 200 210 200 215 C200 210 207 202 214 202 C230 202 234 238 200 262Z" fill="#f3e6cf"/>'+
+ '<circle cx="150" cy="160" r="22" fill="#fff" opacity=".2"/></svg>';
+
+/* ---------------- render: day ---------------- */
+var strip=document.getElementById("strip"), cur=1;
+var sb="";for(var d=1;d<=30;d++)sb+='<button class="daybtn" data-day="'+d+'" aria-pressed="false"><small>Day</small><b>'+d+'</b><i></i></button>';
+strip.innerHTML=sb;
+var C=2*Math.PI*84, arc=document.getElementById("ringArc");
+arc.setAttribute("stroke-dasharray",C.toFixed(1)); arc.setAttribute("stroke-dashoffset",C.toFixed(1));
+
+function cardHTML(it,idx){
+  var m=it.x, cls=it.type==="meal"?"card":it.type==="coffee"?"card coffee":"card small";
+  var art=it.type==="coffee"?cupSVG(m.n.toLowerCase()):bowlSVG(m,it.type==="snack");
+  var label=it.type==="coffee"?"Why this cup works":it.type==="snack"?"Why it's a good snack":"Why it's good for you";
+  return '<div class="slot"><div class="time">'+it.t+'</div><article class="'+cls+' tilt" style="animation-delay:'+(idx*60)+'ms">'+
+    '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'</div>'+
+    '<h3>'+esc(m.n)+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
+    '<p class="why"><b>'+label+':</b> '+esc(m.h)+'</p>'+
+    '<button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button></div></article></div>';
+}
+function show(n,scroll){
+  n=Math.max(1,Math.min(30,n)); cur=n;
+  var D=DAYS[n-1]; REG.length=LIBN;
+  document.getElementById("daytitle").innerHTML="Day "+n+(D.cuisine?" · <em>"+D.cuisine+" day</em>":"")+'<button class="sharebtn" type="button" data-share="day">Share this day</button>';
+  [].forEach.call(strip.children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.day===n));var c=DAYS[+b.dataset.day-1].cuisine;b.querySelector("i").textContent=c?c.slice(0,3).toUpperCase():"";});
+  var btn=strip.children[n-1];
+  if(scroll!==false) strip.scrollTo({left:btn.offsetLeft-strip.clientWidth/2+btn.clientWidth/2,behavior:RM?"auto":"smooth"});
+  document.getElementById("timeline").innerHTML=D.items.map(cardHTML).join("");
+  document.getElementById("ringVal").textContent=D.total+"g";
+  document.getElementById("ringLbl").textContent="protein · day "+n;
+  arc.setAttribute("stroke-dashoffset",(C*(1-Math.min(D.total/150,1))).toFixed(1));
+  var byKind={}; D.items.forEach(function(it){var k=it.type==="coffee"?"Cappuccino"+(D.cups>1?"s":""):it.x.kind; byKind[k]=(byKind[k]||0)+it.x.p;});
+  var fish=D.items.filter(function(it){return it.x.d===P;}).length;
+  document.getElementById("ledger").innerHTML=Object.keys(byKind).map(function(k){return '<div><span>'+k+'</span><em>'+byKind[k]+'g</em></div>';}).join("")+
+    '<div><span>Caffeine (approx.)</span><em>'+(D.cups*65)+'–'+(D.cups*130)+' mg</em></div><div><span>Seafood / vegetarian</span><em>'+fish+' / '+(D.items.length-fish)+'</em></div>';
+  document.getElementById("daynote").innerHTML='<b>Today’s health note</b>'+esc(D.note);
+  bindTilt();
+  if(scroll!==false)setHash(stateHash());
+}
+strip.addEventListener("click",function(e){var b=e.target.closest(".daybtn");if(b)show(+b.dataset.day);});
+document.getElementById("prev").onclick=function(){show(cur-1);};
+document.getElementById("next").onclick=function(){show(cur+1);};
+document.addEventListener("keydown",function(e){var p=document.getElementById("plan").getBoundingClientRect();if(p.top<innerHeight*.5&&p.bottom>innerHeight*.5){if(e.key==="ArrowRight")show(cur+1);if(e.key==="ArrowLeft")show(cur-1);}});
+function fromHash(){var m=/^#day-(\d+)$/.exec(location.hash);if(m){show(+m[1]);document.getElementById("plan").scrollIntoView();}}
+
+/* hero stats from real data */
+function stats(){return DAYS.reduce(function(a,d){return a+d.total;},0);}
+var grand=stats(), avg=Math.round(grand/30);
+
+/* plan style controls */
+var HINTS={mixed:"Mixed: every day has at least one seafood meal or snack, alongside vegetarian dishes.",pesc:"Pescatarian: every meal includes fish or seafood. One snack a day is seafood; the other is vegetarian.",veg:"Vegetarian: no meat or fish. Vegan dishes are marked with a leaf.",custom:"Pick per meal: choose seafood or vegetarian for each part of the day. A seafood snack choice means one seafood snack a day plus one vegetarian."};
+var SLOTS=[["b","Breakfast"],["l","Lunch"],["d","Dinner"],["s","Snacks"]];
+var customEl=document.getElementById("custom");
+customEl.innerHTML=SLOTS.map(function(s){return '<div class="crow"><span>'+s[1]+'</span><div class="seg" data-slot="'+s[0]+'"><button data-v="p">Seafood</button><button data-v="v">Veg</button></div></div>';}).join("");
+function save(){try{localStorage.setItem("pp30",JSON.stringify({mode:MODE,custom:CUSTOM}));}catch(e){}}
+function syncUI(){
+  [].forEach.call(document.querySelectorAll("#modes button"),function(b){b.setAttribute("aria-pressed",String(b.dataset.mode===MODE));});
+  customEl.hidden=MODE!=="custom";
+  [].forEach.call(customEl.querySelectorAll(".seg"),function(g){[].forEach.call(g.children,function(b){b.setAttribute("aria-pressed",String(CUSTOM[g.dataset.slot]===b.dataset.v));});});
+  document.getElementById("modehint").textContent=HINTS[MODE];
+}
+function rebuild(){build(MODE);save();syncUI();show(cur,false);setHash(stateHash());renderPlanner();var g=stats();document.getElementById("statTotal").textContent=g.toLocaleString();document.getElementById("statAvg").textContent=Math.round(g/30);}
+document.getElementById("modes").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;MODE=b.dataset.mode;rebuild();});
+customEl.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;CUSTOM[b.parentNode.dataset.slot]=b.dataset.v;rebuild();});
+syncUI();
+function count(el,to){if(RM){el.textContent=to.toLocaleString();return;}var t0=performance.now(),dur=2200;(function f(t){var k=Math.min((t-t0)/dur,1),e=1-Math.pow(1-k,4);el.textContent=Math.round(to*e).toLocaleString();if(k<1)requestAnimationFrame(f);})(t0);}
+count(document.getElementById("statTotal"),grand);count(document.getElementById("statAvg"),avg);
+
+/* tilt */
+var fine=window.matchMedia("(pointer:fine)").matches;
+function bindTilt(){
+  if(RM||!fine)return;
+  document.querySelectorAll(".tilt").forEach(function(el){
+    el.onpointermove=function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="perspective(900px) rotateX("+(-y*6).toFixed(2)+"deg) rotateY("+(x*8).toFixed(2)+"deg) translateZ(6px)";};
+    el.onpointerleave=function(){el.style.transform="";};
+  });
+}
+
+/* reveal + bars (content visible at rest; motion only) */
+if(!RM && "IntersectionObserver" in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var t=en.target;t.classList.remove("pre");t.querySelectorAll&&t.querySelectorAll("i[data-w]").forEach(function(i){i.style.width=i.dataset.w+"%";});io.unobserve(t);}});},{rootMargin:"0px 0px -10% 0px"});
+  document.querySelectorAll(".reveal").forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add("pre");io.observe(el);}});
+  document.querySelectorAll("#foodgrid,#milks").forEach(function(g){if(g.getBoundingClientRect().top>innerHeight){g.querySelectorAll("i[data-w]").forEach(function(i){i.style.width="0%";});io.observe(g);}});
+}
+
+/* scroll: progress + parallax */
+var prog=document.getElementById("progress"), prepbg=document.getElementById("prepbg"), prep=document.getElementById("prep");
+var scrollY0=0;
+function onScroll(){
+  var h=document.documentElement.scrollHeight-innerHeight; scrollY0=scrollY;
+  prog.style.transform="scaleX("+(h>0?scrollY/h:0)+")";
+  if(!RM){var r=prep.getBoundingClientRect();var k=(r.top+r.height/2-innerHeight/2)/innerHeight;prepbg.style.transform="translateY("+(k*-90).toFixed(1)+"px)";}
+}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+/* prep background: generative legume field */
+(function(){
+  var cv=document.getElementById("prepcanvas"),ctx=cv.getContext("2d");
+  function draw(){
+    var w=cv.clientWidth,h=cv.clientHeight,dpr=Math.min(devicePixelRatio||1,2);cv.width=w*dpr;cv.height=h*dpr;ctx.scale(dpr,dpr);
+    ctx.fillStyle="#1f3a2c";ctx.fillRect(0,0,w,h);
+    var r=rnd(11),pal=["#c0602e","#e0b46a","#7fae3e","#efe4c8","#8a5a2b","#d9a845","#5f6b2f"];
+    for(var k=0;k<Math.floor(w*h/900);k++){
+      var x=r()*w,y=r()*h,s=3+r()*9,c=pal[Math.floor(r()*pal.length)];
+      ctx.save();ctx.translate(x,y);ctx.rotate(r()*Math.PI);
+      var g=ctx.createRadialGradient(-s*.3,-s*.3,1,0,0,s);g.addColorStop(0,"rgba(255,255,255,.35)");g.addColorStop(.35,c);g.addColorStop(1,"rgba(0,0,0,.35)");
+      ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(0,0,s,s*(.55+r()*.45),0,0,Math.PI*2);ctx.fill();ctx.restore();
+    }
+  }
+  draw();var t;addEventListener("resize",function(){clearTimeout(t);t=setTimeout(draw,200);});
+})();
+
+/* ---------------- hero 3D ---------------- */
+(function(){
+  if(!window.THREE)return;
+  var cv=document.getElementById("scene"), renderer;
+  try{renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));
+  renderer.outputEncoding=THREE.sRGBEncoding;
+  var scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(45,1,.1,100); cam.position.set(0,0,12);
+  scene.add(new THREE.AmbientLight(0xfff1dc,.55));
+  var key=new THREE.DirectionalLight(0xfff0d0,1.4);key.position.set(5,7,6);scene.add(key);
+  var rim=new THREE.DirectionalLight(0xd9a845,.9);rim.position.set(-6,-2,3);scene.add(rim);
+  var fill=new THREE.PointLight(0x7fae3e,.6,30);fill.position.set(0,-4,6);scene.add(fill);
+  function mat(c,rough,cc){return new THREE.MeshPhysicalMaterial({color:c,roughness:rough,clearcoat:cc||0,clearcoatRoughness:.4});}
+  var kinds=[
+    function(){var m=new THREE.Mesh(new THREE.SphereGeometry(.34,28,18),mat([0xc0602e,0x8a5a2b,0x6f7a33][Math.floor(Math.random()*3)],.5,.3));m.scale.set(1,.42,1);return m;},
+    function(){var g=new THREE.IcosahedronGeometry(.42,2),p=g.attributes.position;for(var i=0;i<p.count;i++){var v=new THREE.Vector3().fromBufferAttribute(p,i);v.multiplyScalar(1+Math.sin(v.x*9)*.04+Math.cos(v.y*7)*.04);p.setXYZ(i,v.x,v.y,v.z);}g.computeVertexNormals();return new THREE.Mesh(g,mat(0xe0b46a,.6,.1));},
+    function(){return new THREE.Mesh(new THREE.BoxGeometry(.6,.6,.6,2,2,2),mat(0xf0e6cc,.85));},
+    function(){var grp=new THREE.Group(),m=mat(0x7fae3e,.4,.6);for(var k=0;k<3;k++){var b=new THREE.Mesh(new THREE.SphereGeometry(.26,20,14),m);b.position.x=(k-1)*.4;b.scale.set(1,.9,.8);grp.add(b);}var pod=new THREE.Mesh(new THREE.SphereGeometry(.32,24,14),m);pod.scale.set(2.2,.75,.6);grp.add(pod);return grp;},
+    function(){var grp=new THREE.Group(),m=mat(0x4a2a18,.35,.8);var b=new THREE.Mesh(new THREE.SphereGeometry(.3,24,16),m);b.scale.set(1,.72,.62);grp.add(b);var groove=new THREE.Mesh(new THREE.TorusGeometry(.18,.025,8,24,Math.PI),mat(0x2a160c,.6));groove.rotation.set(0,Math.PI/2,Math.PI/2);groove.position.z=.18;grp.add(groove);return grp;},
+    function(){var m=new THREE.Mesh(new THREE.TorusGeometry(.32,.13,12,24,Math.PI*1.35),mat(0xf08a5d,.45,.5));return m;},
+    function(){var m=new THREE.Mesh(new THREE.SphereGeometry(.14,14,10),mat([0x3a3324,0xd8c79a,0x6f8f3a][Math.floor(Math.random()*3)],.55));m.scale.set(.6,1,.4);return m;}
+  ];
+  var items=[], seed=rnd(5);
+  for(var i=0;i<46;i++){
+    var x=(seed()-.5)*22,y=(seed()-.5)*13,z=(seed()-.5)*8-1;
+    if(Math.abs(x)<3.4&&Math.abs(y)<3.2) x+= x<0?-3.6:3.6;
+    var o=kinds[i%kinds.length](); var s=.8+seed()*1.1; o.scale.multiplyScalar(s);
+    o.position.set(x,y,z); o.rotation.set(seed()*6,seed()*6,seed()*6);
+    o.userData={base:new THREE.Vector3(x,y,z),sp:.2+seed()*.5,ph:seed()*6.28};
+    scene.add(o); items.push(o);
+  }
+  var mx=0,my=0,tx=0,ty=0;
+  addEventListener("pointermove",function(e){tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5);},{passive:true});
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.fov=w<700?60:45;cam.updateProjectionMatrix();}
+  size();addEventListener("resize",size);
+  var visible=true;
+  if("IntersectionObserver" in window) new IntersectionObserver(function(e){visible=e[0].isIntersecting;}).observe(cv);
+  var t0=performance.now();
+  function frame(now){
+    var t=(now-t0)/1000;
+    mx+=(tx-mx)*.04; my+=(ty-my)*.04;
+    var sc=Math.min(scrollY0/innerHeight,1.5);
+    items.forEach(function(o){var u=o.userData,depth=1+u.base.z*.12;
+      o.position.x=u.base.x+mx*1.4*depth;
+      o.position.y=u.base.y-my*1*depth+Math.sin(t*u.sp+u.ph)*.35+sc*4*depth;
+      o.rotation.x+=.003*u.sp*3;o.rotation.y+=.004*u.sp*2;});
+    cam.position.x=mx*.8;cam.position.y=-my*.5;cam.lookAt(0,0,0);
+    renderer.render(scene,cam);
+  }
+  if(RM){frame(t0);return;}
+  (function loop(now){if(visible)frame(now);requestAnimationFrame(loop);})(t0);
+})();
+
+/* ---------------- ingredients, recipes, shopping ---------------- */
+var ING=[["smoked salmon","Smoked salmon","Seafood","85 g (3 oz)"],["lox","Smoked salmon","Seafood","85 g (3 oz)"],["salmon","Salmon fillet","Seafood","140 g (5 oz)"],["black cod","Black cod","Seafood","140 g (5 oz)"],["tuna pouch","Tuna pouch","Seafood","1 pouch"],["ahi","Sushi-grade ahi tuna","Seafood","140 g (5 oz)"],["tuna","Canned light tuna","Seafood","1 can (140 g)"],["shrimp","Shrimp","Seafood","150 g (5 oz)"],["prawn","Shrimp","Seafood","150 g (5 oz)"],["sardine","Sardines","Seafood","1 can"],["mackerel","Mackerel","Seafood","120 g"],["trout","Trout","Seafood","140 g (5 oz)"],["haddock","Smoked haddock","Seafood","140 g"],["black cod","Black cod","Seafood","140 g"],["cod","Cod","Seafood","150 g"],["halibut","Halibut","Seafood","150 g"],["white fish","White fish (cod or snapper)","Seafood","150 g"],["smoked fish","Smoked fish","Seafood","100 g"],["fish","White fish (cod or snapper)","Seafood","150 g"],["crab","Crab meat","Seafood","100 g"],["clam","Clams","Seafood","300 g in shell"],["mussel","Mussels","Seafood","400 g in shell"],["scallop","Scallops","Seafood","150 g"],["anchov","Anchovies","Seafood","4 fillets"],["whitebait","Whitebait","Seafood","50 g"],["kipper","Kipper fillets","Seafood","1 tin"],
+["silken tofu","Silken tofu","Tofu, tempeh & soy","200 g"],["tofu","Extra-firm tofu","Tofu, tempeh & soy","200 g (½ block)"],["tempeh","Tempeh","Tofu, tempeh & soy","120 g"],["seitan","Seitan","Tofu, tempeh & soy","100 g"],["natto","Natto","Tofu, tempeh & soy","1 pack"],["edamame","Shelled edamame","Tofu, tempeh & soy","¾ cup"],["textured soy","Textured soy protein","Tofu, tempeh & soy","½ cup dry"],["soy milk","Soy milk","Tofu, tempeh & soy","1 cup"],["soy yogurt","Soy yogurt","Tofu, tempeh & soy","¾ cup"],["soy nut","Soy nuts","Tofu, tempeh & soy","¼ cup"],
+["red lentil","Red lentils","Legumes","½ cup dry"],["moong","Moong dal","Legumes","½ cup dry"],["lentil pasta","Lentil pasta","Grains & bread","75 g dry"],["lentil chip","Lentil chips","Pantry","1 small bag"],["lentil","Lentils","Legumes","1 cup cooked"],["chickpea pasta","Chickpea pasta","Grains & bread","75 g dry"],["chickpea linguine","Chickpea pasta","Grains & bread","75 g dry"],["chickpea flour","Chickpea flour (besan)","Pantry","½ cup"],["chickpea","Chickpeas","Legumes","¾ cup"],["black bean","Black beans","Legumes","¾ cup"],["kidney","Kidney beans","Legumes","¾ cup"],["cannellini","Cannellini beans","Legumes","¾ cup"],["white bean","Cannellini beans","Legumes","¾ cup"],["pinto","Pinto beans","Legumes","¾ cup"],["refried","Refried beans","Legumes","½ cup"],["borlotti","Borlotti beans","Legumes","¾ cup"],["fava","Fava beans","Legumes","½ cup"],["lupini","Lupini beans","Legumes","½ cup"],["hummus","Hummus","Legumes","¼ cup"],["bean","Beans","Legumes","¾ cup"],["green bean","Green beans","Produce","1 cup"],["snap pea","Snap peas","Produce","1 cup"],["peas","Green peas","Produce","½ cup"],
+["greek yogurt","Greek yogurt","Dairy & eggs","¾ cup"],["skyr","Skyr","Dairy & eggs","¾ cup"],["yogurt","Plain yogurt","Dairy & eggs","¾ cup"],["dahi","Plain yogurt","Dairy & eggs","½ cup"],["raita","Plain yogurt","Dairy & eggs","½ cup"],["kefir","Kefir","Dairy & eggs","1 cup"],["quark","Quark","Dairy & eggs","¾ cup"],["labneh","Labneh","Dairy & eggs","½ cup"],["cottage","Cottage cheese","Dairy & eggs","¾ cup"],["ricotta","Ricotta","Dairy & eggs","½ cup"],["cream cheese","Cream cheese","Dairy & eggs","2 tbsp"],["paneer","Paneer","Dairy & eggs","100 g"],["halloumi","Halloumi","Dairy & eggs","80 g"],["mozzarella","Mozzarella","Dairy & eggs","60 g"],["parmesan","Parmesan","Dairy & eggs","2 tbsp grated"],["pecorino","Pecorino","Dairy & eggs","2 tbsp grated"],["feta","Feta","Dairy & eggs","40 g"],["blue cheese","Blue cheese","Dairy & eggs","30 g"],["cheddar","Cheddar","Dairy & eggs","40 g"],["queso","Queso fresco","Dairy & eggs","50 g"],["cheese","Cheese","Dairy & eggs","40 g"],["whey","Whey protein","Pantry","1 scoop"],["milk","Milk","Dairy & eggs","1 cup"],["omelette","Eggs","Dairy & eggs","3 eggs"],["tamagoyaki","Eggs","Dairy & eggs","2 eggs"],["egg noodle","Egg noodles","Grains & bread","75 g dry"],["eggs","Eggs","Dairy & eggs","2–3 eggs"],["egg","Eggs","Dairy & eggs","1–2 eggs"],
+["quinoa","Quinoa","Grains & bread","¾ cup cooked"],["farro","Farro","Grains & bread","¾ cup cooked"],["brown rice","Brown rice","Grains & bread","¾ cup cooked"],["sushi rice","Sushi rice","Grains & bread","¾ cup cooked"],["rice paper","Rice paper wrappers","Grains & bread","4 sheets"],["rice noodle","Rice noodles","Grains & bread","75 g dry"],["rice cake","Rice cakes","Grains & bread","2 cakes"],["flattened rice","Poha (flattened rice)","Grains & bread","1 cup"],["rice","Rice","Grains & bread","¾ cup cooked"],["oat flour","Oat flour","Grains & bread","½ cup"],["oat","Rolled oats","Grains & bread","½ cup"],["granola","Granola","Grains & bread","¼ cup"],["soba","Soba noodles","Grains & bread","75 g dry"],["udon","Udon noodles","Grains & bread","1 pack"],["ramen","Ramen noodles","Grains & bread","1 pack"],["noodle","Noodles","Grains & bread","75 g dry"],["pasta","Pasta","Grains & bread","75 g dry"],["lasagna","Lentil pasta sheets","Grains & bread","4 sheets"],["polenta","Polenta","Grains & bread","½ cup dry"],["hominy","Hominy","Grains & bread","¾ cup"],["corn tortilla","Corn tortillas","Grains & bread","3 tortillas"],["tortilla chip","Tortilla chips","Grains & bread","1 handful"],["tortilla","Tortillas","Grains & bread","2 tortillas"],["tostada","Tostadas","Grains & bread","2 tostadas"],["sourdough","Sourdough bread","Grains & bread","1–2 slices"],["rye","Rye bread or crispbread","Grains & bread","2 slices"],["baguette","Baguette","Grains & bread","½ small"],["bagel","Bagels","Grains & bread","1 bagel"],["english muffin","English muffins","Grains & bread","1 muffin"],["pita","Whole-wheat pita","Grains & bread","1 pita"],["naan","Naan","Grains & bread","1 naan"],["roti","Whole-wheat roti","Grains & bread","2 roti"],["cracker","Whole-grain crackers","Grains & bread","8 crackers"],["crispbread","Crispbread","Grains & bread","2 pieces"],["crostini","Crostini","Grains & bread","4 pieces"],["bread","Whole-grain bread","Grains & bread","2 slices"],["humitas","Humitas (fresh corn tamales)","Grains & bread","2 humitas"],["popcorn","Popcorn kernels","Grains & bread","¼ cup"],["gyoza","Tofu gyoza (frozen)","Tofu, tempeh & soy","8 pieces"],["crab cake","Crab cakes","Seafood","2 cakes"],["fish tikka","White fish (cod or snapper)","Seafood","150 g"],
+["peanut butter","Peanut butter","Nuts, seeds & butters","1½ tbsp"],["almond butter","Almond butter","Nuts, seeds & butters","1½ tbsp"],["pecan butter","Pecan butter","Nuts, seeds & butters","1½ tbsp"],["peanut sauce","Peanut butter","Nuts, seeds & butters","2 tbsp"],["peanut","Peanuts","Nuts, seeds & butters","2 tbsp"],["almond milk","Almond milk","Dairy & eggs","1 cup"],["almond","Almonds","Nuts, seeds & butters","¼ cup"],["walnut","Walnuts","Nuts, seeds & butters","¼ cup"],["pistachio","Pistachios","Nuts, seeds & butters","¼ cup"],["pumpkin seed","Pumpkin seeds","Nuts, seeds & butters","2 tbsp"],["pine nut","Pine nuts","Nuts, seeds & butters","1 tbsp"],["cashew","Cashews","Nuts, seeds & butters","¼ cup"],["hemp","Hemp hearts","Nuts, seeds & butters","2 tbsp"],["chia","Chia seeds","Nuts, seeds & butters","2 tbsp"],["flax","Ground flax","Nuts, seeds & butters","1 tbsp"],["tahini","Tahini","Nuts, seeds & butters","1 tbsp"],["sesame","Sesame seeds","Nuts, seeds & butters","1 tsp"],["coconut","Coconut milk","Pantry","⅓ cup"],
+["sweet potato","Sweet potatoes","Produce","1 medium"],["potato","Potatoes","Produce","1 medium"],["spinach","Spinach","Produce","2 handfuls"],["kale","Kale","Produce","2 handfuls"],["arugula","Arugula","Produce","2 handfuls"],["romaine","Romaine","Produce","1 head"],["lettuce","Lettuce","Produce","4 leaves"],["greens","Mixed greens","Produce","2 handfuls"],["bok choy","Bok choy","Produce","2 heads"],["napa","Napa cabbage","Produce","2 cups"],["cabbage","Cabbage","Produce","1 cup shredded"],["slaw","Cabbage","Produce","1 cup shredded"],["broccoli","Broccoli","Produce","1 cup florets"],["cauliflower","Cauliflower","Produce","1½ cups florets"],["poblano","Poblano peppers","Produce","2 peppers"],["jalape","Jalapeño","Produce","½ pepper"],["mini pepper","Mini sweet peppers","Produce","4 peppers"],["pepper","Bell peppers","Produce","1 pepper"],["cherry tomato","Cherry tomatoes","Produce","1 cup"],["tomato sauce","Tomato sauce","Pantry","½ cup"],["tomato","Tomatoes","Produce","1–2 tomatoes"],["cucumber","Cucumber","Produce","½ cucumber"],["red onion","Red onion","Produce","¼ onion"],["onion","Onions","Produce","½ onion"],["avocado","Avocados","Produce","½ avocado"],["banana","Bananas","Produce","1 banana"],["blueberr","Blueberries","Produce","½ cup"],["berr","Berries","Produce","½ cup"],["apple","Apples","Produce","1 apple"],["pineapple","Pineapple","Produce","½ cup"],["lemon","Lemons","Produce","½ lemon"],["lime","Limes","Produce","1 lime"],["shiitake","Shiitake mushrooms","Produce","1 cup"],["mushroom","Mushrooms","Produce","1 cup"],["carrot","Carrots","Produce","1 carrot"],["celery","Celery","Produce","2 stalks"],["radish","Radishes","Produce","4 radishes"],["plantain","Plantains","Produce","1 plantain"],["maduro","Ripe plantains","Produce","1 plantain"],["chifles","Plantain chips","Pantry","1 handful"],["yuca","Yuca","Produce","1 cup"],["corn","Corn","Produce","½ cup"],["squash","Squash","Produce","1 cup"],["eggplant","Eggplant","Produce","1 small"],["fennel","Fennel","Produce","½ bulb"],["jicama","Jicama","Produce","1 cup sticks"],["date","Medjool dates","Produce","2 dates"],["apricot","Dried apricots","Produce","4 apricots"],["raisin","Raisins","Pantry","1 tbsp"],["olive oil","Olive oil","Pantry","1 tbsp"],["olive","Olives","Pantry","8 olives"],["basil","Basil","Produce","small bunch"],["dill","Dill","Produce","small bunch"],["cilantro","Cilantro","Produce","small bunch"],["parsley","Parsley","Produce","small bunch"],["mint","Mint","Produce","small bunch"],["chive","Chives","Produce","small bunch"],["scallion","Scallions","Produce","2 scallions"],["curry leaves","Curry leaves","Produce","1 sprig"],["herb","Fresh herbs","Produce","small bunch"],["garlic","Garlic","Produce","2 cloves"],["ginger","Ginger","Produce","1 thumb"],["lemongrass","Lemongrass","Produce","1 stalk"],["kokum","Kokum or tamarind","Pantry","2 pieces"],
+["salsa verde","Salsa verde","Pantry","½ cup"],["salsa","Salsa","Pantry","¼ cup"],["pico","Pico de gallo","Produce","¼ cup"],["marinara","Marinara sauce","Pantry","¾ cup"],["pesto","Basil pesto","Pantry","2 tbsp"],["curry","Curry paste or spices","Pantry","1 tbsp"],["mole","Mole sauce","Pantry","¼ cup"],["teriyaki","Teriyaki sauce","Pantry","2 tbsp"],["tamari","Tamari or soy sauce","Pantry","1 tbsp"],["sriracha","Sriracha","Pantry","1 tsp"],["hot sauce","Hot sauce","Pantry","2 tbsp"],["chili bean","Chili bean paste","Pantry","1 tbsp"],["chili","Chili flakes","Pantry","pinch"],["miso","Miso paste","Pantry","1 tbsp"],["dashi","Kombu or dashi","Pantry","1 piece"],["nori","Nori sheets","Pantry","2 sheets"],["seaweed","Roasted seaweed","Pantry","1 pack"],["wakame","Dried wakame","Pantry","1 tbsp"],["kimchi","Kimchi","Pantry","¼ cup"],["pickle","Pickled vegetables","Pantry","¼ cup"],["curtido","Pickled cabbage (curtido)","Pantry","¼ cup"],["caper","Capers","Pantry","1 tbsp"],["nutritional yeast","Nutritional yeast","Pantry","2 tbsp"],["pea protein","Pea protein powder","Pantry","1 scoop"],["oat protein bar","Protein bars","Pantry","1 bar"],["cocoa","Cocoa powder","Pantry","1 tbsp"],["chocolate","Dark chocolate","Pantry","15 g"],["honey","Honey","Pantry","1 tsp"],["maple","Maple syrup","Pantry","1 tsp"],["cinnamon","Cinnamon","Pantry","pinch"],["paprika","Smoked paprika","Pantry","1 tsp"],["cumin","Cumin","Pantry","1 tsp"],["achiote","Achiote paste","Pantry","1 tbsp"],["saffron","Saffron","Pantry","pinch"],["mustard","Mustard","Pantry","1 tsp"],["chaat","Chaat masala","Pantry","1 tsp"],["za'atar","Za'atar","Pantry","1 tsp"],["everything","Everything-bagel seasoning","Pantry","1 tsp"],["mayo","Vegan mayo","Pantry","1 tbsp"],["dressing","Dressing ingredients","Pantry","2 tbsp"],["sauce","Sauce ingredients","Pantry","as needed"],["broth","Vegetable or fish broth","Pantry","2 cups"],["wine","Dry white wine","Pantry","¼ cup"],["espresso","Espresso beans","Pantry","1–2 shots"],["spice","Spices","Pantry","to taste"],["green tea","Green tea","Pantry","1 bag"],["breadcrumb","Breadcrumbs","Pantry","2 tbsp"],["liquid smoke","Liquid smoke","Pantry","few drops"],["sea salt","Flaky sea salt","Pantry","pinch"]];
+function norm(raw){var s=raw.toLowerCase();for(var j=0;j<ING.length;j++){if(s.indexOf(ING[j][0])>-1)return {name:ING[j][1],cat:ING[j][2],amt:ING[j][3],raw:raw};}return {name:raw.charAt(0).toUpperCase()+raw.slice(1),cat:"Pantry",amt:"to taste",raw:raw};}
+
+function tmpl(n){
+  n=n.toLowerCase();
+  if(/cappuccino/.test(n))return "coffee";
+  if(/smoothie|shake/.test(n))return "blend";
+  if(/omelette|frittata|scramble|bhurji|migas|huevos|tigrillo|tamagoyaki|shakshuka|chilla|pancake|waffle|mug|hash|bolón|okonomiyaki|egg cups|muffin cups/.test(n))return "eggs";
+  if(/curry|masala|dal\b|dal |stew|soup|chili|tagine|locro|encocado|viche|sudado|nabe|ramen|pozole|fanesca|encebollado|khichdi|kedgeree|chowder|menestra|cioppino|cacciatore|stroganoff|sukiyaki|congee|ochazuke|udon|mussels/.test(n))return "simmer";
+  if(/pasta|lasagna|linguine|scampi|bolognese|soba|pad thai|noodle|sarde|diavolo|fagioli/.test(n))return "pasta";
+  if(/stir-fry|teriyaki|donburi|don\b|fried rice|chaulaf|mapo|poha|paella|arroz/.test(n))return "stirfry";
+  if(/taco|burrito|wrap|fajita|enchilada|tostada|quesadilla|sandwich|bagel|toast|bánh|bruschetta|crostini|melt|onigiri|tikka|bento|chilaquiles|pane e/.test(n))return "assemble";
+  if(/oats|chia|porridge|polenta|humitas/.test(n))return "oats";
+  if(/salad|poke|chirashi|niçoise|ceviche|aguachile|bowl|set/.test(n))return "bowl";
+  if(/sheet-pan|baked|roasted|grilled|seared|blackened|piccata|glazed|tandoori|mustard|veracruzana|parmigiana|stuffed|shepherd|katsu|scallops|cod|trout|halibut|llapingachos/.test(n))return "bake";
+  return "snack";
+}
+var TMPL={
+  coffee:{t:5,s:["Pull one or two shots of espresso into a warm 12-oz cup.","Steam the milk to about 60–65°C (140–150°F), until the jug is hot to touch but not scalding.","Swirl the milk, then pour it into the espresso, holding back foam until the end so a thick cap forms on top.","Dust with cocoa or cinnamon instead of syrup. Enjoy it before 2 pm."]},
+  blend:{t:5,s:["Add the liquid to the blender first so the blades move freely.","Add protein powder, nut butter, fruit and any seeds.","Blend 45–60 seconds until completely smooth; add ice or more liquid to adjust thickness.","Drink right away, or chill up to 24 hours and shake before drinking."]},
+  eggs:{t:15,s:["Prep the vegetables and protein: chop, slice or flake into bite-size pieces.","Whisk the eggs (or mix the batter) with a pinch of salt and pepper.","Warm a nonstick pan over medium heat with a little olive oil; cook any vegetables 2–3 minutes until soft.","Add the eggs or batter and cook gently, folding or flipping, until just set. Add the protein so it warms through.","Finish with cheese, herbs or sauce, and serve with the bread, tortillas or sides."]},
+  simmer:{t:35,s:["Chop the aromatics (onion, garlic, ginger, chili) and the vegetables.","In a pot over medium heat, cook the aromatics in a little oil for 4–5 minutes, then stir in any spices or paste for 30 seconds.","Add the liquid (broth, tomatoes, coconut milk) and the legumes or grains; simmer 15–20 minutes until tender.","Add the main protein near the end: seafood needs 4–6 minutes, tofu or paneer 5 minutes, just until cooked through.","Season with salt and lemon or lime, and serve with the rice, bread or toppings."]},
+  pasta:{t:25,s:["Bring a large pot of salted water to a boil and cook the pasta or noodles until just al dente. Save ½ cup of the cooking water.","Meanwhile, warm olive oil in a wide pan and cook the garlic and aromatics for 1 minute.","Add the sauce base and the protein; cook until the protein is done (shrimp 3–4 minutes, lentils or tofu just to heat through).","Toss in the drained pasta with a splash of the cooking water until glossy.","Finish with cheese, herbs, lemon or greens and serve."]},
+  stirfry:{t:25,s:["Cook the rice or grain first, or use leftovers.","Cut the protein and vegetables into even pieces; press tofu for 15 minutes if using.","Sear the protein in a hot pan with a little oil until golden; set aside.","Stir-fry the vegetables 3–4 minutes, return the protein, and add the sauce. Toss 1 minute until glossy.","Serve over the rice, topped with scallions or sesame."]},
+  assemble:{t:15,s:["Cook or warm the protein: sear, grill or bake until golden, or simply flake canned fish.","Prep the fresh components: slice vegetables, mash avocado, stir together any yogurt sauce.","Warm the tortillas, bread or wraps.","Layer protein, vegetables and sauce, then fold, roll or top.","Serve with lime, salsa or chutney."]},
+  oats:{t:10,s:["Combine the grain or base with the milk or liquid in a pot or jar.","Stir in protein powder, seeds or nut butter.","Cook on the stove 5 minutes, or cover and refrigerate overnight for a no-cook version.","Top with fruit, seeds or cheese and serve."]},
+  bowl:{t:20,s:["Cook the grain or legumes if needed, then let them cool slightly.","Prepare the protein: sear or bake it, cure seafood in citrus for 15–20 minutes for ceviche-style dishes, or open and drain canned fish or beans.","Chop the vegetables and whisk the dressing or sauce.","Build the bowl: base first, then protein and vegetables.","Dress, garnish with herbs, seeds or lime, and serve."]},
+  bake:{t:30,s:["Heat the oven to 200°C (400°F) or warm a heavy pan over medium-high heat.","Season the main protein with salt, pepper and the spices or glaze.","Roast or sear until done: fish 8–12 minutes until it flakes, tofu 20–25 minutes until crisp, stuffed vegetables 25–30 minutes.","Meanwhile, cook the sides: lentils, beans, grain or greens.","Plate the protein over the sides and finish with lemon, herbs or sauce."]},
+  snack:{t:5,s:["Gather the ingredients and portion them into a small bowl or container.","Combine or assemble: spread, dip, top or toss as needed.","Season to taste and eat right away, or pack it for later."]}
+};
+function recipeFor(m){var k=tmpl(m.n),T=TMPL[k],t=T.t;if(m.kind&&/snack/i.test(m.kind)&&k!=="blend")t=Math.min(t,10);return {steps:(m.kind&&/snack/i.test(m.kind)&&["blend","oats"].indexOf(k)<0?TMPL.snack.s:T.s),time:/snack/i.test(m.kind||"")&&k!=="blend"?Math.min(t,10):t,ings:m.i.map(norm)};}
+
+var modal=document.getElementById("modal"),mbody=document.getElementById("mbody"),lastFocus=null;
+function openModal(html){lastFocus=document.activeElement;mbody.innerHTML=html;modal.hidden=false;document.body.style.overflow="hidden";var c=modal.querySelector(".mclose");c&&c.focus();}
+function closeModal(){modal.hidden=true;if(CURRENT_RECIPE){CURRENT_RECIPE=null;setHash(stateHash());}document.body.style.overflow="";if(lastFocus)try{lastFocus.focus();}catch(e){}}
+modal.addEventListener("click",function(e){if(e.target.closest("[data-close]"))closeModal();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!modal.hidden)closeModal();});
+
+var REG=[];
+function reg(m){REG.push(m);return REG.length-1;}
+function openRecipe(m){
+  var r=recipeFor(m), coffee=/cappuccino/i.test(m.n);
+  openModal('<div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
+  '<div class="rgrid"><div><h3>Ingredients</h3><ul class="ing">'+r.ings.map(function(g,ix){var am=g.amt,w=am.split(" "),last=w[w.length-1].replace(/s$/,"").toLowerCase();if(w.length>1&&last.length>2&&g.raw.toLowerCase().indexOf(last)>-1)am=w.slice(0,-1).join(" ");return '<li><label><input type="checkbox" id="ing'+ix+'"><span><b>'+esc(am)+'</b> '+esc(g.raw)+'</span></label></li>';}).join("")+'<li><label><input type="checkbox" id="ingx"><span>Salt, pepper and oil</span></label></li></ul></div>'+
+  '<div><h3>Method</h3><ol class="steps">'+r.steps.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol></div></div>'+
+  '<p class="rwhy"><b>Why it’s good for you:</b> '+esc(m.h)+'</p>'+
+  '<div class="rfoot"><span>Amounts are a single-serving guide; adjust to taste.</span><span style="display:flex;gap:14px;align-items:center"><button class="rshare" type="button" data-share="recipe">Share recipe</button><a href="'+recipeUrl(m.n)+'" target="_blank" rel="noopener noreferrer">More versions online →</a></span></div>');
+  CURRENT_RECIPE=m; setHash("recipe-"+slug(m.n));
+}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-recipe]");if(b){e.preventDefault();openRecipe(REG[+b.dataset.recipe]);}});
+
+/* shopping list */
+var STORES={co:"Costco",wf:"Whole Foods",tj:"Trader Joe's"};
+var PICKS={
+ "Extra-firm tofu":{co:"Organic tofu multipacks",wf:"365 Organic Extra Firm Tofu",tj:"Trader Joe's Organic Extra Firm Tofu"},
+ "Tempeh":{wf:"Lightlife tempeh",tj:"Trader Joe's Organic 3 Grain Tempeh"},
+ "Lentils":{co:"Bulk dry lentils",wf:"Bulk-bin lentils",tj:"Trader Joe's Steamed Lentils (refrigerated, ready to eat)"},
+ "Shelled edamame":{co:"Frozen edamame multipacks",wf:"365 frozen shelled edamame",tj:"Trader Joe's Organic Shelled Edamame (frozen)"},
+ "Salmon fillet":{co:"Kirkland Signature Wild Alaskan Sockeye Salmon (frozen)",wf:"Seafood-counter salmon, or 365 frozen wild salmon",tj:"Trader Joe's frozen wild sockeye salmon"},
+ "Smoked salmon":{co:"Kirkland Signature smoked salmon",wf:"Seafood-counter smoked salmon",tj:"Trader Joe's smoked salmon"},
+ "Shrimp":{co:"Kirkland Signature frozen shrimp",wf:"365 frozen shrimp",tj:"Trader Joe's frozen raw shrimp"},
+ "Canned light tuna":{co:"Kirkland Signature canned tuna",wf:"365 skipjack tuna",tj:"Trader Joe's canned tuna (choose skipjack/light)"},
+ "Sardines":{wf:"Wild Planet sardines",tj:"Trader Joe's sardines in olive oil"},
+ "Greek yogurt":{co:"Kirkland Signature Nonfat Greek Yogurt",wf:"365 Greek yogurt",tj:"Trader Joe's Greek Nonfat Yogurt"},
+ "Cottage cheese":{co:"Large cottage cheese tubs",wf:"Good Culture cottage cheese",tj:"Trader Joe's cottage cheese"},
+ "Eggs":{co:"Kirkland Signature Organic Eggs (2 dozen)",wf:"365 organic eggs",tj:"Trader Joe's eggs"},
+ "Almond butter":{co:"Kirkland Signature Almond Butter",wf:"Fresh-ground almond butter (grinder in bulk aisle) or 365 almond butter",tj:"Trader Joe's Creamy Almond Butter"},
+ "Pecan butter":{co:"Not usually stocked",wf:"Specialty nut-butter shelf",tj:"Check the nut-butter aisle; stock varies"},
+ "Peanut butter":{co:"Kirkland Signature Organic Peanut Butter",wf:"Fresh-ground peanut butter",tj:"Trader Joe's peanut butter"},
+ "Quinoa":{co:"Kirkland Signature Organic Quinoa",wf:"365 Organic Quinoa",tj:"Trader Joe's quinoa"},
+ "Chickpea pasta":{wf:"Banza chickpea pasta",tj:"Trader Joe's legume pastas"},
+ "Lentil pasta":{wf:"Red lentil pasta",tj:"Trader Joe's Red Lentil Sedanini"},
+ "Black beans":{co:"Kirkland Signature Organic Black Beans (cans)",wf:"365 organic canned beans",tj:"Trader Joe's canned black beans"},
+ "Chickpeas":{co:"Organic canned beans in bulk packs",wf:"365 organic chickpeas",tj:"Trader Joe's canned chickpeas"},
+ "Soy milk":{co:"Soy milk multipacks",wf:"365 organic soy milk",tj:"Trader Joe's soy milk"},
+ "Hemp hearts":{co:"Manitoba Harvest hemp hearts (large bag)",wf:"Manitoba Harvest hemp hearts",tj:"Hemp seeds when in stock"},
+ "Pea protein powder":{co:"Plant protein powder tubs",wf:"Supplement aisle pea protein"},
+ "Everything-bagel seasoning":{tj:"Trader Joe's Everything but the Bagel Sesame Seasoning Blend"},
+ "Seitan":{wf:"Upton's Naturals seitan"},
+ "Avocados":{co:"Bagged avocados",wf:"Organic avocados",tj:"Bagged avocados"},
+ "Spinach":{co:"Large organic spinach clamshell",wf:"365 organic baby spinach",tj:"Trader Joe's baby spinach"},
+ "Berries":{co:"Frozen organic berry blends",wf:"365 frozen berries",tj:"Trader Joe's frozen berry blends"},
+ "Rice":{co:"Large bags of jasmine or brown rice",wf:"Bulk-bin rice",tj:"Trader Joe's frozen brown rice (microwavable)"},
+ "Brown rice":{co:"Large bags of brown rice",wf:"Bulk-bin brown rice",tj:"Trader Joe's frozen brown rice (microwavable)"}
+};
+var CATS=["Seafood","Tofu, tempeh & soy","Legumes","Dairy & eggs","Grains & bread","Nuts, seeds & butters","Produce","Pantry"];
+var shopRange="w1", shopStore="any";
+function shopHTML(){
+  var R={w1:[1,7],w2:[8,14],w3:[15,21],w4:[22,30],day:[cur,cur],all:[1,30]}[shopRange];
+  var agg={};
+  for(var d=R[0];d<=R[1];d++)DAYS[d-1].items.forEach(function(it){if(it.type==="coffee"){var k="Milk for cappuccinos";agg[k]=agg[k]||{name:it.x.n.replace(" cappuccino","")+" (cappuccinos)",cat:"Dairy & eggs",n:0,amt:"~¾ cup per cup"};agg[k].n++;var e="Espresso beans";agg[e]=agg[e]||{name:e,cat:"Pantry",n:0,amt:"1–2 shots per cup"};agg[e].n++;return;}
+    it.x.i.forEach(function(raw){var g=norm(raw);var k=g.name;agg[k]=agg[k]||{name:k,cat:g.cat,n:0,amt:g.amt};agg[k].n++;});});
+  var by={};Object.keys(agg).forEach(function(k){var a=agg[k];(by[a.cat]=by[a.cat]||[]).push(a);});
+  var title={w1:"Week 1 · days 1–7",w2:"Week 2 · days 8–14",w3:"Week 3 · days 15–21",w4:"Week 4 · days 22–30",day:"Day "+cur,all:"Whole month"}[shopRange];
+  var html='<div class="shead"><span class="kind">Shopping list</span><h2 id="mtitle">'+title+'</h2><div class="stabs" data-g="range">'+
+    [["w1","Week 1"],["w2","Week 2"],["w3","Week 3"],["w4","Week 4"],["day","Day "+cur],["all","Month"]].map(function(t){return '<button data-v="'+t[0]+'" aria-pressed="'+(shopRange===t[0])+'">'+t[1]+'</button>';}).join("")+
+    '</div><div class="stabs" data-g="store">'+[["any","Any store"],["co","Costco"],["wf","Whole Foods"],["tj","Trader Joe's"]].map(function(t){return '<button data-v="'+t[0]+'" aria-pressed="'+(shopStore===t[0])+'">'+t[1]+'</button>';}).join("")+'</div></div><div class="scols">';
+  var text=title+"\n";
+  CATS.forEach(function(c){if(!by[c])return;by[c].sort(function(a,b){return b.n-a.n;});text+="\n"+c.toUpperCase()+"\n";
+    html+='<div><h3>'+c+'</h3><ul class="ing">'+by[c].map(function(a,ix){var pick=shopStore!=="any"&&PICKS[a.name]&&PICKS[a.name][shopStore];text+="- "+a.name+" ("+a.n+" serving"+(a.n>1?"s":"")+")"+(pick?" — "+pick:"")+"\n";
+      return '<li><label><input type="checkbox" id="sh-'+c.length+'-'+ix+'"><span>'+esc(a.name)+(pick?'<br><small style="color:var(--terra);font-size:12px">'+esc(STORES[shopStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></label></li>';}).join("")+'</ul></div>';});
+  html+='</div><div class="rfoot"><span>×N = how many servings use it, at about the per-recipe amount. '+(shopStore!=="any"?'Product names and stock vary by region and season.':'Pick a store to see product suggestions.')+'</span><span style="display:flex;gap:8px"><button class="rshare" type="button" data-share="list">Share list</button><button class="copybtn" id="copylist">Copy list</button></span></div>';
+  window.__shopText=text;
+  return html;
+}
+function openShop(){openModal(shopHTML());}
+document.getElementById("shopbtn").addEventListener("click",openShop);
+mbody.addEventListener("click",function(e){
+  var b=e.target.closest(".stabs button");
+  if(b){if(b.parentNode.dataset.g==="range")shopRange=b.dataset.v;else shopStore=b.dataset.v;mbody.innerHTML=shopHTML();return;}
+  if(e.target.id==="copylist"){var btn=e.target;try{navigator.clipboard.writeText(window.__shopText).then(function(){btn.textContent="Copied";},function(){btn.textContent="Select and copy manually";});}catch(err){btn.textContent="Select and copy manually";}}
+});
+
+/* cuisine chips */
+var cchips=document.getElementById("cchips");
+cchips.innerHTML='<button data-c="">All cuisines</button>'+Object.keys(CUISINES).map(function(k){return '<button data-c="'+k+'">'+CUISINES[k].name+'</button>';}).join("");
+function syncC(){[].forEach.call(cchips.children,function(b){var c=b.dataset.c;b.setAttribute("aria-pressed",String(c?CUIS.indexOf(c)>-1:CUIS.length===0));});}
+cchips.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var c=b.dataset.c;if(!c)CUIS=[];else{var ix=CUIS.indexOf(c);if(ix>-1)CUIS.splice(ix,1);else CUIS.push(c);}
+  try{localStorage.setItem("pp30c",JSON.stringify(CUIS));}catch(err){}syncC();rebuild();});
+syncC();
+
+/* ---------------- share links ---------------- */
+var CURRENT_RECIPE=null, AB={japanese:"jp",italian:"it",indian:"in",mexican:"mx",ecuadorian:"ec"}, BA={jp:"japanese",it:"italian","in":"indian",mx:"mexican",ec:"ecuadorian"};
+function slug(n){return n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+function stateHash(){return "plan-"+MODE+(MODE==="custom"?"-"+["b","l","d","s"].map(function(k){return CUSTOM[k];}).join(""):"")+CUIS.map(function(c){return "-"+AB[c];}).join("")+"-d"+cur;}
+function setHash(h){try{if(location.hash!=="#"+h)history.replaceState(null,"","#"+h);}catch(e){}}
+function shareURL(h){return location.href.split("#")[0]+"#"+h;}
+var toastEl=document.getElementById("toast"),tt;
+function toast(msg){toastEl.textContent=msg;toastEl.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){toastEl.classList.remove("on");},2200);}
+function share(title,text,url){
+  var full=text+(url?"\n"+url:"");
+  if(navigator.share){navigator.share({title:title,text:text,url:url}).catch(function(){copy(full);});return;}
+  copy(full);
+}
+function copy(t){try{navigator.clipboard.writeText(t).then(function(){toast("Link copied. Paste it anywhere to share.");},function(){prompt0(t);});}catch(e){prompt0(t);}}
+function prompt0(t){openModal('<div class="shead"><span class="kind">Share</span><h2 id="mtitle">Copy this link</h2></div><div style="padding:8px 28px 28px"><textarea readonly style="width:100%;min-height:120px;font:14px var(--mono);border-radius:14px;border:1px solid var(--line);padding:12px">'+esc(t)+'</textarea></div>');var ta=mbody.querySelector("textarea");ta.focus();ta.select();}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-share]");if(!b)return;var k=b.dataset.share;
+  if(k==="day"){var D=DAYS[cur-1];share("Plant Protein 30 · Day "+cur,"Day "+cur+(D.cuisine?" ("+D.cuisine+" day)":"")+" — "+D.total+"g protein: "+D.items.filter(function(i){return i.type==="meal";}).map(function(i){return i.x.n;}).join(", "),shareURL(stateHash()));}
+  if(k==="recipe"&&CURRENT_RECIPE){share(CURRENT_RECIPE.n,CURRENT_RECIPE.n+" — "+CURRENT_RECIPE.p+"g protein",shareURL("recipe-"+slug(CURRENT_RECIPE.n)));}
+  if(k==="list"){share("Grocery list",window.__shopText||"",shareURL(stateHash()));}
+  if(k==="prep"){share("Meal prep plan",window.__prepText||"",shareURL(stateHash()));}
+  if(k==="plan"){share("Plant Protein 30","My 30-day high-protein plan",shareURL(stateHash()));}
+});
+function findRecipe(sl){
+  var pools=[["Breakfast",BREAKFAST],["Lunch",LUNCH],["Dinner",DINNER],["Snack",SNACKS],["Breakfast",P_BREAKFAST],["Lunch",P_LUNCH],["Dinner",P_DINNER],["Snack",P_SNACKS]];
+  Object.keys(CUISINES).forEach(function(c){var C=CUISINES[c];[["b","Breakfast"],["l","Lunch"],["d","Dinner"]].forEach(function(s){pools.push([s[1],C[s[0]].v]);pools.push([s[1],C[s[0]].p]);});});
+  for(var i=0;i<pools.length;i++)for(var j=0;j<pools[i][1].length;j++)if(slug(pools[i][1][j][0])===sl)return meal(pools[i][1][j],pools[i][0]);
+  return null;
+}
+function applyHash(){
+  var h=location.hash.slice(1),m;
+  if((m=/^recipe-(.+)$/.exec(h))){var r=findRecipe(m[1]);if(r)openRecipe(r);return true;}
+  if((m=/^day-(\d+)$/.exec(h))){show(+m[1]);document.getElementById("plan").scrollIntoView();return true;}
+  if((m=/^plan-(mixed|pesc|veg|custom)(?:-([pv]{4}))?((?:-(?:jp|it|in|mx|ec))*)-d(\d+)$/.exec(h))){
+    MODE=m[1];if(m[2]){CUSTOM={b:m[2][0],l:m[2][1],d:m[2][2],s:m[2][3]};}
+    CUIS=m[3]?m[3].slice(1).split("-").map(function(a){return BA[a];}):[];
+    build(MODE);syncUI();syncC();cur=+m[4];show(cur,false);renderPlanner();
+    var g=stats();document.getElementById("statTotal").textContent=g.toLocaleString();document.getElementById("statAvg").textContent=Math.round(g/30);
+    if(cur>1||MODE!=="mixed"||CUIS.length)document.getElementById("plan").scrollIntoView();return true;}
+  return false;
+}
+window.addEventListener("hashchange",function(){if(location.hash.slice(1)!==stateHash()&&!/^#recipe-/.test(location.hash)||/^#recipe-/.test(location.hash)&&!CURRENT_RECIPE)applyHash();});
+
+/* ---------------- meal prep planner ---------------- */
+var prepWeek="w1", prepStore="any";
+function aggregate(R){
+  var agg={};
+  for(var d=R[0];d<=R[1];d++)DAYS[d-1].items.forEach(function(it){if(it.type==="coffee")return;it.x.i.forEach(function(raw){var g=norm(raw);var k=g.name;agg[k]=agg[k]||{name:k,cat:g.cat,n:0,amt:g.amt,days:{}};agg[k].n++;agg[k].days[d]=1;});});
+  return agg;
+}
+function fmt(x){return (Math.round(x*2)/2).toString().replace(".5","½").replace(/^0½/,"½");}
+function renderPlanner(){
+  var R={w1:[1,7],w2:[8,14],w3:[15,21],w4:[22,30]}[prepWeek], A=aggregate(R), has=function(k){return A[k]?A[k].n:0;};
+  var steps=[], t=0;
+  function add(min,title,detail){steps.push([t,title,detail]);t+=min;}
+  var grains=["Quinoa","Brown rice","Rice","Farro","Sushi rice"].filter(has);
+  if(grains.length)add(5,"Start the grains",grains.map(function(g){var c=has(g)*0.75;return "cook "+fmt(c/2.5*1)+" cups dry "+g.toLowerCase()+" (≈"+fmt(c)+" cups cooked)";}).join("; ")+". They simmer while you do everything else.");
+  if(has("Lentils"))add(5,"Simmer the lentils","Cook "+fmt(has("Lentils")/2.5)+" cup(s) dry lentils in salted water, 20–25 minutes, until just tender. Drain and cool.");
+  if(has("Red lentils")||has("Moong dal"))add(3,"Rinse the dal","Rinse red lentils or moong dal; they cook in 15 minutes on the day you need them.");
+  if(has("Extra-firm tofu"))add(10,"Press and bake tofu","Press "+Math.ceil(has("Extra-firm tofu")/2)+" block(s) for 15 minutes, cube, toss with tamari and a little oil, bake at 200°C (400°F) for 25 minutes.");
+  if(has("Tempeh"))add(5,"Steam the tempeh","Steam "+Math.ceil(has("Tempeh")*120/225)+" package(s) of tempeh for 10 minutes to soften the flavor; slice and refrigerate.");
+  var beans=["Chickpeas","Black beans","Cannellini beans","Kidney beans","Pinto beans","Beans"].filter(has);
+  if(beans.length)add(5,"Open and rinse the beans",beans.map(function(b){return Math.max(1,Math.ceil(has(b)/2))+" can(s) "+b.toLowerCase();}).join(", ")+". Store in containers with a splash of water.");
+  if(has("Eggs")>=3)add(15,"Hard-boil eggs","Boil "+Math.min(12,Math.max(6,has("Eggs")))+" eggs for 10 minutes, cool in ice water. They keep about a week in the fridge.");
+  var veg=["Bell peppers","Onions","Cucumber","Broccoli","Carrots","Celery","Cabbage","Mushrooms","Sweet potatoes","Kale","Romaine","Green beans","Radishes"].filter(has);
+  if(veg.length)add(20,"Wash and chop vegetables",veg.map(function(v){return v.toLowerCase();}).join(", ")+". Store in containers lined with a paper towel.");
+  if(has("Tahini")||has("Greek yogurt")||has("Plain yogurt"))add(5,"Make two sauces","A lemon-tahini dressing and a herby Greek yogurt sauce cover most bowls, wraps and snacks this week.");
+  var sn=[];DAYS.slice(R[0]-1,R[1]).forEach(function(D){D.items.forEach(function(it){if(it.type==="snack"&&/energy|egg muffin|chia|roasted chickpeas|crispy|cookie-dough|bark|pâté|dip|hummus/i.test(it.x.n))sn.push(it.x.n);});});
+  if(sn.length)add(15,"Batch the make-ahead snacks",sn.join("; ")+".");
+  var fish=["Salmon fillet","Shrimp","Cod","White fish (cod or snapper)","Trout","Halibut","Black cod","Mackerel","Scallops","Sushi-grade ahi tuna"].filter(has);
+  if(fish.length)add(5,"Plan the seafood",fish.map(function(f){return f.toLowerCase()+" ×"+has(f);}).join(", ")+". Keep it frozen and move each portion to the fridge the night before. Cook fish fresh, or eat cooked fish within 3–4 days.");
+  add(10,"Portion and label","Pack 3–4 days of lunches and snacks into containers. Freeze grains and beans for the second half of the week.");
+  var mid=R[0]+3;
+  var html='<div class="ptop"><div><span class="kind">Meal prep planner</span><h3 id="prepTitle">'+{w1:"Week 1",w2:"Week 2",w3:"Week 3",w4:"Week 4"}[prepWeek]+' · days '+R[0]+'–'+R[1]+'</h3></div><div class="pbtns"><button class="primary" type="button" id="printPrep">Print</button><button type="button" data-share="prep">Share</button><button type="button" id="copyPrep">Copy text</button></div></div>'+
+    '<div class="stabs" data-g="pweek">'+[["w1","Week 1"],["w2","Week 2"],["w3","Week 3"],["w4","Week 4"]].map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(prepWeek===x[0])+'">'+x[1]+'</button>';}).join("")+'</div>'+
+    '<div class="stabs" data-g="pstore">'+[["any","Any store"],["co","Costco"],["wf","Whole Foods"],["tj","Trader Joe's"]].map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(prepStore===x[0])+'">'+x[1]+'</button>';}).join("")+'</div>'+
+    '<div class="pgrid"><div><h4>Sunday prep session · about '+Math.round(t/5)*5+' min</h4><ol class="psteps">'+steps.map(function(s){return '<li><span class="tm">'+(s[0]===0?"start":"+"+s[0]+" min")+'</span><div><b>'+esc(s[1])+'</b><span>'+esc(s[2])+'</span></div></li>';}).join("")+
+    '<li><span class="tm">day '+mid+'</span><div><b>Midweek refresh</b><span>Thaw the frozen grains and beans, cook a fresh batch of tofu or tempeh if needed, and restock snacks for the rest of the week.</span></div></li></ol>'+
+    '<p class="pstore">Food safety: cooked grains, legumes and tofu keep about 3–4 days in the fridge; freeze anything for later in the week.</p></div><div class="pgl"><h4>Grocery list for this week</h4>';
+  var text="MEAL PREP · days "+R[0]+"–"+R[1]+"\n"+steps.map(function(s,i){return (i+1)+". "+s[1]+": "+s[2];}).join("\n")+"\n\nGROCERY LIST\n";
+  CATS.forEach(function(c){var items=Object.keys(A).map(function(k){return A[k];}).filter(function(a){return a.cat===c;}).sort(function(a,b){return b.n-a.n;});if(!items.length)return;
+    text+="\n"+c.toUpperCase()+"\n";
+    html+='<h5>'+c+'</h5><ul>'+items.map(function(a){var pick=prepStore!=="any"&&PICKS[a.name]&&PICKS[a.name][prepStore];text+="- "+a.name+" ×"+a.n+(pick?" ("+STORES[prepStore]+": "+pick+")":"")+"\n";return '<li><span>'+esc(a.name)+(pick?'<small>'+esc(STORES[prepStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></li>';}).join("")+'</ul>';});
+  html+='<h5>Cappuccinos</h5><ul><li><span>Espresso beans and milk for '+DAYS.slice(R[0]-1,R[1]).reduce(function(a,D){return a+D.cups;},0)+' cappuccinos</span><span class="n"></span></li></ul>';
+  html+='<p class="pstore">'+(prepStore==="any"?"Pick a store above to see product suggestions. ":"Product names and stock vary by region and season. ")+'Almond and pecan butter show up in snacks; pecan butter is lower in protein, so it’s always paired with yogurt, cottage cheese or hemp.</p></div></div>';
+  window.__prepText=text;
+  document.getElementById("planner").innerHTML=html;
+  var pb=document.getElementById("printPrep"); if(window.self!==window.top)pb.hidden=true;
+}
+document.getElementById("planner").addEventListener("click",function(e){
+  var b=e.target.closest(".stabs button");
+  if(b){if(b.parentNode.dataset.g==="pweek")prepWeek=b.dataset.v;else prepStore=b.dataset.v;renderPlanner();return;}
+  if(e.target.id==="printPrep"){document.body.classList.add("print-prep");window.print();setTimeout(function(){document.body.classList.remove("print-prep");},500);}
+  if(e.target.id==="copyPrep")copy(window.__prepText);
+});
+
+/* init */
+var LIBN=0; renderLib(); LIBN=REG.length;
+renderPlanner(); if(!applyHash()) show(1,false);
+})();
+</script>
+
+</body>
+</html>
