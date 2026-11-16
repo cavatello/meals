@@ -396,6 +396,7 @@ footer p{max-width:54ch;font-size:14px}
       <div class="cchips" id="cchips" role="group" aria-label="Cuisine days"></div>
       <button class="shopbtn" id="shopbtn" type="button">Shopping list</button>
     </div>
+    <p class="modehint">No meal repeats within the month. Each cuisine has about a week of its own dishes, so one or two cuisines fill those days and the rest of the month mixes in other dishes. Pick more cuisines for more themed days.</p>
     <div class="strip-wrap">
       <button class="arrow" id="prev" aria-label="Previous day">←</button>
       <div class="strip" id="strip" role="group" aria-label="Choose a day"></div>
@@ -715,6 +716,35 @@ ecuadorian:{name:"Ecuadorian",
  d:{v:[["Vegetarian Fanesca",G,30,"beans, lentils, grains, squash, milk, egg","A traditional soup packed with legumes and grains."],["Menestra de Fréjol with Tofu & Maduros",V,30,"beans, tofu, rice, sweet plantain","Beans plus tofu make a high-protein plate."],["Quinoa Chaulafán with Egg & Tofu",G,32,"quinoa, eggs, tofu, vegetables","Ecuador's fried rice made with Andean quinoa."]],
     p:[["Encocado de Pescado with Lentils",P,38,"white fish, coconut sauce, rice, lentils","A coastal coconut fish stew with lentils on the side."],["Sudado de Pescado with Menestra",P,38,"white fish, tomato broth, beans, rice","Gently steamed fish with a bean side."],["Arroz con Camarón with Menestra",P,36,"shrimp, rice, peppers, beans","Shrimp rice with beans for extra protein."]]}}
 };
+
+/* extra dishes so a 30-day plan never repeats a meal */
+BREAKFAST.push(["Spinach Tofu Breakfast Wrap",V,29,"extra-firm tofu, spinach, black beans, whole-wheat tortilla","Spinach adds folate and iron to a soy-and-bean protein base."],["Cottage Cheese Egg Bake",G,31,"eggs, cottage cheese, peppers, spinach","Make once, slice for several mornings; casein keeps you full."],["Hemp & Almond Butter Protein Toast",V,26,"sprouted bread, almond butter, hemp hearts, banana, soy milk latte","Sprouted grain bread plus hemp lifts the protein of a simple toast."]);
+P_BREAKFAST.push(["Smoked Salmon Rice Cakes with Eggs",P,30,"rice cakes, smoked salmon, eggs, cucumber","Omega-3s plus complete protein, ready in five minutes."],["Tuna Egg Muffin Cups",P,28,"canned light tuna, eggs, spinach, feta","A make-ahead breakfast with two proteins."],["Shrimp & Spinach Breakfast Quesadilla",P,32,"shrimp, eggs, spinach, cheese, tortilla","Lean shrimp and eggs in a crisp tortilla."]);
+LUNCH.push(["Lentil & Halloumi Plate",G,34,"lentils, halloumi, cucumber, tomato, tahini","Lentils add iron; halloumi adds calcium."],["Tempeh Reuben",V,33,"tempeh, sauerkraut, rye bread, vegan dressing","Sauerkraut adds live cultures to fermented tempeh."],["White Bean & Kale Soup with Parmesan",G,27,"cannellini beans, kale, parmesan, broth","Kale and beans give fiber, vitamin K and folate."],["Peanut Tofu Noodle Salad",V,31,"tofu, rice noodles, peanut sauce, cabbage, edamame","Two soy proteins with crunchy vegetables."]);
+P_LUNCH.push(["Salmon Caesar Wrap",P,36,"salmon, romaine, parmesan, Greek yogurt dressing, tortilla","Yogurt dressing keeps it light and adds protein."],["Tuna Stuffed Bell Peppers",P,32,"canned light tuna, quinoa, bell peppers, feta","Peppers bring vitamin C; quinoa adds fiber."],["Shrimp Lettuce-Wrap Bowl",P,30,"shrimp, lettuce, rice, cucumber, sriracha","Fresh, crunchy and very lean."],["Sardine & Chickpea Panzanella",P,31,"sardines, chickpeas, tomato, crusty bread, basil","Sardines add calcium and omega-3s to a Tuscan bread salad."]);
+DINNER.push(["Tofu Shawarma Plate",V,36,"tofu, hummus, cucumber, tomato, whole-wheat pita","Warm spices and two plant proteins."],["Black Bean & Sweet Potato Chili",V,30,"black beans, sweet potatoes, tomato, chili","Beta-carotene from sweet potato plus fiber-rich beans."],["Halloumi & Chickpea Traybake",G,35,"halloumi, chickpeas, peppers, red onion","A one-pan dinner with protein from two sources."],["Tempeh Bulgogi Bowl",V,38,"tempeh, brown rice, kimchi, spinach","Fermented tempeh and kimchi support the gut."],["Mushroom & White Bean Stroganoff",G,31,"mushrooms, cannellini beans, Greek yogurt, egg noodles","Mushrooms add B vitamins; beans add fiber."],["Lentil & Feta Stuffed Eggplant",G,32,"eggplant, lentils, feta, tomato","Eggplant skin carries antioxidant anthocyanins."],["Tofu Pho",V,30,"tofu, rice noodles, broth, herbs, bok choy","A light, warming broth with plenty of herbs."]);
+P_DINNER.push(["Harissa Salmon with Chickpeas",P,42,"salmon, chickpeas, harissa, spinach","Omega-3s and plant protein in one pan."],["Shrimp & Grits with Greens",P,36,"shrimp, polenta, kale, parmesan","Lean shrimp with leafy greens."],["Cod Tacos al Pastor",P,34,"cod, pineapple, achiote, corn tortillas","Pineapple adds vitamin C to lean white fish."],["Seared Tuna with White Bean Salad",P,44,"ahi tuna, cannellini beans, arugula, lemon","Very high protein and lean."]);
+function addC(c,slot,diet,arr){CUISINES[c][slot][diet]=CUISINES[c][slot][diet].concat(arr);}
+addC("japanese","l","v",[["Tofu Katsu Sando",V,30,"tofu katsu, cabbage, milk bread, edamame","A crisp baked tofu sandwich with soy on the side."],["Natto & Egg Soba Bowl",G,31,"natto, soft egg, soba, scallion","Natto is rich in vitamin K2."]]);
+addC("japanese","l","p",[["Salmon Teriyaki Bento",P,36,"salmon, rice, edamame, pickles","A balanced boxed lunch with omega-3s."],["Tuna Tataki Rice Bowl",P,38,"ahi tuna, brown rice, cucumber, sesame","Seared tuna is lean and very high in protein."]]);
+addC("japanese","d","v",[["Miso Eggplant & Tofu Donburi",V,32,"eggplant, tofu, miso, rice","Miso glaze adds fermented depth."],["Tofu Vegetable Nabe",V,30,"tofu, napa cabbage, mushrooms, broth","A gentle hot pot full of vegetables."]]);
+addC("japanese","d","p",[["Shio Koji Salmon with Rice",P,38,"salmon, rice, bok choy, shio koji","Koji tenderizes and seasons with less salt."],["Shrimp Yakisoba",P,36,"shrimp, noodles, cabbage, carrots","Stir-fried noodles with lean shrimp."]]);
+addC("italian","l","v",[["Ribollita with Parmesan",G,28,"cannellini beans, kale, bread, parmesan","Tuscan bean-and-bread soup with lots of fiber."],["Farro Minestrone with Mozzarella",G,29,"farro, beans, vegetables, mozzarella","Whole grain plus beans make a complete protein."]]);
+addC("italian","l","p",[["Tuna & White Bean Panini",P,36,"tuna, cannellini beans, arugula, ciabatta","Fiber from beans, lean protein from tuna."],["Shrimp Panzanella",P,32,"shrimp, tomato, bread, basil, cucumber","A summery bread salad with lean shrimp."]]);
+addC("italian","d","v",[["Gnocchi with White Beans & Pesto",G,30,"gnocchi, cannellini beans, pesto, parmesan","Beans lift the protein of a comfort classic."],["Stuffed Shells with Ricotta & Spinach",G,36,"pasta shells, ricotta, spinach, marinara","Ricotta's whey protein and spinach's folate."]]);
+addC("italian","d","p",[["Salmon with Lemon Farro",P,40,"salmon, farro, lemon, arugula","Ancient grain plus omega-3s."],["Seafood Risotto",P,36,"shrimp, mussels, arborio rice, parmesan","Mussels add B12 and iron."]]);
+addC("indian","l","v",[["Chole with Brown Rice & Raita",G,30,"chickpeas, tomato, spices, brown rice, yogurt","Chickpeas and rice form a complete protein."],["Paneer Bhurji Wrap",G,33,"paneer, peppers, onion, roti","Scrambled paneer is quick and calcium-rich."]]);
+addC("indian","l","p",[["Fish Curry Bowl with Brown Rice",P,34,"white fish, tomato curry, brown rice","Lean fish in a turmeric-rich curry."],["Prawn Masala Wrap",P,32,"prawns, masala, onion, roti","Spiced prawns in a whole-wheat wrap."]]);
+addC("indian","d","v",[["Matar Paneer with Roti",G,34,"paneer, green peas, tomato, roti","Peas add plant protein to paneer."],["Tofu Saag with Brown Rice",V,33,"tofu, spinach, spices, brown rice","Leafy greens with soy protein."]]);
+addC("indian","d","p",[["Goan Fish Curry with Dal",P,38,"white fish, coconut, kokum, dal, rice","Coastal curry with a lentil side."],["Prawn Biryani with Raita",P,36,"prawns, basmati rice, spices, yogurt","Fragrant rice with lean prawns."]]);
+addC("mexican","l","v",[["Tofu Tinga Tostadas",V,30,"tofu, chipotle tomato sauce, black beans, tostadas","Smoky shredded tofu over beans."],["Black Bean & Egg Torta",G,32,"black beans, eggs, avocado, roll","A hearty Mexican sandwich with two proteins."]]);
+addC("mexican","l","p",[["Tuna Ceviche Tostadas",P,32,"tuna, lime, cucumber, tostadas","Citrus-cured, light and lean."],["Shrimp Burrito Bowl",P,37,"shrimp, rice, black beans, pico de gallo","Shrimp plus beans for protein and fiber."]]);
+addC("mexican","d","v",[["Mole Tofu Enchiladas",V,33,"tofu, mole sauce, black beans, corn tortillas","Mole's cocoa and chiles bring antioxidants."],["Chiles Rellenos with Black Beans",G,31,"poblano peppers, queso fresco, eggs, black beans","Poblanos are rich in vitamin C."]]);
+addC("mexican","d","p",[["Shrimp Pozole Rojo",P,34,"shrimp, hominy, chile broth, cabbage","A brothy classic with lean shrimp."],["Salmon Tacos with Mango Salsa",P,38,"salmon, mango, corn tortillas, cabbage","Omega-3s with bright fruit salsa."]]);
+addC("ecuadorian","l","v",[["Tortillas de Papa with Eggs & Beans",G,28,"potato-cheese patties, eggs, beans, avocado","Classic potato patties with a protein boost."],["Sopa de Quinoa with Egg & Queso",G,26,"quinoa, potatoes, egg, queso fresco","An Andean soup built on quinoa."]]);
+addC("ecuadorian","l","p",[["Encocado de Camarón Bowl",P,34,"shrimp, coconut sauce, rice, plantain","Coastal coconut shrimp over rice."],["Ceviche de Corvina with Canguil",P,30,"white fish, lime, red onion, popcorn","Citrus-cured fish served Ecuador-style with popcorn."]]);
+addC("ecuadorian","d","v",[["Seco de Lentejas with Rice & Egg",G,30,"lentils, cilantro stew, rice, egg","A cilantro-rich lentil stew."],["Locro de Quinoa with Queso & Beans",G,28,"quinoa, squash, beans, queso fresco","Squash adds beta-carotene to a hearty stew."]]);
+addC("ecuadorian","d","p",[["Baked Fish with Patacones",P,36,"white fish, green plantain, curtido, rice","Twice-baked plantain instead of deep-fried."],["Sopa Marinera",P,38,"shrimp, white fish, mussels, broth, yuca","A seafood soup rich in B12 and iodine."]]);
 var CUIS=[];
 try{var cs=JSON.parse(localStorage.getItem("pp30c")||"null");if(Array.isArray(cs))CUIS=cs;}catch(e){}
 var MILKS=[
@@ -767,12 +797,26 @@ function pick(mode,i,slot){
   if(mode==="pesc")return "p"; if(mode==="veg")return "v"; if(mode==="custom")return CUSTOM[slot];
   return {b:i%3===0,l:i%2===0,d:i%2===1,s:i%2===0}[slot]?"p":"v";
 }
+function poolFor(slot){
+  var map={b:[BREAKFAST,P_BREAKFAST],l:[LUNCH,P_LUNCH],d:[DINNER,P_DINNER]}, out=[], seen={};
+  map[slot][0].concat(map[slot][1]).forEach(function(r){if(!seen[r[0]]){seen[r[0]]=1;out.push({r:r,c:""});}});
+  Object.keys(CUISINES).forEach(function(c){["v","p"].forEach(function(d){CUISINES[c][slot][d].forEach(function(r){if(seen[r[0]]){out.forEach(function(o){if(o.r[0]===r[0]&&!o.c)o.c=c;});return;}seen[r[0]]=1;out.push({r:r,c:c});});});});
+  return out;
+}
 function build(mode){
-DAYS=[]; var vs=0, ps=0;
+DAYS=[]; var vs=0, ps=0, used={}, POOL={b:poolFor("b"),l:poolFor("l"),d:poolFor("d")};
+function take(slot,diet,c,i){
+  var PL=POOL[slot], isP=function(o){return o.r[1]===P;}, ok=function(o){return !used[o.r[0]]&&(diet==="p"?isP(o):!isP(o));};
+  var tries=c?[function(o){return ok(o)&&o.c===c;},function(o){return ok(o)&&CUIS.indexOf(o.c)>-1;},function(o){return ok(o)&&!o.c;},ok]:[function(o){return ok(o)&&!o.c;},ok];
+  tries.push(function(o){return !used[o.r[0]];});
+  for(var t=0;t<tries.length;t++){var cand=PL.filter(tries[t]);if(cand.length){var o=cand[(i*7+slot.charCodeAt(0))%cand.length];used[o.r[0]]=1;return o;}}
+}
 for(var i=0;i<30;i++){
   var bp=pick(mode,i,"b"),lp=pick(mode,i,"l"),dp=pick(mode,i,"d"),sp=pick(mode,i,"s");
-  var b=(bp==="p"?P_BREAKFAST:BREAKFAST)[i%15], l=(lp==="p"?P_LUNCH:LUNCH)[(i*7+(i>=15?4:0))%15], dn=(dp==="p"?P_DINNER:DINNER)[(i*4+(i>=15?7:1))%15], cz="";
-  if(CUIS.length){var c=CUISINES[CUIS[i%CUIS.length]],k=Math.floor(i/CUIS.length);b=c.b[bp][k%3];l=c.l[lp][(k+1)%3];dn=c.d[dp][(k+2)%3];cz=c.name;}
+  var c=CUIS.length?CUIS[i%CUIS.length]:"";
+  var ob=take("b",bp,c,i),ol=take("l",lp,c,i),od=take("d",dp,c,i);
+  var b=ob.r,l=ol.r,dn=od.r, hits=[ob,ol,od].filter(function(o){return c&&o.c===c;}).length;
+  var cz=c&&hits>=2?CUISINES[c].name:"";
   var s1=sp==="p"?P_SNACKS[ps++]:SNACKS[vs++], s2=SNACKS[vs++];
   var cups=(i%3===1)?1:2;
   var m1=MILKS[i%5], m2=MILKS[(i+2)%5];
@@ -796,6 +840,7 @@ var FISH_NOTES=[
   "Oily fish like salmon and sardines are among the few natural food sources of vitamin D."
 ];
 build(MODE);
+window.PP30={days:function(){return DAYS;}};
 
 /* ---------------- helpers ---------------- */
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
