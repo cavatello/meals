@@ -164,6 +164,24 @@ button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
 .snkph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
 .snk:hover .snkph img{transform:scale(1.06)}
 .snk{overflow:hidden}
+.cacts{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.swapbtn{font:700 13px var(--body);color:var(--forest);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer;transition:all .2s}
+.swapbtn:hover{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.ctag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--terra);border:1px solid var(--line);border-radius:999px;padding:2px 8px;vertical-align:middle;white-space:nowrap}
+.swtools{display:flex;gap:8px;margin-top:14px}
+.swtools input{flex:1;min-width:0;font:15px var(--body);padding:11px 14px;border-radius:999px;border:1px solid var(--line);background:var(--cream);color:var(--ink)}
+.swcount{font-size:13px;color:var(--muted);margin-top:10px}
+.swlist{display:grid;gap:8px;padding:6px 28px 12px}
+.swrow{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:14px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:18px;background:var(--cream)}
+.swart{width:56px;height:56px}.swart svg{width:100%;height:100%}
+.swtxt{display:grid;gap:4px;min-width:0}
+.swtxt b{color:var(--forest);font-size:15px}
+.swtxt small{color:var(--muted);font-size:13px}
+.swmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.usebtn{font:700 13px var(--body);background:var(--forest);color:var(--cream);border:0;border-radius:999px;padding:9px 16px;cursor:pointer;white-space:nowrap}
+.usebtn.ghost{background:transparent;color:var(--forest);border:1px solid var(--forest)}
+.morebtn{font:700 14px var(--body);background:transparent;border:1px dashed var(--line);border-radius:16px;padding:12px;color:var(--forest);cursor:pointer}
+@media (max-width:600px){.swrow{grid-template-columns:44px minmax(0,1fr)}.swrow .usebtn{grid-column:1/-1}.swart{width:44px;height:44px}.swlist{padding:6px 16px 12px}}
 .pill{font-family:var(--mono);font-size:13px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--forest-deep);color:var(--gold-soft);white-space:nowrap}
 
 /* plan */
@@ -745,6 +763,15 @@ addC("ecuadorian","l","v",[["Tortillas de Papa with Eggs & Beans",G,28,"potato-c
 addC("ecuadorian","l","p",[["Encocado de Camarón Bowl",P,34,"shrimp, coconut sauce, rice, plantain","Coastal coconut shrimp over rice."],["Ceviche de Corvina with Canguil",P,30,"white fish, lime, red onion, popcorn","Citrus-cured fish served Ecuador-style with popcorn."]]);
 addC("ecuadorian","d","v",[["Seco de Lentejas with Rice & Egg",G,30,"lentils, cilantro stew, rice, egg","A cilantro-rich lentil stew."],["Locro de Quinoa with Queso & Beans",G,28,"quinoa, squash, beans, queso fresco","Squash adds beta-carotene to a hearty stew."]]);
 addC("ecuadorian","d","p",[["Baked Fish with Patacones",P,36,"white fish, green plantain, curtido, rice","Twice-baked plantain instead of deep-fried."],["Sopa Marinera",P,38,"shrimp, white fish, mussels, broth, yuca","A seafood soup rich in B12 and iodine."]]);
+
+/* library expansion: Thai, Korean, Greek & Mediterranean, more everyday dishes */
+BREAKFAST.push(["Savory Miso Oats with Tofu",V,27,"rolled oats, miso, silken tofu, scallion, sesame","A savory, gut-friendly bowl with fermented miso."],["Black Bean Tofu Breakfast Hash",V,28,"black beans, extra-firm tofu, sweet potato, peppers","Fiber and plant protein to keep you full until lunch."],["Chocolate Pea Protein Overnight Oats",V,32,"rolled oats, pea protein, cocoa, soy milk, chia","Make five jars on Sunday; cocoa adds flavonoids."],["Tofu Benedict",V,29,"extra-firm tofu, English muffin, spinach, cashew hollandaise","A plant-based brunch classic with calcium-set tofu."],["Turkish Eggs with Garlic Yogurt",G,26,"eggs, Greek yogurt, garlic, chili butter, sourdough","Yogurt under poached eggs doubles the protein."],["Rolled Omelette with Tofu & Rice",G,27,"eggs, tofu, rice, scallion","A Korean-style rolled omelette with extra soy."],["Greek Yogurt Protein Pancakes",G,33,"Greek yogurt, eggs, oat flour, berries","Yogurt in the batter makes them fluffy and high-protein."],["Feta & Herb Egg Muffins with Fruit",G,27,"eggs, feta, spinach, herbs, berries","Make-ahead and portable."],["Ricotta Berry Breakfast Bowl",G,28,"ricotta, berries, hemp hearts, honey","Creamy, sweet and high in whey protein."]);
+P_BREAKFAST.push(["Smoked Trout Scramble with Chives",P,33,"smoked trout, eggs, chives, rye toast","Trout is low in mercury and rich in omega-3s."],["Salmon Poke Breakfast Bowl",P,32,"salmon, rice, soft egg, cucumber, avocado","A Hawaiian-style start with omega-3s and complete protein."],["Lox & Egg Breakfast Tacos",P,31,"smoked salmon, eggs, corn tortillas, avocado","Savory, quick and rich in vitamin D."],["Sardine & Avocado Rye with Egg",P,30,"sardines, avocado, rye bread, egg","Calcium from sardine bones, healthy fats from avocado."],["Shrimp Fried Rice Breakfast Bowl",P,30,"shrimp, eggs, brown rice, peas","Use leftover rice for a five-minute breakfast."]);
+LUNCH.push(["Thai Peanut Tofu Bowl",V,34,"tofu, brown rice, cabbage, peanut sauce, edamame","Two soy proteins with crunchy cabbage."],["Tofu Bibimbap with Egg",G,33,"tofu, rice, spinach, carrots, egg, gochujang","A Korean rice bowl with colorful vegetables."],["Falafel & Hummus Plate",V,27,"falafel, hummus, cucumber, tomato, pita","Chickpeas two ways for fiber and iron."],["Edamame Quinoa Salad with Tahini",V,30,"edamame, quinoa, cucumber, tahini","A complete-protein salad that keeps well."],["Smoky Tempeh BLT",V,31,"tempeh, lettuce, tomato, whole-grain bread","Fermented tempeh replaces bacon."],["Greek Halloumi Pita",G,33,"halloumi, tzatziki, tomato, cucumber, pita","Grilled halloumi with a yogurt sauce."],["Spinach & Ricotta Calzone",G,32,"ricotta, spinach, mozzarella, pizza dough","Ricotta and mozzarella pack the protein."],["Mediterranean Quinoa & Feta Salad with Eggs",G,31,"quinoa, feta, eggs, olives, cucumber","Olives and olive oil for heart-healthy fats."],["Cottage Cheese Caprese Toast & White Beans",G,32,"cottage cheese, tomato, basil, sourdough, cannellini beans","A high-protein take on caprese."]);
+P_LUNCH.push(["Thai Shrimp Larb Lettuce Cups",P,32,"shrimp, lime, herbs, lettuce, rice","Bright herbs and lean shrimp."],["Spicy Tuna Bibimbap",P,36,"tuna, rice, spinach, carrots, egg, gochujang","A Korean bowl with two proteins."],["Greek Salmon Salad with Chickpeas",P,38,"salmon, chickpeas, cucumber, feta, olives","Omega-3s with fiber-rich chickpeas."],["Smoked Salmon Grain Bowl with Dill Yogurt",P,34,"smoked salmon, farro, cucumber, Greek yogurt, dill","Yogurt sauce adds protein and probiotics."],["Mediterranean Tuna Pasta Salad",P,35,"tuna, chickpea pasta, olives, tomato, arugula","A packable lunch with plenty of protein."]);
+DINNER.push(["Thai Green Curry with Tofu & Edamame",V,34,"tofu, edamame, green curry, coconut milk, rice","Green curry herbs with two soy proteins."],["Sundubu Tofu Stew with Egg",G,30,"silken tofu, egg, kimchi, broth, rice","A Korean soft-tofu stew with probiotics from kimchi."],["Moroccan Chickpea & Lentil Stew",V,30,"chickpeas, lentils, tomato, spices, couscous","Warm spices and two legumes."],["Tofu Larb Rice Bowl",V,31,"tofu, lime, herbs, rice, cucumber","Herby, bright and light."],["Seitan Gyro Plate",V,42,"seitan, tzatziki, pita, tomato, onion","Very high in protein with a Greek profile."],["Spanakopita with Lentil Salad",G,31,"spinach, feta, phyllo, lentils","Spinach-feta pie with a lentil side for protein."],["Halloumi Souvlaki with Tzatziki",G,36,"halloumi, peppers, tzatziki, pita","Grilled skewers with a yogurt dip."],["Baked Ziti with Ricotta & White Beans",G,37,"pasta, ricotta, cannellini beans, marinara, mozzarella","Beans boost a family-style bake."],["Paneer & Pepper Skewers with Quinoa",G,35,"paneer, peppers, onion, quinoa","Tandoori-spiced skewers over quinoa."]);
+P_DINNER.push(["Thai Basil Shrimp with Rice",P,36,"shrimp, basil, chili, garlic, rice","A quick, fragrant stir-fry."],["Gochujang Glazed Salmon",P,40,"salmon, gochujang, rice, bok choy","Sweet-spicy glaze over omega-3-rich salmon."],["Greek Baked Cod with Gigantes Beans",P,40,"cod, giant beans, tomato, dill","Lean fish with fiber-rich beans."],["Lemon Garlic Shrimp & Orzo",P,38,"shrimp, orzo, lemon, spinach, parmesan","A one-pan dinner in 20 minutes."],["Moroccan Fish Tagine with Couscous",P,38,"white fish, chickpeas, tomato, olives, couscous","Spiced fish with chickpeas."]);
+var COFFEE_OPTS=null;
 var CUIS=[];
 try{var cs=JSON.parse(localStorage.getItem("pp30c")||"null");if(Array.isArray(cs))CUIS=cs;}catch(e){}
 var MILKS=[
@@ -797,6 +824,29 @@ function pick(mode,i,slot){
   if(mode==="pesc")return "p"; if(mode==="veg")return "v"; if(mode==="custom")return CUSTOM[slot];
   return {b:i%3===0,l:i%2===0,d:i%2===1,s:i%2===0}[slot]?"p":"v";
 }
+var LIBC={}, OVR={};
+try{var so=JSON.parse(localStorage.getItem("pp30o")||"null");if(so&&typeof so==="object")OVR=so;}catch(e){}
+function lib(slot){if(!LIBC[slot])LIBC[slot]=slot==="s"?SNACKS.concat(P_SNACKS).map(function(r){return {r:r,c:""};}):poolFor(slot);return LIBC[slot];}
+function copts(){if(!COFFEE_OPTS)COFFEE_OPTS=MILKS.concat([{n:"Almond milk",d:V,g:1,note:"Almond milk is light and nutty but adds almost no protein."}]);return COFFEE_OPTS;}
+function coffeeItem(mo,i,t){return {t:t,slot:t==="8:15"?"c":"e",x:{kind:"Cappuccino",n:mo.n.split(" milk")[0].replace("Whole or 2% dairy","Dairy")+" milk cappuccino",d:mo.d,p:mo.g,i:["espresso",mo.n.toLowerCase(),"cocoa or cinnamon dust"],h:mo.note+" "+COFFEE_FACTS[i%6]},type:"coffee"};}
+var SLOTKIND={b:"Breakfast",l:"Lunch",d:"Dinner",m:"Mid-morning snack",a:"Afternoon snack"}, SLOTTIME={b:"7:30",c:"8:15",m:"10:30",l:"12:30",e:"1:30",a:"4:00",d:"7:00"};
+function applyOverrides(){
+  Object.keys(OVR).forEach(function(k){
+    var i=+k.split("|")[0], slot=k.split("|")[1], v=OVR[k], D=DAYS[i]; if(!D)return;
+    var idx=-1; D.items.forEach(function(it,j){if(it.slot===slot)idx=j;});
+    if(slot==="c"||slot==="e"){
+      if(v==="skip"){if(idx>-1)D.items.splice(idx,1);return;}
+      var mo=copts()[+v]; if(!mo)return; var ci=coffeeItem(mo,i,SLOTTIME[slot]);
+      if(idx>-1)D.items[idx]=ci; else {var at=D.items.findIndex(function(it){return it.slot==="a";});D.items.splice(at<0?D.items.length:at,0,ci);}
+      return;
+    }
+    var L=lib(slot==="m"||slot==="a"?"s":slot), rec=L.filter(function(o){return o.r[0]===v;})[0]; if(!rec||idx<0)return;
+    var cur0=D.items[idx], grp=slot==="m"||slot==="a"?["m","a"]:[slot];
+    DAYS.forEach(function(E,j){E.items.forEach(function(it){if(grp.indexOf(it.slot)>-1&&it.x.n===v&&!(j===i&&it.slot===slot)){var k2=it.slot;it.x=Object.assign({},cur0.x,{kind:SLOTKIND[k2]});}});});
+    var nx=meal(rec.r,SLOTKIND[slot]); nx.cz=rec.c; D.items[idx]={t:cur0.t,slot:slot,x:nx,type:cur0.type,swapped:true};
+  });
+  DAYS.forEach(function(D){D.total=D.items.reduce(function(a,it){return a+it.x.p;},0);D.cups=D.items.filter(function(it){return it.type==="coffee";}).length;});
+}
 function poolFor(slot){
   var map={b:[BREAKFAST,P_BREAKFAST],l:[LUNCH,P_LUNCH],d:[DINNER,P_DINNER]}, out=[], seen={};
   map[slot][0].concat(map[slot][1]).forEach(function(r){if(!seen[r[0]]){seen[r[0]]=1;out.push({r:r,c:""});}});
@@ -821,17 +871,18 @@ for(var i=0;i<30;i++){
   var cups=(i%3===1)?1:2;
   var m1=MILKS[i%5], m2=MILKS[(i+2)%5];
   var items=[
-    {t:"7:30",x:meal(b,"Breakfast"),type:"meal"},
-    {t:"8:15",x:{kind:"Cappuccino",n:m1.n.split(" milk")[0].replace("Whole or 2% dairy","Dairy")+" milk cappuccino",d:m1.d,p:m1.g,i:["espresso",m1.n.toLowerCase(),"cocoa or cinnamon dust"],h:m1.note+" "+COFFEE_FACTS[i%6]},type:"coffee"},
-    {t:"10:30",x:meal(s1,"Mid-morning snack"),type:"snack"},
-    {t:"12:30",x:meal(l,"Lunch"),type:"meal"}
+    {t:"7:30",slot:"b",x:Object.assign(meal(b,"Breakfast"),{cz:ob.c}),type:"meal"},
+    coffeeItem(m1,i,"8:15"),
+    {t:"10:30",slot:"m",x:meal(s1,"Mid-morning snack"),type:"snack"},
+    {t:"12:30",slot:"l",x:Object.assign(meal(l,"Lunch"),{cz:ol.c}),type:"meal"}
   ];
-  if(cups===2) items.push({t:"1:30",x:{kind:"Cappuccino",n:m2.n.split(" milk")[0].replace("Whole or 2% dairy","Dairy")+" milk cappuccino",d:m2.d,p:m2.g,i:["espresso",m2.n.toLowerCase()],h:m2.note+" "+COFFEE_FACTS[(i+3)%6]},type:"coffee"});
-  items.push({t:"4:00",x:meal(s2,"Afternoon snack"),type:"snack"});
-  items.push({t:"7:00",x:meal(dn,"Dinner"),type:"meal"});
+  if(cups===2) items.push(coffeeItem(m2,i+3,"1:30"));
+  items.push({t:"4:00",slot:"a",x:meal(s2,"Afternoon snack"),type:"snack"});
+  items.push({t:"7:00",slot:"d",x:Object.assign(meal(dn,"Dinner"),{cz:od.c}),type:"meal"});
   var tot=0; items.forEach(function(it){tot+=it.x.p;});
   DAYS.push({items:items,total:tot,cups:cups,cuisine:cz,note:(sp==="p"||lp==="p"||dp==="p")&&i%2===0?FISH_NOTES[i%FISH_NOTES.length]:NOTES[i%7]});
 }
+applyOverrides();
 }
 var FISH_NOTES=[
   "Choose low-mercury fish most days: salmon, sardines, trout, shrimp, cod, anchovies and canned light tuna.",
@@ -929,14 +980,14 @@ function cardHTML(it,idx){
   var label=it.type==="coffee"?"Why this cup works":it.type==="snack"?"Why it's a good snack":"Why it's good for you";
   return '<div class="slot"><div class="time">'+it.t+'</div><article class="'+cls+' tilt" style="animation-delay:'+(idx*60)+'ms">'+
     '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
-    '<h3>'+esc(m.n)+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
+    '<h3>'+esc(m.n)+(m.cz?' <span class="ctag">'+esc(CUISINES[m.cz].name)+'</span>':'')+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
     '<p class="why"><b>'+label+':</b> '+esc(m.h)+'</p>'+
-    '<button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button></div></article></div>';
+    '<div class="cacts"><button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button><button type="button" class="swapbtn" data-swap="'+it.slot+'"><span aria-hidden="true">⇄</span> '+(it.type==="coffee"?"Change":"Swap")+'</button>'+(OVR[(cur-1)+"|"+it.slot]!==undefined?'<span class="ttag">Your pick</span>':'')+'</div></div></article></div>';
 }
 function show(n,scroll){
   n=Math.max(1,Math.min(30,n)); cur=n;
   var D=DAYS[n-1]; REG.length=LIBN;
-  document.getElementById("daytitle").innerHTML="Day "+n+(D.cuisine?" · <em>"+D.cuisine+" day</em>":"")+'<button class="sharebtn" type="button" data-share="day">Share this day</button>';
+  document.getElementById("daytitle").innerHTML="Day "+n+(D.cuisine?" · <em>"+D.cuisine+" day</em>":"")+'<button class="sharebtn" type="button" data-share="day">Share this day</button>'+(Object.keys(OVR).length?'<button class="sharebtn" type="button" id="resetswaps">Undo all my changes ('+Object.keys(OVR).length+')</button>':'');
   [].forEach.call(strip.children,function(b){b.setAttribute("aria-pressed",String(+b.dataset.day===n));var c=DAYS[+b.dataset.day-1].cuisine;b.querySelector("i").textContent=c?c.slice(0,3).toUpperCase():"";});
   var btn=strip.children[n-1];
   if(scroll!==false) strip.scrollTo({left:btn.offsetLeft-strip.clientWidth/2+btn.clientWidth/2,behavior:RM?"auto":"smooth"});
@@ -967,7 +1018,7 @@ var HINTS={mixed:"Mixed: every day has at least one seafood meal or snack, along
 var SLOTS=[["b","Breakfast"],["l","Lunch"],["d","Dinner"],["s","Snacks"]];
 var customEl=document.getElementById("custom");
 customEl.innerHTML=SLOTS.map(function(s){return '<div class="crow"><span>'+s[1]+'</span><div class="seg" data-slot="'+s[0]+'"><button data-v="p">Seafood</button><button data-v="v">Veg</button></div></div>';}).join("");
-function save(){try{localStorage.setItem("pp30",JSON.stringify({mode:MODE,custom:CUSTOM,prep:PREP}));}catch(e){}}
+function save(){try{localStorage.setItem("pp30",JSON.stringify({mode:MODE,custom:CUSTOM,prep:PREP}));localStorage.setItem("pp30o",JSON.stringify(OVR));}catch(e){}}
 function syncUI(){
   [].forEach.call(document.querySelectorAll("#modes button"),function(b){b.setAttribute("aria-pressed",String(b.dataset.mode===MODE));});
   customEl.hidden=MODE!=="custom";
@@ -1230,7 +1281,7 @@ function openShop(){openModal(shopHTML());}
 document.getElementById("shopbtn").addEventListener("click",openShop);
 mbody.addEventListener("click",function(e){
   var b=e.target.closest(".stabs button");
-  if(b){if(b.parentNode.dataset.g==="range")shopRange=b.dataset.v;else shopStore=b.dataset.v;mbody.innerHTML=shopHTML();return;}
+  if(b&&(b.parentNode.dataset.g==="range"||b.parentNode.dataset.g==="store")){if(b.parentNode.dataset.g==="range")shopRange=b.dataset.v;else shopStore=b.dataset.v;mbody.innerHTML=shopHTML();return;}
   if(e.target.id==="copylist"){var btn=e.target;try{navigator.clipboard.writeText(window.__shopText).then(function(){btn.textContent="Copied";},function(){btn.textContent="Select and copy manually";});}catch(err){btn.textContent="Select and copy manually";}}
 });
 
@@ -1250,7 +1301,13 @@ syncC();
 /* ---------------- share links ---------------- */
 var CURRENT_RECIPE=null, AB={japanese:"jp",italian:"it",indian:"in",mexican:"mx",ecuadorian:"ec"}, BA={jp:"japanese",it:"italian","in":"indian",mx:"mexican",ec:"ecuadorian"};
 function slug(n){return n.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
-function stateHash(){return "plan-"+MODE+(MODE==="custom"?"-"+["b","l","d","s"].map(function(k){return CUSTOM[k];}).join(""):"")+CUIS.map(function(c){return "-"+AB[c];}).join("")+"-"+(PREP==="easy"?"e":"b")+"-d"+cur;}
+function stateHash(){return "plan-"+MODE+(MODE==="custom"?"-"+["b","l","d","s"].map(function(k){return CUSTOM[k];}).join(""):"")+CUIS.map(function(c){return "-"+AB[c];}).join("")+"-"+(PREP==="easy"?"e":"b")+"-d"+cur+ovrHash();}
+function ovrHash(){return Object.keys(OVR).map(function(k){var i=+k.split("|")[0],sl=k.split("|")[1],v=OVR[k],id;
+  if(sl==="c"||sl==="e")id=v==="skip"?"z":(+v).toString(36);else{var L=lib(sl==="m"||sl==="a"?"s":sl),ix=-1;L.forEach(function(o,j){if(o.r[0]===v)ix=j;});if(ix<0)return "";id=ix.toString(36);}
+  return "-x"+i.toString(36)+sl+id;}).join("");}
+function ovrParse(str){var o={};(str||"").split("-x").slice(1).forEach(function(t){var i=parseInt(t[0],36),sl=t[1],id=t.slice(2);if(isNaN(i)||!sl)return;
+  if(sl==="c"||sl==="e"){o[i+"|"+sl]=id==="z"?"skip":String(parseInt(id,36));return;}
+  var L=lib(sl==="m"||sl==="a"?"s":sl),rec=L[parseInt(id,36)];if(rec)o[i+"|"+sl]=rec.r[0];});return o;}
 function setHash(h){try{if(location.hash!=="#"+h)history.replaceState(null,"","#"+h);}catch(e){}}
 function shareURL(h){return location.href.split("#")[0]+"#"+h;}
 var toastEl=document.getElementById("toast"),tt;
@@ -1280,9 +1337,9 @@ function applyHash(){
   var h=location.hash.slice(1),m;
   if((m=/^recipe-(.+)$/.exec(h))){var r=findRecipe(m[1]);if(r)openRecipe(r);return true;}
   if((m=/^day-(\d+)$/.exec(h))){show(+m[1]);document.getElementById("plan").scrollIntoView();return true;}
-  if((m=/^plan-(mixed|pesc|veg|custom)(?:-([pv]{4}))?((?:-(?:jp|it|in|mx|ec))*)(?:-([eb]))?-d(\d+)$/.exec(h))){
+  if((m=/^plan-(mixed|pesc|veg|custom)(?:-([pv]{4}))?((?:-(?:jp|it|in|mx|ec))*)(?:-([eb]))?-d(\d+)((?:-x[0-9a-z]+)*)$/.exec(h))){
     MODE=m[1];if(m[2]){CUSTOM={b:m[2][0],l:m[2][1],d:m[2][2],s:m[2][3]};}
-    CUIS=m[3]?m[3].slice(1).split("-").map(function(a){return BA[a];}):[];if(m[4])PREP=m[4]==="e"?"easy":"batch";
+    CUIS=m[3]?m[3].slice(1).split("-").map(function(a){return BA[a];}):[];if(m[4])PREP=m[4]==="e"?"easy":"batch";if(m[6])OVR=ovrParse(m[6]);
     build(MODE);syncUI();syncC();syncP();cur=+m[5];show(cur,false);renderPlanner();
     var g=stats();document.getElementById("statTotal").textContent=g.toLocaleString();document.getElementById("statAvg").textContent=Math.round(g/30);
     if(cur>1||MODE!=="mixed"||CUIS.length)document.getElementById("plan").scrollIntoView();return true;}
@@ -1378,6 +1435,53 @@ document.getElementById("planner").addEventListener("click",function(e){
   if(e.target.id==="printPrep"){document.body.classList.add("print-prep");window.print();setTimeout(function(){document.body.classList.remove("print-prep");},500);}
   if(e.target.id==="copyPrep")copy(window.__prepText);
 });
+
+
+/* ---------------- swap picker ---------------- */
+var SW={slot:"b",q:"",diet:"all",cz:"all",n:40};
+function inPlan(slot){var m={},grp=slot==="m"||slot==="a"?["m","a"]:[slot];DAYS.forEach(function(D,j){D.items.forEach(function(it){if(grp.indexOf(it.slot)>-1)m[it.x.n]=j+1;});});return m;}
+function swapList(){
+  var L=lib(SW.slot==="m"||SW.slot==="a"?"s":SW.slot), used=inPlan(SW.slot), q=SW.q.toLowerCase().trim();
+  return L.filter(function(o){var r=o.r;
+    if(SW.diet==="vegan"&&r[1]!==V)return false; if(SW.diet==="vegetarian"&&r[1]===P)return false; if(SW.diet==="pesc"&&r[1]!==P)return false;
+    if(SW.cz==="everyday"&&o.c)return false; if(SW.cz!=="all"&&SW.cz!=="everyday"&&o.c!==SW.cz)return false;
+    if(q&&(r[0]+" "+r[3]).toLowerCase().indexOf(q)<0)return false; return true;})
+   .sort(function(a,b){var ua=used[a.r[0]]?1:0,ub=used[b.r[0]]?1:0;return ua-ub||b.r[2]-a.r[2];})
+   .map(function(o){return {o:o,day:used[o.r[0]]};});
+}
+function chips(group,opts,val){return '<div class="stabs" data-g="'+group+'">'+opts.map(function(x){return '<button data-v="'+x[0]+'" aria-pressed="'+(val===x[0])+'">'+x[1]+'</button>';}).join("")+'</div>';}
+function swapBody(){
+  var key=(cur-1)+"|"+SW.slot, isC=SW.slot==="c"||SW.slot==="e", kind=isC?"Cappuccino":SLOTKIND[SW.slot];
+  var h='<div class="shead"><span class="kind">Swap · Day '+cur+'</span><h2 id="mtitle">Choose your '+kind.toLowerCase()+'</h2>';
+  if(isC){
+    h+='</div><div class="swlist">'+copts().map(function(mo,ix){return '<div class="swrow"><div class="swart">'+cupSVG(mo.n.toLowerCase())+'</div><div class="swtxt"><b>'+esc(mo.n)+' cappuccino</b><span class="swmeta"><span class="pill">'+mo.g+'g protein</span>'+badge(mo.d)+'</span><small>'+esc(mo.note)+'</small></div><button class="usebtn" data-use="'+ix+'">Use</button></div>';}).join("")+
+      '<div class="swrow"><div class="swtxt"><b>Skip this cappuccino</b><small>Fewer cups today; the day’s total drops by the milk’s protein.</small></div><button class="usebtn ghost" data-use="skip">Skip</button></div></div>';
+  } else {
+    var list=swapList(), total=list.length;
+    h+='<div class="swtools"><input type="search" id="swq" placeholder="Search dishes or ingredients, e.g. salmon, tofu, chickpea" value="'+esc(SW.q)+'"><button class="usebtn" id="swrand" type="button">Surprise me</button></div>'+
+      chips("sdiet",[["all","All"],["vegetarian","Vegetarian"],["vegan","Vegan"],["pesc","Pescatarian"]],SW.diet)+
+      chips("scz",[["all","All cuisines"]].concat(Object.keys(CUISINES).map(function(k){return [k,CUISINES[k].name];})).concat([["everyday","Everyday"]]),SW.cz)+
+      '<p class="swcount">'+total+' options · not-yet-planned first, highest protein first</p></div><div class="swlist">'+
+      list.slice(0,SW.n).map(function(e){var r=e.o.r,m=meal(r,kind);return '<div class="swrow"><div class="swart">'+bowlSVG(m,true)+'</div><div class="swtxt"><b>'+esc(r[0])+(e.o.c?' <span class="ctag">'+esc(CUISINES[e.o.c].name)+'</span>':'')+'</b><span class="swmeta"><span class="pill">'+r[2]+'g protein</span>'+badge(r[1])+(e.day?'<span class="ttag">On day '+e.day+(e.day===cur?' (this one)':'')+'</span>':'')+'</span><small>'+esc(r[4])+'</small></div><button class="usebtn" data-use="'+esc(r[0])+'">Use</button></div>';}).join("")+
+      (total>SW.n?'<button class="morebtn" id="swmore" type="button">Show more ('+(total-SW.n)+')</button>':'')+(total?'':'<p class="swcount">No dishes match. Clear the search or filters.</p>')+'</div>';
+  }
+  h+='<div class="rfoot"><span>'+(isC?'':'Swapping in a dish already planned on another day moves that day’s dish there, so nothing repeats.')+'</span>'+(OVR[key]!==undefined?'<button class="rshare" id="swreset" type="button">Undo my change</button>':'')+'</div>';
+  return h;
+}
+function openSwap(slot){SW.slot=slot;SW.q="";SW.n=40;openModal(swapBody());}
+function useSwap(v){OVR[(cur-1)+"|"+SW.slot]=v;save();closeModal();build(MODE);show(cur,false);setHash(stateHash());renderPlanner();var g=stats();document.getElementById("statTotal").textContent=g.toLocaleString();document.getElementById("statAvg").textContent=Math.round(g/30);toast("Day "+cur+" updated");}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-swap]");if(b){e.preventDefault();openSwap(b.dataset.swap);}});
+mbody.addEventListener("click",function(e){
+  if(!document.getElementById("swreset")&&!mbody.querySelector(".swlist"))return;
+  var u=e.target.closest("[data-use]");if(u){var v=u.dataset.use;useSwap(SW.slot==="c"||SW.slot==="e"?v:v);return;}
+  var t=e.target.closest(".stabs button");if(t&&(t.parentNode.dataset.g==="sdiet"||t.parentNode.dataset.g==="scz")){if(t.parentNode.dataset.g==="sdiet")SW.diet=t.dataset.v;else SW.cz=t.dataset.v;SW.n=40;mbody.innerHTML=swapBody();return;}
+  if(e.target.id==="swmore"){SW.n+=40;var y=mbody.parentNode.scrollTop;mbody.innerHTML=swapBody();mbody.parentNode.scrollTop=y;return;}
+  if(e.target.id==="swrand"){var L=swapList().filter(function(x){return !x.day;});if(L.length)useSwap(L[Math.floor(Math.random()*L.length)].o.r[0]);return;}
+  if(e.target.id==="swreset"){delete OVR[(cur-1)+"|"+SW.slot];save();closeModal();build(MODE);show(cur,false);setHash(stateHash());renderPlanner();toast("Back to the planned dish");}
+});
+mbody.addEventListener("input",function(e){if(e.target.id==="swq"){SW.q=e.target.value;SW.n=40;var pos=e.target.selectionStart;mbody.innerHTML=swapBody();var i=document.getElementById("swq");i.focus();try{i.setSelectionRange(pos,pos);}catch(err){}}});
+function resetAllSwaps(){OVR={};save();build(MODE);show(cur,false);setHash(stateHash());renderPlanner();toast("All your changes cleared");}
+document.addEventListener("click",function(e){if(e.target.id==="resetswaps")resetAllSwaps();});
 
 /* init */
 var LIBN=0; renderLib(); LIBN=REG.length;
