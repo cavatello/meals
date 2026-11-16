@@ -124,7 +124,7 @@ button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
 .mpanel{position:relative;width:min(760px,100%);max-height:100%;overflow:auto;background:var(--paper);color:var(--ink);border-radius:28px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);animation:pop .45s cubic-bezier(.22,1,.36,1) both;overscroll-behavior:contain}
 @keyframes fade{from{opacity:0}}
 @keyframes pop{from{transform:translateY(30px) scale(.97);opacity:0}}
-.mclose{position:sticky;top:12px;float:right;margin:12px 12px 0 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--forest-deep);color:var(--cream);font-size:22px;cursor:pointer}
+.mclose{position:sticky;top:12px;float:right;margin:12px 12px -52px 0;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:var(--forest-deep);color:var(--cream);font-size:22px;cursor:pointer}
 .rhero{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;align-items:center;padding:28px 28px 22px;background:linear-gradient(160deg,#efe5d0,var(--paper))}
 .rhero h2{font-size:clamp(28px,4vw,40px);color:var(--forest);margin-top:8px}
 .rmeta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;align-items:center}
@@ -151,6 +151,21 @@ button.recipe{background:none;border:0;cursor:pointer;font-family:var(--body)}
 .scols .n{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
 .copybtn{font:700 14px var(--body);background:var(--forest);color:var(--cream);border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
 @media (max-width:600px){.rhero,.rgrid{grid-template-columns:minmax(0,1fr)}.rhero .art{width:120px}.daytitle{margin-left:0}.shopbtn{margin-left:0}}
+.photo{position:relative;overflow:hidden;border-radius:18px;background:#e9dfc8}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.card:hover .photo img{transform:scale(1.1)}
+.photo svg{display:none}
+.photo.nofoto{background:none;overflow:visible}.photo.nofoto img{display:none}.photo.nofoto svg{display:block}
+.card .photo{aspect-ratio:4/3;align-self:start}
+.timeline .card{grid-template-columns:minmax(0,260px) minmax(0,1fr)}
+.timeline .card.small,.timeline .card.coffee{grid-template-columns:minmax(0,170px) minmax(0,1fr)}
+.rphoto+.rhero{grid-template-columns:minmax(0,1fr)}.rphoto+.rhero .art{display:none}
+.rphoto{height:clamp(200px,34vh,320px);overflow:hidden;border-radius:28px 28px 0 0}
+.rphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.snkph{display:block;margin:-14px -16px 6px;height:150px;overflow:hidden;border-radius:18px 18px 0 0}
+.snkph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.snk:hover .snkph img{transform:scale(1.06)}
+.snk{overflow:hidden}
 .pill{font-family:var(--mono);font-size:13px;font-weight:500;padding:4px 10px;border-radius:999px;background:var(--forest-deep);color:var(--gold-soft);white-space:nowrap}
 
 /* plan */
@@ -321,7 +336,8 @@ footer p{max-width:54ch;font-size:14px}
   .slot{grid-template-columns:minmax(0,1fr);gap:6px;padding-left:24px}
   .time{text-align:left;padding-top:0}
   .time::after{left:-20px;right:auto;top:6px}
-  .card,.card.small,.card.coffee{grid-template-columns:minmax(0,1fr)}
+  .timeline .card,.timeline .card.small,.timeline .card.coffee{grid-template-columns:minmax(0,1fr)}
+  .card .photo,.card.small .photo,.card.coffee .photo{width:100%!important;aspect-ratio:16/10}
   .card .art{width:110px}
   .card.small .art,.card.coffee .art{width:84px}
   .milk{grid-template-columns:minmax(0,1fr) 46px}
@@ -453,11 +469,11 @@ footer p{max-width:54ch;font-size:14px}
 <footer>
   <div class="wrap">
     <div><div class="brand">Plant <em>Protein</em> 30</div><p style="margin-top:6px">Thirty days of high-protein vegan and vegetarian eating.</p></div>
-    <p>Protein and caffeine values are approximate and vary by brand, portion and preparation. This is general information, not medical advice; a registered dietitian can tailor it to your needs, including allergies, kidney health, pregnancy or medications.</p>
+    <p>Food photography from <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a>, matched by dish type. Protein and caffeine values are approximate and vary by brand, portion and preparation. This is general information, not medical advice; a registered dietitian can tailor it to your needs, including allergies, kidney health, pregnancy or medications.</p>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script>
 (function(){
 "use strict";
@@ -830,13 +846,19 @@ function cupSVG(milk){
   '<circle cx="46" cy="44" r="7" fill="#fff" opacity=".22"/></svg>';
 }
 
+
+var PHOTO={poke:["1546069901-ba9599a7e63c","1597958792579-bd3517df6399","1602881917760-7379db593981","1625248442085-10a1a2563dd6"],salmon:["1519708227418-c8fd9a32b7a2","1771384552858-feb0574f958d","1676300185165-3f543c1fcb72","1572862905000-c5b6244027a5"],curry:["1585937421612-70a008356fbe","1565557623262-b51c2513a641","1603894584373-5ac82b2ae398","1606471191009-63994c53433b","1567529854338-fc097b962123"],pasta:["1776810250123-119d15036790","1766706519060-d44bd9dc50f7","1676300184847-4ee4030409c0","1673971372358-769a28fa4c81"],tacos:["1613514785940-daed07799d9b","1552332386-f8dd00dc2f85","1768716575089-7ba787da9afb"],stirfry:["1787732089211-69941bf91603","1788536442033-abf6a485fef7","1644527199880-fcf2bb61b2b4","1619683548293-c74defe8d5d2"],yogurt:["1623052923396-c208d75302c1","1597776776723-0153bbc0d3ad","1530259152377-3a014e1092e0","1552320764-9fc870798a3f"],shrimp:["1762631882900-e3174bada2ed","1625943553852-781c6dd46faa","1749169385764-33d8b8ed0f19","1579783411296-c908953b2dcd"],eggs:["1510693206972-df098062cb71","1677137261161-0095c10418ef"],oats:["1654923064926-be7e64267a31","1684403731883-67a71a793d2d","1583687463124-ff2aa00b1160","1571748982800-fa51082c2224"],smoothie:["1627308594190-a057cd4bfac8","1757592797141-d41e1bfe6b0e","1610970881699-44a5587cabec"],ramen:["1569718212165-3a8278d5f624","1526318896980-cf78c088247c","1612927601601-6638404737ce","1591325418441-ff678baf78ef"],grain:["1631311695255-8dde6bf96cb5","1771074168434-95cb12896146","1512621776951-a57141f2eefd","1574365321751-0fdea984d9c0"],soup:["1476718406336-bb5a9690ee2a","1605909388460-74ec8b204127","1625535608282-8f181a38f9e7","1547592166-23ac45744acd"],toast:["1769311732020-f1c2243ad1ff","1594910015880-83c22b9722c4","1683234193414-197f37970905","1687276287139-88f7333c8ca4"],hummus:["1687244433510-747e3fd97afe","1578172397201-efaa902004a3"],edamame:["1649257171206-37625b1f3b2f"],nuts:["1543158181-1274e5362710","1626697556426-8a55a8af4999","1781773338966-373f0b949645","1767877609689-beff32b9c0ac"],capp:["1512568400610-62da28bc8a13","1509042239860-f550ce710b93","1502462041640-b3d7e50d0662","1777013486360-699af7c80ff3"],sushi:["1724365956437-1b7e1ade4cf7","1575740226055-b78dd5964d33"],wrap:["1734988149239-85943a98833c"],burrito:["1520066391310-428f06ebd602","1668665771757-4d42737d295a"],pancake:["1528207776546-365bb710ee93","1612182062633-9ff3b3598e96","1528301392571-0dfab3c00216"],shak:["1590412200988-a436970781fa","1759493785939-0bd3e3d60682","1614570218825-c2a3be79b0fd"],salad:["1556386734-4227a180d19e","1511690656952-34342bb7c2f2","1600335895229-6e75511892c8","1602881916963-5daf2d97c06e"],frice:["1603133872878-684f208fb84b","1584269600464-37b1b58a9fe7","1609570324378-ec0c4c9b6ba8"],mussel:["1757972367630-fbfcec63bb41","1775498011193-be0746a0e2fb"],eggsn:["1627737662882-da8a46ac582e","1606636661147-51df1c246ccf"],lasag:["1709429790175-b02bb1b19207","1759409117421-1a64af35f118","1574894709920-11b28e7367e3"],apple:["1586851891423-af95b9e36af6","1564988208558-9270de7c5848"],ench:["1679605097294-ad339b020c0f"]};
+var PRULES=[[/cappuccino/,"capp"],[/smoothie|shake|pudding/,"smoothie"],[/parfait|yogurt|skyr|quark|labneh|kefir|bark/,"yogurt"],[/pancake|waffle/,"pancake"],[/oats|chia|porridge|congee|polenta|humitas/,"oats"],[/shakshuka|huevos|tigrillo|bolón|chilaquiles|migas/,"shak"],[/deviled|hard-boiled|egg salad|egg muffin|mug scramble|egg & avocado|soft-boiled/,"eggsn"],[/omelette|frittata|scramble|bhurji|tamago|chilla|okonomiyaki|egg/,"eggs"],[/toast|bagel|bruschetta|crostini|sandwich|melt|pane e/,"toast"],[/taco|tostada|fajita/,"tacos"],[/burrito/,"burrito"],[/wrap|bánh|roll-ups|lettuce|spring roll|summer roll|quesadilla/,"wrap"],[/enchilada|poblano/,"ench"],[/lasagna|parmigiana|shepherd/,"lasag"],[/pasta|linguine|scampi|bolognese|sarde|diavolo/,"pasta"],[/ramen|udon|soba|noodle|pad thai|nabe/,"ramen"],[/curry|masala|dal|tikka|paneer|makhani|chana|rajma|tagine|encocado|viche/,"curry"],[/soup|stew|chowder|locro|pozole|fanesca|encebollado|sudado|cioppino|fagioli|menestra|ochazuke/,"soup"],[/fried rice|chaulaf|paella|arroz|kedgeree|khichdi|poha/,"frice"],[/mussel|clam|vongole/,"mussel"],[/shrimp|prawn|scallop|ceviche|aguachile|cocktail|crab/,"shrimp"],[/poke|chirashi|sushi|onigiri|hand roll|bento|japanese breakfast|grilled salmon breakfast|shirasu/,"sushi"],[/salmon|trout|cod|halibut|fish|mackerel|haddock|ahi|sardine|lox|anchov|kipper|tuna/,"salmon"],[/stir-fry|teriyaki|donburi|tofu|tempeh|mapo|seitan|katsu|sukiyaki|gyoza/,"stirfry"],[/salad|niçoise|caesar/,"salad"],[/hummus|dip|pâté|tzatziki|queso/,"hummus"],[/edamame/,"edamame"],[/apple|celery|dates|rice cake/,"apple"],[/nut|trail|pistachio|almond|peanut|seed|energy|cookie|chickpea|lentil|fava|lupini|popcorn|jerky/,"nuts"],[/bowl|quinoa|farro|grain/,"grain"]];
+function photoURL(name,w){var n=name.toLowerCase(),k="grain";for(var i=0;i<PRULES.length;i++)if(PRULES[i][0].test(n)){k=PRULES[i][1];break;}var L=PHOTO[k];return "https://images.unsplash.com/photo-"+L[hash(n)%L.length]+"?auto=format&fit=crop&w="+(w||640)+"&q=72";}
+function photoBox(m,fallback,w){return '<div class="art photo"><img src="'+photoURL(m.n,w)+'" alt="'+esc(m.n)+'" loading="lazy" decoding="async" onerror="this.parentNode.classList.add(\'nofoto\')">'+fallback+'</div>';}
+
 /* ---------------- render: foods ---------------- */
 var fg=document.getElementById("foodgrid"), max=31;
 fg.innerHTML=FOODS.map(function(f){return '<div class="food"><div class="row"><div><h3>'+esc(f[0])+'</h3><small>'+esc(f[1])+' · '+(f[3]===V?"vegan":f[3]===P?"pescatarian":"vegetarian")+'</small></div><div class="g mono">~'+f[2]+'<span>g</span></div></div><div class="bar"><i data-w="'+Math.round(f[2]/max*100)+'" style="width:'+Math.round(f[2]/max*100)+'%"></i></div></div>';}).join("");
 
 /* snack library sorted */
 function renderLib(){var lib=SNACKS.concat(P_SNACKS).slice().sort(function(a,b){return b[2]-a[2];});
-document.getElementById("libgrid").innerHTML=lib.map(function(s){var m=meal(s,"Snack");return '<button type="button" class="snk" data-recipe="'+reg(m)+'" style="text-align:left;font:inherit;cursor:pointer;color:inherit"><span class="r"><span class="pill">'+s[2]+'g</span>'+badge(s[1])+'</span><h4>'+esc(s[0])+'</h4><p>'+esc(s[4])+'</p><span class="d">OPEN RECIPE →</span></button>';}).join("");}
+document.getElementById("libgrid").innerHTML=lib.map(function(s){var m=meal(s,"Snack");return '<button type="button" class="snk" data-recipe="'+reg(m)+'" style="text-align:left;font:inherit;cursor:pointer;color:inherit"><span class="snkph"><img src="'+photoURL(s[0],480)+'" alt="" loading="lazy" onerror="this.parentNode.remove()"></span><span class="r"><span class="pill">'+s[2]+'g</span>'+badge(s[1])+'</span><h4>'+esc(s[0])+'</h4><p>'+esc(s[4])+'</p><span class="d">OPEN RECIPE →</span></button>';}).join("");}
 
 document.getElementById("tiplist").innerHTML=TIPS.map(function(t,k){return '<div class="tip"><i>'+String(k+1).padStart(2,"0")+'</i><div><h3>'+esc(t[0])+'</h3><p>'+esc(t[1])+'</p></div></div>';}).join("");
 
@@ -864,7 +886,7 @@ function cardHTML(it,idx){
   var art=it.type==="coffee"?cupSVG(m.n.toLowerCase()):bowlSVG(m,it.type==="snack");
   var label=it.type==="coffee"?"Why this cup works":it.type==="snack"?"Why it's a good snack":"Why it's good for you";
   return '<div class="slot"><div class="time">'+it.t+'</div><article class="'+cls+' tilt" style="animation-delay:'+(idx*60)+'ms">'+
-    '<div class="art">'+art+'</div><div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
+    photoBox(m,art,it.type==="meal"?720:420)+'<div class="cbody"><div class="ctop"><span class="kind">'+esc(m.kind)+'</span><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+(it.type==="meal"?'<span class="ttag">'+(function(){var r=recipeFor(m);return r.batch?"Prepped Sunday · "+r.time+" min":"Easy · "+r.time+" min";})()+'</span>':'')+'</div>'+
     '<h3>'+esc(m.n)+'</h3><ul class="chips">'+m.i.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>'+
     '<p class="why"><b>'+label+':</b> '+esc(m.h)+'</p>'+
     '<button type="button" class="recipe" data-recipe="'+reg(m)+'">View recipe <span aria-hidden="true">→</span></button></div></article></div>';
@@ -964,54 +986,64 @@ addEventListener("scroll",onScroll,{passive:true});onScroll();
 /* ---------------- hero 3D ---------------- */
 (function(){
   if(!window.THREE)return;
-  var cv=document.getElementById("scene"), renderer;
-  try{renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
+  var T=THREE, cv=document.getElementById("scene"), renderer;
+  if(T.ColorManagement&&"legacyMode" in T.ColorManagement)T.ColorManagement.legacyMode=false;
+  try{renderer=new T.WebGLRenderer({canvas:cv,antialias:true,alpha:true});}catch(e){return;}
   renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));
-  renderer.outputEncoding=THREE.sRGBEncoding;
-  var scene=new THREE.Scene(), cam=new THREE.PerspectiveCamera(45,1,.1,100); cam.position.set(0,0,12);
-  scene.add(new THREE.AmbientLight(0xfff1dc,.55));
-  var key=new THREE.DirectionalLight(0xfff0d0,1.4);key.position.set(5,7,6);scene.add(key);
-  var rim=new THREE.DirectionalLight(0xd9a845,.9);rim.position.set(-6,-2,3);scene.add(rim);
-  var fill=new THREE.PointLight(0x7fae3e,.6,30);fill.position.set(0,-4,6);scene.add(fill);
-  function mat(c,rough,cc){return new THREE.MeshPhysicalMaterial({color:c,roughness:rough,clearcoat:cc||0,clearcoatRoughness:.4});}
-  var kinds=[
-    function(){var m=new THREE.Mesh(new THREE.SphereGeometry(.34,28,18),mat([0xc0602e,0x8a5a2b,0x6f7a33][Math.floor(Math.random()*3)],.5,.3));m.scale.set(1,.42,1);return m;},
-    function(){var g=new THREE.IcosahedronGeometry(.42,2),p=g.attributes.position;for(var i=0;i<p.count;i++){var v=new THREE.Vector3().fromBufferAttribute(p,i);v.multiplyScalar(1+Math.sin(v.x*9)*.04+Math.cos(v.y*7)*.04);p.setXYZ(i,v.x,v.y,v.z);}g.computeVertexNormals();return new THREE.Mesh(g,mat(0xe0b46a,.6,.1));},
-    function(){return new THREE.Mesh(new THREE.BoxGeometry(.6,.6,.6,2,2,2),mat(0xf0e6cc,.85));},
-    function(){var grp=new THREE.Group(),m=mat(0x7fae3e,.4,.6);for(var k=0;k<3;k++){var b=new THREE.Mesh(new THREE.SphereGeometry(.26,20,14),m);b.position.x=(k-1)*.4;b.scale.set(1,.9,.8);grp.add(b);}var pod=new THREE.Mesh(new THREE.SphereGeometry(.32,24,14),m);pod.scale.set(2.2,.75,.6);grp.add(pod);return grp;},
-    function(){var grp=new THREE.Group(),m=mat(0x4a2a18,.35,.8);var b=new THREE.Mesh(new THREE.SphereGeometry(.3,24,16),m);b.scale.set(1,.72,.62);grp.add(b);var groove=new THREE.Mesh(new THREE.TorusGeometry(.18,.025,8,24,Math.PI),mat(0x2a160c,.6));groove.rotation.set(0,Math.PI/2,Math.PI/2);groove.position.z=.18;grp.add(groove);return grp;},
-    function(){var m=new THREE.Mesh(new THREE.TorusGeometry(.32,.13,12,24,Math.PI*1.35),mat(0xf08a5d,.45,.5));return m;},
-    function(){var m=new THREE.Mesh(new THREE.SphereGeometry(.14,14,10),mat([0x3a3324,0xd8c79a,0x6f8f3a][Math.floor(Math.random()*3)],.55));m.scale.set(.6,1,.4);return m;}
+  renderer.outputEncoding=T.sRGBEncoding;
+  renderer.toneMapping=T.ACESFilmicToneMapping; renderer.toneMappingExposure=1.0;
+  var scene=new T.Scene(), cam=new T.PerspectiveCamera(50,1,.1,100); cam.position.set(0,0,8);
+  // studio environment for soft reflections (like a lightbox)
+  try{
+    var env=new T.Scene(), pm=new T.PMREMGenerator(renderer);
+    function panel(col,w,h,pos,rot){var m=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:col,side:T.DoubleSide}));m.position.set(pos[0],pos[1],pos[2]);if(rot)m.rotation.set(rot[0],rot[1],rot[2]);env.add(m);}
+    env.background=new T.Color(0x0e1f16);
+    panel(0x9a9a9a,10,10,[0,6,0],[Math.PI/2,0,0]);
+    panel(0x8a6a30,20,1.2,[-6,1,-1],[0,Math.PI/2,0]);
+    panel(0x7a7060,6,3,[5,2,4],[0,-Math.PI/3,0]);
+    scene.environment=pm.fromScene(env,0.04).texture;
+  }catch(e){}
+  scene.add(new T.AmbientLight(0xfff4e0,.35));
+  var key=new T.DirectionalLight(0xfff1d6,2.2);key.position.set(4,6,5);scene.add(key);
+  var rim=new T.DirectionalLight(0xd9a845,.7);rim.position.set(-5,-2,2);scene.add(rim);
+  function M(c,r,cc){return new T.MeshPhysicalMaterial({color:c,roughness:r,clearcoat:cc||0,clearcoatRoughness:.35,envMapIntensity:.7});}
+  function lumpy(g,amt){var p=g.attributes.position,v=new T.Vector3();for(var i=0;i<p.count;i++){v.fromBufferAttribute(p,i);var n=1+Math.sin(v.x*7.1)*amt+Math.sin(v.y*6.3+1)*amt+Math.sin(v.z*5.7+2)*amt;v.multiplyScalar(n);p.setXYZ(i,v.x,v.y,v.z);}g.computeVertexNormals();return g;}
+  var LEN=[0xc2622f,0x8a5a2b,0x5f6b2f,0xb04a22], i, seed=7;
+  function rnd(){seed=(seed*9301+49297)%233280;return seed/233280;}
+  var K=[
+    function(){var m=new T.Mesh(new T.SphereGeometry(.32,48,32),M(LEN[Math.floor(rnd()*4)],.42,.35));m.scale.set(1,.42,1);return m;},
+    function(){return new T.Mesh(lumpy(new T.IcosahedronGeometry(.38,6),.025),M(0xe2b874,.5,.15));},
+    function(){return new T.Mesh(new T.BoxGeometry(.6,.6,.6),M(0xf3ead2,.85,0));},
+    function(){var g=T.CapsuleGeometry?new T.CapsuleGeometry(.28,.9,12,24):new T.SphereGeometry(.4,32,24);var m=new T.Mesh(g,M(0x7fae3e,.38,.6));m.scale.set(.55,1,.45);var w=new T.Group();m.rotation.z=Math.PI/2;w.add(m);return w;},
+    function(){var m=new T.Mesh(new T.SphereGeometry(.16,32,20),M(rnd()<.5?0x3a3324:0xd8c79a,.5,.2));m.scale.set(.6,1,.4);return m;},
+    function(){var m=new T.Mesh(new T.SphereGeometry(.22,40,28),M(0x4a2a18,.3,.9));m.scale.set(1,.7,.62);return m;}
   ];
-  var items=[], seed=rnd(5);
-  for(var i=0;i<46;i++){
-    var x=(seed()-.5)*22,y=(seed()-.5)*13,z=(seed()-.5)*8-1;
-    if(Math.abs(x)<3.4&&Math.abs(y)<3.2) x+= x<0?-3.6:3.6;
-    var o=kinds[i%kinds.length](); var s=.8+seed()*1.1; o.scale.multiplyScalar(s);
-    o.position.set(x,y,z); o.rotation.set(seed()*6,seed()*6,seed()*6);
-    o.userData={base:new THREE.Vector3(x,y,z),sp:.2+seed()*.5,ph:seed()*6.28};
+  var order=[0,1,2,3,4,1,0,4,5,1,3,0], items=[];
+  for(i=0;i<120&&items.length<30;i++){
+    var x=(rnd()-.5)*16,y=(rnd()-.5)*8.4,z=(rnd()-.5)*5-1.5;
+    if(Math.abs(x)<5.2&&Math.abs(y)<3.1)continue;
+    var o=K[order[items.length%order.length]](); var sc=.8+rnd()*.9; o.scale.multiplyScalar(sc);
+    o.position.set(x,y,z); o.rotation.set(rnd()*6,rnd()*6,rnd()*6);
+    o.userData={base:new T.Vector3(x,y,z),sp:1+rnd()*.8,ph:rnd()*6.28,rx:.15+rnd()*.25,ry:.1+rnd()*.2};
     scene.add(o); items.push(o);
   }
   var mx=0,my=0,tx=0,ty=0;
-  addEventListener("pointermove",function(e){tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5);},{passive:true});
-  function size(){var w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.fov=w<700?60:45;cam.updateProjectionMatrix();}
+  addEventListener("pointermove",function(e){tx=e.clientX/innerWidth*2-1;ty=-(e.clientY/innerHeight*2-1);},{passive:true});
+  function size(){var w=cv.clientWidth,h=cv.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.fov=w<700?68:50;cam.updateProjectionMatrix();}
   size();addEventListener("resize",size);
-  var visible=true;
-  if("IntersectionObserver" in window) new IntersectionObserver(function(e){visible=e[0].isIntersecting;}).observe(cv);
-  var t0=performance.now();
+  var visible=true; if("IntersectionObserver" in window)new IntersectionObserver(function(e){visible=e[0].isIntersecting;}).observe(cv);
+  var last=performance.now();
   function frame(now){
-    var t=(now-t0)/1000;
-    mx+=(tx-mx)*.04; my+=(ty-my)*.04;
-    var sc=Math.min(scrollY0/innerHeight,1.5);
-    items.forEach(function(o){var u=o.userData,depth=1+u.base.z*.12;
-      o.position.x=u.base.x+mx*1.4*depth;
-      o.position.y=u.base.y-my*1*depth+Math.sin(t*u.sp+u.ph)*.35+sc*4*depth;
-      o.rotation.x+=.003*u.sp*3;o.rotation.y+=.004*u.sp*2;});
-    cam.position.x=mx*.8;cam.position.y=-my*.5;cam.lookAt(0,0,0);
+    var dt=Math.min((now-last)/1000,.05),t=now/1000; last=now;
+    var sy=scrollY0/innerHeight;
+    items.forEach(function(o){var u=o.userData,depth=1+u.base.z*.15;
+      o.rotation.x+=dt*u.rx;o.rotation.y+=dt*u.ry;
+      var fx=u.base.x+tx*.6*depth, fy=u.base.y+ty*.4*depth+sy*3*depth+Math.sin(t*u.sp+u.ph)*.25;
+      o.position.x+=(fx-o.position.x)*.05; o.position.y+=(fy-o.position.y)*.08;});
     renderer.render(scene,cam);
   }
-  if(RM){frame(t0);return;}
-  (function loop(now){if(visible)frame(now);requestAnimationFrame(loop);})(t0);
+  if(RM){frame(performance.now());return;}
+  (function loop(now){if(visible)frame(now);requestAnimationFrame(loop);})(performance.now());
 })();
 
 /* ---------------- ingredients, recipes, shopping ---------------- */
@@ -1089,7 +1121,7 @@ var REG=[];
 function reg(m){REG.push(m);return REG.length-1;}
 function openRecipe(m){
   var r=recipeFor(m), coffee=/cappuccino/i.test(m.n);
-  openModal('<div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+(r.batch?"Sunday prep · ":(coffee||/snack/i.test(m.kind||"")?"":"Easy prep · "))+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
+  openModal('<div class="rphoto"><img src="'+photoURL(m.n,1200)+'" alt="'+esc(m.n)+'" onerror="this.parentNode.remove()"></div><div class="rhero"><div class="art">'+(coffee?cupSVG(m.n.toLowerCase()):bowlSVG(m,/snack/i.test(m.kind||"")))+'</div><div><span class="kind">'+esc(m.kind||"Snack")+'</span><h2 id="mtitle">'+esc(m.n)+'</h2><div class="rmeta"><span class="pill">'+m.p+'g protein</span>'+badge(m.d)+'<span class="m">'+(r.batch?"Sunday prep · ":(coffee||/snack/i.test(m.kind||"")?"":"Easy prep · "))+r.time+' min</span><span class="m">1 serving</span></div></div></div>'+
   '<div class="rgrid"><div><h3>Ingredients</h3><ul class="ing">'+r.ings.map(function(g,ix){var am=g.amt,w=am.split(" "),last=w[w.length-1].replace(/s$/,"").toLowerCase();if(w.length>1&&last.length>2&&g.raw.toLowerCase().indexOf(last)>-1)am=w.slice(0,-1).join(" ");return '<li><label><input type="checkbox" id="ing'+ix+'"><span><b>'+esc(am)+'</b> '+esc(g.raw)+'</span></label></li>';}).join("")+'<li><label><input type="checkbox" id="ingx"><span>Salt, pepper and oil</span></label></li></ul></div>'+
   '<div>'+(r.batch?'<h3>On Sunday</h3><ol class="steps">'+r.batch.sun.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>On the day · about '+r.batch.time+' min</h3><ol class="steps">'+r.batch.day.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol><h3>Full method (if cooking from scratch)</h3>':'<h3>Method</h3>')+'<ol class="steps">'+r.steps.map(function(s){return '<li><span>'+esc(s)+'</span></li>';}).join("")+'</ol></div></div>'+
   '<p class="rwhy"><b>Why it’s good for you:</b> '+esc(m.h)+'</p>'+
@@ -1146,9 +1178,9 @@ function shopHTML(){
     '</div><div class="stabs" data-g="store">'+[["any","Any store"],["co","Costco"],["wf","Whole Foods"],["tj","Trader Joe's"]].map(function(t){return '<button data-v="'+t[0]+'" aria-pressed="'+(shopStore===t[0])+'">'+t[1]+'</button>';}).join("")+'</div></div><div class="scols">';
   var text=title+"\n";
   CATS.forEach(function(c){if(!by[c])return;by[c].sort(function(a,b){return b.n-a.n;});text+="\n"+c.toUpperCase()+"\n";
-    html+='<div><h3>'+c+'</h3><ul class="ing">'+by[c].map(function(a,ix){var pick=shopStore!=="any"&&PICKS[a.name]&&PICKS[a.name][shopStore];text+="- "+a.name+" ("+a.n+" serving"+(a.n>1?"s":"")+")"+(pick?" — "+pick:"")+"\n";
-      return '<li><label><input type="checkbox" id="sh-'+c.length+'-'+ix+'"><span>'+esc(a.name)+(pick?'<br><small style="color:var(--terra);font-size:12px">'+esc(STORES[shopStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></label></li>';}).join("")+'</ul></div>';});
-  html+='</div><div class="rfoot"><span>×N = how many servings use it, at about the per-recipe amount. '+(shopStore!=="any"?'Product names and stock vary by region and season.':'Pick a store to see product suggestions.')+'</span><span style="display:flex;gap:8px"><button class="rshare" type="button" data-share="list">Share list</button><button class="copybtn" id="copylist">Copy list</button></span></div>';
+    html+='<div><h3>'+c+'</h3><ul class="ing">'+by[c].map(function(a,ix){var pick=shopStore!=="any"&&PICKS[a.name]&&PICKS[a.name][shopStore];text+="- "+a.name+": "+qtyText(a.name,a.n,a.cat)+(pick?" — "+pick:"")+"\n";
+      return '<li><label><input type="checkbox" id="sh-'+c.length+'-'+ix+'"><span>'+esc(a.name)+'<br>'+qtyHTML(a.name,a.n,a.cat)+(pick?'<br><small style="color:var(--terra);font-size:12px">'+esc(STORES[shopStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></label></li>';}).join("")+'</ul></div>';});
+  html+='</div><div class="rfoot"><span>Amounts are for one person at the recipe portions, rounded up to real package sizes. '+(shopStore!=="any"?'Product names and stock vary by region and season.':'Pick a store to see product suggestions.')+'</span><span style="display:flex;gap:8px"><button class="rshare" type="button" data-share="list">Share list</button><button class="copybtn" id="copylist">Copy list</button></span></div>';
   window.__shopText=text;
   return html;
 }
@@ -1216,6 +1248,27 @@ function applyHash(){
 }
 window.addEventListener("hashchange",function(){if(location.hash.slice(1)!==stateHash()&&!/^#recipe-/.test(location.hash)||/^#recipe-/.test(location.hash)&&!CURRENT_RECIPE)applyHash();});
 
+
+var QT={
+"Salmon fillet":[5,"oz",16,"{k} lb (fresh, or frozen portions)"],"Smoked salmon":[3,"oz",8,"{k} pack(s) (8 oz)"],"Black cod":[5,"oz",16,"{k} lb"],"Sushi-grade ahi tuna":[5,"oz",16,"{k} lb"],"Canned light tuna":[1,"can",1,"{k} can(s) (5 oz)"],"Tuna pouch":[1,"pouch",1,"{k} pouch(es) (2.6 oz)"],"Shrimp":[5,"oz",32,"{k} bag(s) frozen shrimp (2 lb)"],"Sardines":[1,"can",1,"{k} can(s) (4.4 oz)"],"Mackerel":[4,"oz",16,"{k} lb"],"Trout":[5,"oz",16,"{k} lb"],"Smoked haddock":[5,"oz",16,"{k} lb"],"Cod":[5,"oz",16,"{k} lb"],"Halibut":[5,"oz",16,"{k} lb"],"White fish (cod or snapper)":[5,"oz",16,"{k} lb"],"Smoked fish":[3.5,"oz",8,"{k} pack(s) (8 oz)"],"Crab meat":[3.5,"oz",8,"{k} tub(s) (8 oz)"],"Clams":[10,"oz in shell",32,"{k} bag(s) (2 lb)"],"Mussels":[14,"oz in shell",32,"{k} bag(s) (2 lb)"],"Scallops":[5,"oz",16,"{k} lb"],"Anchovies":[4,"fillets",10,"{k} tin(s) (2 oz)"],"Kipper fillets":[1,"tin",1,"{k} tin(s) (3.5 oz)"],"Whitebait":[2,"oz",4,"{k} pack(s) (4 oz)"],"Crab cakes":[2,"cakes",4,"{k} pack(s) of 4"],
+"Extra-firm tofu":[7,"oz",14,"{k} block(s) (14 oz)"],"Silken tofu":[7,"oz",12,"{k} pack(s) (12 oz)"],"Tempeh":[4,"oz",8,"{k} package(s) (8 oz)"],"Seitan":[3.5,"oz",8,"{k} package(s) (8 oz)"],"Natto":[1,"pack",3,"{k} × 3-pack"],"Shelled edamame":[0.75,"cups",2.5,"{k} bag(s) frozen (12 oz)"],"Textured soy protein":[0.5,"cups dry",3,"{k} bag(s) (10 oz)"],"Soy milk":[1,"cups",8,"{k} half-gallon(s)"],"Soy yogurt":[0.75,"cups",3,"{k} tub(s) (24 oz)"],"Soy nuts":[0.25,"cups",2,"{k} bag(s) (8 oz)"],"Tofu gyoza (frozen)":[8,"pieces",20,"{k} bag(s)"],
+"Lentils":[1,"cups cooked",6,"{k} lb dry (or steamed ready-to-eat packs, about 2½ cups each)"],"Red lentils":[0.5,"cups dry",2.25,"{k} lb"],"Moong dal":[0.5,"cups dry",2.25,"{k} lb"],"Chickpeas":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Black beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Kidney beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Cannellini beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Pinto beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Borlotti beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Beans":[0.75,"cups",1.5,"{k} can(s) (15 oz)"],"Refried beans":[0.5,"cups",1.75,"{k} can(s) (16 oz)"],"Fava beans":[0.5,"cups",2,"{k} bag(s) (8 oz)"],"Lupini beans":[0.5,"cups",2,"{k} jar(s) (16 oz)"],"Hummus":[0.25,"cups",1.25,"{k} tub(s) (10 oz)"],
+"Greek yogurt":[0.75,"cups",4,"{k} tub(s) (32 oz)"],"Skyr":[1,"cups",0.66,"{k} single cup(s) (5.3 oz)"],"Plain yogurt":[0.6,"cups",4,"{k} tub(s) (32 oz)"],"Kefir":[1,"cups",4,"{k} bottle(s) (32 oz)"],"Quark":[0.75,"cups",2,"{k} tub(s) (16 oz)"],"Labneh":[0.5,"cups",1.5,"{k} tub(s) (12 oz)"],"Cottage cheese":[0.75,"cups",2,"{k} tub(s) (16 oz)"],"Ricotta":[0.5,"cups",1.75,"{k} tub(s) (15 oz)"],"Cream cheese":[2,"tbsp",16,"{k} block(s) (8 oz)"],"Paneer":[3.5,"oz",12,"{k} pack(s) (12 oz)"],"Halloumi":[3,"oz",8,"{k} block(s) (8 oz)"],"Mozzarella":[2,"oz",8,"{k} ball(s) (8 oz)"],"Parmesan":[2,"tbsp",20,"{k} wedge(s) (5 oz)"],"Pecorino":[2,"tbsp",20,"{k} wedge(s) (5 oz)"],"Feta":[1.5,"oz",6,"{k} pack(s) (6 oz)"],"Cheddar":[1.5,"oz",8,"{k} block(s) (8 oz)"],"Queso fresco":[2,"oz",10,"{k} round(s) (10 oz)"],"Cheese":[1.5,"oz",8,"{k} pack(s) (8 oz)"],"Blue cheese":[1,"oz",4,"{k} pack(s) (4 oz)"],"Milk":[1,"cups",8,"{k} half-gallon(s)"],"Eggs":[2.5,"eggs",12,"{k} dozen"],"Whey protein":[1,"scoops",30,"{k} tub(s) (~30 scoops)"],"Almond milk":[1,"cups",8,"{k} half-gallon(s)"],
+"Rice":[0.25,"cups dry",2.5,"{k} lb"],"Brown rice":[0.25,"cups dry",2.5,"{k} lb"],"Sushi rice":[0.25,"cups dry",2.5,"{k} lb"],"Quinoa":[0.25,"cups dry",2,"{k} bag(s) (12 oz)"],"Farro":[0.25,"cups dry",2,"{k} bag(s) (12 oz)"],"Rolled oats":[0.5,"cups",9,"{k} canister(s) (18 oz)"],"Oat flour":[0.5,"cups",4,"{k} bag(s) (16 oz)"],"Granola":[0.25,"cups",3,"{k} bag(s) (12 oz)"],"Chickpea pasta":[2.6,"oz dry",8,"{k} box(es) (8 oz)"],"Lentil pasta":[2.6,"oz dry",8,"{k} box(es) (8 oz)"],"Lentil pasta sheets":[4,"sheets",12,"{k} box(es)"],"Pasta":[2.6,"oz dry",16,"{k} box(es) (1 lb)"],"Soba noodles":[2.6,"oz",8,"{k} pack(s) (8 oz)"],"Udon noodles":[1,"pack",3,"{k} × 3-pack"],"Ramen noodles":[1,"pack",4,"{k} × 4-pack"],"Rice noodles":[2.6,"oz",14,"{k} pack(s) (14 oz)"],"Egg noodles":[2.6,"oz",12,"{k} bag(s) (12 oz)"],"Noodles":[2.6,"oz",8,"{k} pack(s) (8 oz)"],"Polenta":[0.5,"cups dry",3,"{k} bag(s) (1 lb)"],"Hominy":[0.75,"cups",3,"{k} can(s) (25 oz)"],"Corn tortillas":[3,"tortillas",30,"{k} pack(s) of 30"],"Tortillas":[2,"tortillas",10,"{k} pack(s) of 10"],"Tostadas":[2,"tostadas",12,"{k} pack(s) of 12"],"Tortilla chips":[1,"handfuls",10,"{k} bag(s)"],"Sourdough bread":[1.5,"slices",14,"{k} loaf"],"Rye bread or crispbread":[2,"slices",12,"{k} pack(s)"],"Whole-grain bread":[2,"slices",16,"{k} loaf"],"Baguette":[0.5,"baguettes",1,"{k} baguette(s)"],"Bagels":[1,"bagels",6,"{k} pack(s) of 6"],"English muffins":[1,"muffins",6,"{k} pack(s) of 6"],"Whole-wheat pita":[1,"pitas",6,"{k} pack(s) of 6"],"Naan":[1,"naan",4,"{k} pack(s) of 4"],"Whole-wheat roti":[2,"roti",10,"{k} pack(s) of 10"],"Whole-grain crackers":[8,"crackers",40,"{k} box(es)"],"Crispbread":[2,"pieces",16,"{k} pack(s)"],"Crostini":[4,"pieces",20,"{k} bag(s)"],"Rice cakes":[2,"cakes",14,"{k} pack(s) of 14"],"Rice paper wrappers":[4,"sheets",30,"{k} pack(s)"],"Poha (flattened rice)":[1,"cups",6,"{k} bag(s) (1 lb)"],"Humitas (fresh corn tamales)":[2,"humitas",6,"{k} pack(s) of 6"],"Popcorn kernels":[0.25,"cups",3,"{k} jar(s)"],
+"Peanut butter":[1.5,"tbsp",32,"{k} jar(s) (16 oz)"],"Almond butter":[1.5,"tbsp",32,"{k} jar(s) (16 oz)"],"Pecan butter":[1.5,"tbsp",21,"{k} jar(s) (10 oz)"],"Peanuts":[2,"tbsp",24,"{k} bag(s) (12 oz)"],"Almonds":[0.25,"cups",3,"{k} bag(s) (12 oz)"],"Walnuts":[0.25,"cups",3,"{k} bag(s) (12 oz)"],"Pistachios":[0.25,"cups",3,"{k} bag(s) (12 oz)"],"Cashews":[0.25,"cups",3,"{k} bag(s) (12 oz)"],"Pumpkin seeds":[2,"tbsp",24,"{k} bag(s) (12 oz)"],"Pine nuts":[1,"tbsp",8,"{k} bag(s) (2 oz)"],"Hemp hearts":[2,"tbsp",26,"{k} bag(s) (8 oz)"],"Chia seeds":[2,"tbsp",24,"{k} bag(s) (12 oz)"],"Ground flax":[1,"tbsp",32,"{k} bag(s) (16 oz)"],"Tahini":[1,"tbsp",32,"{k} jar(s) (16 oz)"],"Sesame seeds":[1,"tsp",60,"{k} jar(s)"],"Coconut milk":[0.33,"cups",1.6,"{k} can(s) (13.5 oz)"],
+"Avocados":[0.5,"avocados",1,"{k} avocado(s)"],"Bananas":[1,"bananas",1,"{k} banana(s)"],"Lemons":[0.5,"lemons",1,"{k} lemon(s)"],"Limes":[1,"limes",1,"{k} lime(s)"],"Bell peppers":[1,"peppers",1,"{k} bell pepper(s)"],"Poblano peppers":[2,"poblanos",1,"{k} poblano(s)"],"Mini sweet peppers":[4,"peppers",16,"{k} bag(s) (1 lb)"],"Jalapeño":[0.5,"jalapeños",1,"{k} jalapeño(s)"],"Onions":[0.5,"onions",1,"{k} onion(s)"],"Red onion":[0.25,"onions",1,"{k} red onion(s)"],"Tomatoes":[1.5,"tomatoes",1,"{k} tomato(es)"],"Cherry tomatoes":[1,"cups",2,"{k} pint(s)"],"Cucumber":[0.5,"cucumbers",1,"{k} cucumber(s)"],"Spinach":[2,"oz",5,"{k} bag(s) or clamshell(s) (5 oz)"],"Kale":[2,"oz",8,"{k} bunch(es)"],"Arugula":[2,"oz",5,"{k} clamshell(s) (5 oz)"],"Mixed greens":[2,"oz",5,"{k} clamshell(s) (5 oz)"],"Romaine":[0.5,"heads",1,"{k} head(s)"],"Lettuce":[4,"leaves",12,"{k} head(s)"],"Bok choy":[2,"heads",4,"{k} bag(s) baby bok choy"],"Napa cabbage":[2,"cups",8,"{k} head(s)"],"Cabbage":[1,"cups",8,"{k} small head(s) or bag(s) slaw mix"],"Broccoli":[1,"cups florets",3,"{k} head(s)"],"Cauliflower":[1.5,"cups",5,"{k} head(s)"],"Sweet potatoes":[1,"sweet potatoes",1,"{k} sweet potato(es)"],"Potatoes":[1,"potatoes",1,"{k} potato(es)"],"Carrots":[1,"carrots",8,"{k} bag(s) (1 lb)"],"Celery":[2,"stalks",10,"{k} bunch(es)"],"Radishes":[4,"radishes",12,"{k} bunch(es)"],"Plantains":[1,"plantains",1,"{k} green plantain(s)"],"Ripe plantains":[1,"plantains",1,"{k} ripe plantain(s)"],"Yuca":[1,"cups",3,"{k} root(s) (or frozen yuca bag)"],"Corn":[0.5,"cups",2.5,"{k} bag(s) frozen corn (12 oz)"],"Squash":[1,"cups",4,"{k} squash"],"Eggplant":[1,"eggplants",1,"{k} eggplant(s)"],"Fennel":[0.5,"bulbs",1,"{k} bulb(s)"],"Jicama":[1,"cups",4,"{k} jicama"],"Medjool dates":[2,"dates",20,"{k} box(es) (12 oz)"],"Dried apricots":[4,"apricots",30,"{k} bag(s) (8 oz)"],"Berries":[0.5,"cups",2,"{k} pint(s) (or a frozen bag)"],"Blueberries":[0.5,"cups",2,"{k} pint(s)"],"Apples":[1,"apples",1,"{k} apple(s)"],"Pineapple":[0.5,"cups",4,"{k} pineapple(s) or pre-cut tub(s)"],"Shiitake mushrooms":[1,"cups",3,"{k} pack(s) (5 oz)"],"Mushrooms":[1,"cups",4,"{k} pack(s) (8 oz)"],"Green beans":[1,"cups",3,"{k} bag(s) (12 oz)"],"Snap peas":[1,"cups",3,"{k} bag(s) (8 oz)"],"Green peas":[0.5,"cups",3,"{k} bag(s) frozen (12 oz)"],"Basil":[1,"uses",3,"{k} bunch(es)"],"Dill":[1,"uses",3,"{k} bunch(es)"],"Cilantro":[1,"uses",3,"{k} bunch(es)"],"Parsley":[1,"uses",3,"{k} bunch(es)"],"Mint":[1,"uses",3,"{k} bunch(es)"],"Chives":[1,"uses",3,"{k} bunch(es)"],"Fresh herbs":[1,"uses",3,"{k} bunch(es)"],"Scallions":[2,"scallions",6,"{k} bunch(es)"],"Garlic":[2,"cloves",10,"{k} head(s)"],"Ginger":[1,"thumbs",4,"{k} knob(s)"],"Lemongrass":[1,"stalks",1,"{k} stalk(s)"],"Curry leaves":[1,"sprigs",4,"{k} pack(s)"],"Pico de gallo":[0.25,"cups",2,"{k} tub(s) (16 oz)"],
+"Salsa":[0.25,"cups",2,"{k} jar(s) (16 oz)"],"Salsa verde":[0.5,"cups",2,"{k} jar(s) (16 oz)"],"Marinara sauce":[0.75,"cups",3,"{k} jar(s) (24 oz)"],"Tomato sauce":[0.5,"cups",3,"{k} jar(s) (24 oz)"],"Basil pesto":[2,"tbsp",12,"{k} jar(s) (6 oz)"],"Kimchi":[0.25,"cups",3,"{k} jar(s) (16 oz)"],"Pea protein powder":[1,"scoops",30,"{k} tub(s) (~30 scoops)"],"Nori sheets":[2,"sheets",10,"{k} pack(s) of 10"],"Roasted seaweed":[1,"packs",6,"{k} multipack(s)"],"Miso paste":[1,"tbsp",20,"{k} tub(s) (14 oz)"],"Protein bars":[1,"bars",1,"{k} bar(s)"],"Vegetable or fish broth":[2,"cups",4,"{k} carton(s) (32 oz)"],"Lentil chips":[1,"bags",1,"{k} snack bag(s)"],"Plantain chips":[1,"handfuls",6,"{k} bag(s)"],"Chickpea flour (besan)":[0.5,"cups",4,"{k} bag(s) (1 lb)"],"Mole sauce":[0.25,"cups",1,"{k} jar(s) (8 oz)"],"Dark chocolate":[0.5,"oz",3.5,"{k} bar(s) (3.5 oz)"],"Olives":[8,"olives",60,"{k} jar(s)"],"Capers":[1,"tbsp",8,"{k} jar(s)"],"Pickled vegetables":[0.25,"cups",2,"{k} jar(s)"],"Pickled cabbage (curtido)":[0.25,"cups",2,"{k} jar(s)"],"Coconut":[0.33,"cups",1.6,"{k} can(s)"],"Honey":[1,"tsp",96,"{k} jar(s)"],"Everything-bagel seasoning":[1,"tsp",40,"{k} jar(s)"]
+};
+function nice(x){var r=Math.round(x*4)/4,w=Math.floor(r),f=r-w,fr={0.25:"¼",0.5:"½",0.75:"¾"}[f]||"";return (w?w:"")+fr||"0";}
+function ozfmt(o){if(o<16)return nice(o)+" oz";var lb=Math.floor(o/16),r=Math.round(o-lb*16);return lb+" lb"+(r?" "+r+" oz":"");}
+function qty(name,n){var q=QT[name];if(!q)return null;var tot=q[0]*n,k=Math.max(1,Math.ceil(tot/q[2]-1e-9));
+  var need=q[1]==="oz"?ozfmt(tot):nice(tot)+" "+q[1];
+  return {need:need,per:nice(q[0])+" "+(q[1]==="oz"?"oz":q[1]),buy:q[3].replace("{k}",k)};}
+function qtyHTML(name,n,cat){var q=qty(name,n);if(q)return '<small style="color:var(--muted)">Need '+esc(q.need)+' ('+n+' × '+esc(q.per)+') · <b style="color:var(--forest)">Buy '+esc(q.buy)+'</b></small>';
+  return cat==="Pantry"?'<small style="color:var(--muted)">Pantry staple: check you have some ('+n+' use'+(n>1?'s':'')+')</small>':'<small style="color:var(--muted)">'+n+' serving'+(n>1?'s':'')+'</small>';}
+function qtyText(name,n,cat){var q=qty(name,n);return q?"buy "+q.buy+" (need "+q.need+")":(cat==="Pantry"?"pantry staple, check stock":n+" servings");}
+function coffeeQty(cups){var milk=cups*6,beans=cups*16;return {milk:ozfmt(milk)+" milk (≈6 oz per cup) → buy "+Math.max(1,Math.ceil(milk/64))+" half-gallon(s)",beans:Math.round(beans)+" g espresso beans (≈16 g double shot) → buy "+Math.max(1,Math.ceil(beans/340))+" bag(s) (12 oz)"};}
+
 /* ---------------- meal prep planner ---------------- */
 var prepWeek="w1", prepStore="any";
 function aggregate(R){
@@ -1269,9 +1322,10 @@ function renderPlanner(){
   var text="MEAL PREP · days "+R[0]+"–"+R[1]+"\n"+steps.map(function(s,i){return (i+1)+". "+s[1]+": "+s[2];}).join("\n")+"\n\nGROCERY LIST\n";
   CATS.forEach(function(c){var items=Object.keys(A).map(function(k){return A[k];}).filter(function(a){return a.cat===c;}).sort(function(a,b){return b.n-a.n;});if(!items.length)return;
     text+="\n"+c.toUpperCase()+"\n";
-    html+='<h5>'+c+'</h5><ul>'+items.map(function(a){var pick=prepStore!=="any"&&PICKS[a.name]&&PICKS[a.name][prepStore];text+="- "+a.name+" ×"+a.n+(pick?" ("+STORES[prepStore]+": "+pick+")":"")+"\n";var sc2=PREP==="easy"&&SHORT[a.name];return '<li><span>'+esc(a.name)+(sc2?'<small style="color:var(--moss)">Shortcut: '+esc(sc2)+'</small>':'')+(pick?'<small>'+esc(STORES[prepStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></li>';}).join("")+'</ul>';});
-  html+='<h5>Cappuccinos</h5><ul><li><span>Espresso beans and milk for '+DAYS.slice(R[0]-1,R[1]).reduce(function(a,D){return a+D.cups;},0)+' cappuccinos</span><span class="n"></span></li></ul>';
-  html+='<p class="pstore">'+(prepStore==="any"?"Pick a store above to see product suggestions. ":"Product names and stock vary by region and season. ")+'Almond and pecan butter show up in snacks; pecan butter is lower in protein, so it’s always paired with yogurt, cottage cheese or hemp.</p></div></div>';
+    html+='<h5>'+c+'</h5><ul>'+items.map(function(a){var pick=prepStore!=="any"&&PICKS[a.name]&&PICKS[a.name][prepStore];text+="- "+a.name+": "+qtyText(a.name,a.n,a.cat)+(pick?" ("+STORES[prepStore]+": "+pick+")":"")+"\n";var sc2=PREP==="easy"&&SHORT[a.name];return '<li><span>'+esc(a.name)+'<br>'+qtyHTML(a.name,a.n,a.cat)+(sc2?'<small style="color:var(--moss)">Shortcut: '+esc(sc2)+'</small>':'')+(pick?'<small>'+esc(STORES[prepStore])+': '+esc(pick)+'</small>':'')+'</span><span class="n">×'+a.n+'</span></li>';}).join("")+'</ul>';});
+  var cups=DAYS.slice(R[0]-1,R[1]).reduce(function(a,D){return a+D.cups;},0),cq=coffeeQty(cups);
+  html+='<h5>Cappuccinos · '+cups+' this week</h5><ul><li><span>'+esc(cq.milk)+'</span></li><li><span>'+esc(cq.beans)+'</span></li></ul>';text+="\nCAPPUCCINOS ("+cups+")\n- "+cq.milk+"\n- "+cq.beans+"\n";
+  html+='<p class="pstore">Amounts are for one person, rounded up to real package sizes. '+(prepStore==="any"?"Pick a store above to see product suggestions. ":"Product names and stock vary by region and season. ")+'Almond and pecan butter show up in snacks; pecan butter is lower in protein, so it’s always paired with yogurt, cottage cheese or hemp.</p></div></div>';
   window.__prepText=text;
   document.getElementById("planner").innerHTML=html;
   var pb=document.getElementById("printPrep"); if(window.self!==window.top)pb.hidden=true;
